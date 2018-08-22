@@ -1,0 +1,50 @@
+html {
+    background-color:white;
+}
+.container {
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    top:0px;
+}
+.topbar {
+    position:absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+    height:40px;
+    background-color:#06F;
+}
+.sidebar {
+    position:absolute;
+    left:0px;
+    top:40px;
+    width:200px;
+    bottom:30px;
+    background-color:#000;
+    color:white;
+}
+
+.staging {
+    position:absolute;
+    left:200px;
+    top:40px;
+    right:0px;
+    bottom:30px;
+    background-color:white;
+}
+.bottombar {
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    height:30px;
+    background-color:#06F;
+}
+.device-card {
+    display:inline-block;
+    margin:10px;
+    width:300px;
+    border:1px solid gray;
+}

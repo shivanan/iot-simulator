@@ -1,0 +1,24 @@
+{
+  "name": "iot-simulator",
+  "productName": "IoT Simulator",
+  "version": "0.0.1",
+  "main": "main.js",
+  "description": "An IoT Simulator",
+  "scripts": {
+    "start": "electron dist/main.js"
+  },
+  "dependencies": {
+    "electron": "^2.0.7",
+    "immutable": "^3.8.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^4.5.0",
+    "webpack": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/immutable": "^3.8.7",
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7"
+  }
+}
