@@ -13,8 +13,8 @@ html {
     left:0px;
     top:0px;
     right:0px;
-    height:40px;
-    background-color:#06F;
+    height:50px;
+    background-color:#FAFAFA;
 }
 .sidebar {
     position:absolute;
@@ -48,3 +48,96 @@ html {
     width:300px;
     border:1px solid gray;
 }
+
+
+/*Styles*/
+
+
+.iot_header{
+	float: left;
+    width: 94%;
+    padding: 8px 3%;
+    background: #FAFAFA;
+}
+.iot_header .logo{
+	float: left;
+	width: 70px;
+}
+.iot_header .header_m-logo{
+	float: right;
+    width: 2.2rem;
+}
+
+.footer{
+	float: left;
+	width: 90%;
+	background: #112530;
+	padding: 2px 5%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.footer .footer_lft{
+	float: left;
+    width: 80%;
+}
+.footer .play-btn{
+	float: left;
+    width: 35px;
+    margin-top: 6px;
+}
+.footer .play-duration{
+	float: left;
+	width: 78%;
+	background: #ddd;
+	height: 10px;
+	margin-left: 2%;
+	background-color: #707070;
+	border-radius: 10px;
+	margin-top: 20px;
+	position: relative;
+}
+.footer .play-duration span{
+	background: #7a0aa2;
+	width: 80%;
+	height: 10px;
+	display: inline-block;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+}
+.footer .tick{
+	float: left;
+    width: 23px;
+    margin-left: 2%;
+    margin-top: 12px;
+}
+
+
+
+
+#mount-point {
+    padding: 60px;
+    max-width: 800px;
+    margin: auto;
+  }
+   #mount-point  input {
+      line-height: 2;
+      font-size: 18px;
+      height: auto;
+      padding-left: 20px;
+    }
+    
+   #mount-point  ul {
+      margin: 0;
+  }
+   
+  #mount-point ul li {
+      list-style: none;
+      border: 1px solid #ccc;
+      margin-top: -1px;
+      line-height: 2;
+      padding: 5px 20px;
+      background: white;
+    }
+      
