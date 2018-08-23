@@ -20,7 +20,7 @@ html {
     position:absolute;
     left:0px;
     top:40px;
-    width:200px;
+    width:300px;
     bottom:30px;
     background-color:#000;
     color:white;
@@ -116,28 +116,37 @@ html {
 
 
 
-#mount-point {
-    padding: 60px;
-    max-width: 800px;
-    margin: auto;
-  }
-   #mount-point  input {
-      line-height: 2;
-      font-size: 18px;
-      height: auto;
-      padding-left: 20px;
-    }
-    
-   #mount-point  ul {
-      margin: 0;
-  }
-   
-  #mount-point ul li {
-      list-style: none;
-      border: 1px solid #ccc;
-      margin-top: -1px;
-      line-height: 2;
-      padding: 5px 20px;
-      background: white;
-    }
-      
+.sensors-search ul.sensors-search-list{
+	float: left;
+    width: 96%;
+}
+.sensors-search ul.sensors-search-list li{
+    float: left;
+    width: 78%;
+    background-color: #1b2022;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-image: url(images/list_icon.svg);
+    background-position: 10px 7px;
+    background-repeat: no-repeat;
+    padding: 17px 3% 18px 20%;
+    background-size: 13%;
+    color: #fff;
+    font-size: .8rem;
+    list-style: none;
+}
+/*
+.sensors-search ul.sensors-search-list li span{
+	float: left;
+    width: 12%;
+    padding: 6px 0px 6px 10px;	
+}
+.sensors-search ul.sensors-search-list li p{
+	float: left;
+    font-size: 0.8rem;
+    color: #fff;
+    padding: 17px 5%;
+}
+.sensors-search ul.sensors-search-list li.active{
+	background: #101416;	
+}*/

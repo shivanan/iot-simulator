@@ -21,16 +21,18 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         this.props.onAddDevice(d);
     }
     render() {
-        const numbers = [1, 2, 3, 4, 5];
+        const numbers = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"];        
         const listItems = numbers.map((numbers) =>
         <li>{numbers}</li>
         );        
 
         return <div className='sidebar' >
             <div onClick={this.addDevice.bind(this,{'id':new Date()+'',type:'temperature'})}>Temp</div>
-            <div id="mount-point">
-                <ul>{listItems}</ul>
+            <div className="sensors-search">
+                <ul className="sensors-search-list">{listItems}</ul>
             </div>
+
+            <div id="mount-point"></div>
         </div>;
     }
 }
