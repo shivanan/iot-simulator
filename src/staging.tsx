@@ -17,11 +17,44 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
         let el = createDeviceCard(d.type,{device:d});
         return <div key={d.id} className='device-card'>{el}</div>;
     }
+   // render() {
+   //     return <div className='staging' >
+   //     {
+   //         this.props.devices.map(d => this.renderDevice(d))
+   //     }
+   //      </div>;
+   //  }
+
+
     render() {
-        return <div className='staging' >
-        {
-            this.props.devices.map(d => this.renderDevice(d))
-        }
-        </div>;
-    }
+        // return <div className='staging' />;
+ 
+         return (
+           
+            <div className='staging'>
+
+                <div className="sdad">
+                    {
+                        this.props.devices.map(d => this.renderDevice(d))
+                    }
+                </div>
+
+                <div className="iot_content">		
+                    <div className="smart_em_cont smart_em_lft">					
+                        <span className="smart-em">
+                            <img src="images/M_logo.svg" />
+                        </span>
+                        <span className="welcome_smart-em">
+                            <img src="images/welcome_smart_em.svg" />
+                        </span>				
+                    </div>
+                    <div className="smart_em_cont smart_em_rgt">
+                        <span className="design_angle">
+                            <img src="images/smart_EM_angle.svg" />
+                        </span>
+                    </div>		
+                </div>
+            </div>
+           );
+     }
 }

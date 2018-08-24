@@ -21,28 +21,46 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         this.props.onAddDevice(d);
     }
     render() {
-        const numbers = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"];        
+        const numbers = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"];        
         const listItems = numbers.map((numbers) =>
         <li>{numbers}</li>
-        );  
+        ); 
+        
+       // var sensors_recent = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"]; 
+        
+        var sensors_recent = [ <a href="#"><img src="images/Temperature.svg" /></a>, <a href="#"><img src="images/Humidity.svg" /></a>, <a href="#"><img src="images/Pressure.svg" /></a> ]; 
+        var sensors_recent_list = sensors_recent.map((sensors_recent) =>
+        <li>{sensors_recent}</li>
+        ); 
         
         
 
         return <div className='sidebar' >
             <div onClick={this.addDevice.bind(this,{'id':new Date()+'',type:'temperature'})}>Temp</div>
+            <div className="sensors-top">
+				<h5>Sensors</h5>
+				<div className="sensors-icon"><img src="images/Sensors-icon.svg" /></div>
+			</div>
             <div className="sensors-search">
                 <input type="text" placeholder="Start Typing" id="myInput" />
                 <div className="search-chkbox-cont">
 						<div className="search-chkbox">
 							<input type="checkbox" />
 							<span className="checkmark"></span>
-						</div>
-						<p>Hit enter to add</p>
+                            <p>Hit enter to add</p>
+						</div>						
 					</div>
                 <ul className="sensors-search-list">{listItems}</ul>
             </div>
 
-            <div id="mount-point"></div>
+            
+
+            <div id="mount-point">
+                <div className="sensors-recent">
+                    <h6>Recent</h6>
+                    <ul>{sensors_recent_list}</ul>
+                </div>
+            </div>
         </div>;
     }
 }

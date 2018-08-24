@@ -22,7 +22,7 @@ html {
     left:0px;
     top:40px;
     width:300px;
-    bottom:30px;
+    bottom:0px;
     background-color:#262F35;
     color:white;
 }
@@ -37,7 +37,7 @@ html {
 }
 .bottombar {
     position:absolute;
-    left:0px;
+    left:300px;
     bottom:0px;
     right:0px;
     height:30px;
@@ -89,7 +89,7 @@ html {
 }
 .footer .play-duration{
 	float: left;
-	width: 78%;
+	width: 65%;
 	background: #ddd;
 	height: 10px;
 	margin-left: 2%;
@@ -99,13 +99,14 @@ html {
 	position: relative;
 }
 .footer .play-duration span{
-	background: #7a0aa2;
-	width: 80%;
-	height: 10px;
-	display: inline-block;
-	border-radius: 10px;
-	position: absolute;
-	left: 0;
+    background: #7a0aa2;
+    width: 40%;
+    height: 8px;
+    display: inline-block;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    top: 1px;
 }
 .footer .tick{
 	float: left;
@@ -114,21 +115,41 @@ html {
     margin-top: 12px;
 }
 
-.search-chkbox-cont{	
+.sidebar .sensors-top{
+    width: 80%;
+    float: left;
+    margin-left: 20px;
+}
+.sidebar .sensors-top h5{
+	float: left;
+	width: 50%;
+	color: #fff;
+	margin-top: 20px;
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.sidebar .sensors-top .sensors-icon{
+	float: right;
+    width: 16%;
+    margin-top: 9px;
+}
+.sidebar .search-chkbox-cont{	
 	float: left;
 	padding: 15px 0% 5px 28%;
 }
-.search-chkbox-cont p{	
+.sidebar .search-chkbox-cont p{	
 	float: left;
-    padding: 8px 0% 5px 40%;
+    padding: 5px 0% 5px 28px;
     font-size: 0.7rem;
     color: #fff;
+    margin: 0;
+}
+.sidebar .search-chkbox-cont .search-chkbox {
+	position: relative;
+    float: left;
     width: 100%;
 }
-.search-chkbox-cont .search-chkbox {
-	position: relative;
-}
-.search-chkbox-cont .search-chkbox input[type="checkbox"]{
+.sidebar .search-chkbox-cont .search-chkbox input[type="checkbox"]{
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -137,7 +158,7 @@ html {
     z-index: 1;
 }
 
-.search-chkbox-cont .search-chkbox .checkmark{
+.sidebar .search-chkbox-cont .search-chkbox .checkmark{
 	position: absolute;
     top: 0;
     left: 0;
@@ -147,15 +168,15 @@ html {
     border: 1px solid #8ba9ba;
     border-radius: 5px;
 }
-.search-chkbox-cont .search-chkbox .checkmark:after {
+.sidebar .search-chkbox-cont .search-chkbox .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
-.search-chkbox-cont .search-chkbox input:checked ~ .checkmark:after {
+.sidebar .search-chkbox-cont .search-chkbox input:checked ~ .checkmark:after {
     display: block;
 }
-.search-chkbox-cont .search-chkbox .checkmark:after {
+.sidebar .search-chkbox-cont .search-chkbox .checkmark:after {
     left: 7px;
     top: 1px;
     width: 5px;
@@ -167,12 +188,12 @@ html {
     transform: rotate(45deg);
 }
 
-.sensors-search{
+.sidebar .sensors-search{
     width: 94%;
     float: left;
     margin-left: 15px;
 }
-.sensors-search #myInput {
+.sidebar .sensors-search #myInput {
     background: #101416;
     border: none;
     color: #929292;
@@ -182,13 +203,13 @@ html {
     border-radius: 10px;
     outline: none;
 }
-.sensors-search ul.sensors-search-list{
+.sidebar .sensors-search ul.sensors-search-list{
 	float: left;
     width: 88%;
     margin: 0;
     padding: 0;
 }
-.sensors-search ul.sensors-search-list li{
+.sidebar .sensors-search ul.sensors-search-list li{
     float: left;
     width: 78%;
     background-color: #192025;
@@ -205,23 +226,73 @@ html {
     font-weight: 600;
     
 }
-.sensors-search ul.sensors-search-list li:first-child{
+.sidebar .sensors-search ul.sensors-search-list li:first-child{
     background-color: #101416;
     color: #ffffff;  
 }
-/*
-.sensors-search ul.sensors-search-list li span{
-	float: left;
-    width: 12%;
-    padding: 6px 0px 6px 10px;	
-}
-.sensors-search ul.sensors-search-list li p{
-	float: left;
-    font-size: 0.8rem;
-    color: #fff;
-    padding: 17px 5%;
-}
-.sensors-search ul.sensors-search-list li.active{
-	background: #101416;	
-}*/
 
+.iot_content{
+	float: left;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+.iot_content .smart_em_cont{
+	float: left;
+    width: 50%;
+    padding: 10%;
+    box-sizing: border-box;
+}
+.iot_content .smart_em_cont.smart_em_lft .smart-em{
+	display: inline-block;
+    width: 40%;
+	margin-top: 5rem;
+}
+.iot_content .smart_em_cont.smart_em_lft .welcome_smart-em{
+	display: inline-block;
+	width: 100%;
+	margin-top: 15px;
+}
+.iot_content .smart_em_cont.smart_em_rgt .design_angle{
+	display: inline-block;
+	width: 100%;
+	margin-top: 5rem;
+}
+.sensors-recent{
+	float: left;
+    width: 94%;
+    margin: 80px 0 0 15px;
+}
+.sensors-recent h6{
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 0;
+}
+.sensors-recent ul{
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+.sensors-recent ul li{
+	float: left;
+    width: 24%;
+    margin-right: 9%;
+    list-style: none;
+}
+.sensors-recent ul li a{
+	float: left;
+	width: 100%;
+}
+.sensors-recent ul li p{
+	float: left;
+	width: 100%;
+	font-size: 0.7rem;
+	color: #fff;
+	text-align: center;
+	margin-top: 5px;
+}
