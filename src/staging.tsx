@@ -33,7 +33,7 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
            
             <div className='staging'>
 
-                <div className="sdad">
+                <div className="temp_box">
                     {
                         this.props.devices.map(d => this.renderDevice(d))
                     }

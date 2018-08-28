@@ -296,3 +296,55 @@ html {
 	text-align: center;
 	margin-top: 5px;
 }
+
+.temp_box .device-card {
+    float: left;
+    width: 31%;
+    margin-left: 1%;
+    background: #101416;
+    color: #fff;
+    height: 130px;
+}
+.device-card .temp {
+    float: left;
+    padding: 27px 5%;
+    width: 90%;
+}
+.device-card .device_card_icon{
+    float: left;
+    width: 20%;
+}
+
+.device-card h4.device_card_title {
+    float: left;
+    margin: 18px 0 0 10%;
+    padding: 0;
+    width: 30%;
+}
+
+.device-card .configure-btn {
+    float: right;
+    width: 32%;
+    margin-left: 5%;
+    margin-top: 18px;
+}
+.device-card .configure-btn a{
+    background: #797575;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 12px;
+    font-size: .8rem;
+    color: #fff;
+    font-weight: 700;
+    float: left;
+    vertical-align: top;
+    text-decoration: none;
+}
+.device-card .configure-btn .settings_icon {
+    float: left;
+    width: 23%;  
+}
+.device-card .configure-btn span {
+    float: left;
+    padding: 2px 0 0 7%;
+}

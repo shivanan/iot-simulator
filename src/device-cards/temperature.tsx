@@ -17,11 +17,13 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
         });
-
+        //<div className="device_card_configure"> {'Temp:' + this.state.value}</div>
     }
     render() {
         return <div className='temp'>
-        {'Temp:' + this.state.value}
+            <div className="device_card_icon"><img src="images/list_icon.svg" alt="Temp_Icon" /></div>
+            <h4 className="device_card_title">Temperature Sensor</h4>
+            <div className="configure-btn"><a href="#"><img className="settings_icon" src="images/settings.svg" alt="Settings" /> <span>Configure</span> </a></div>
         </div>
     }
 }
