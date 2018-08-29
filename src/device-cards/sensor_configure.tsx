@@ -39,13 +39,13 @@ export class Sensor_configure extends React.Component<{}, IAppState> {
 		return ( <> 
       
         <div className='temp' style={ shown }>
-            <div className="device_card_icon"><img src={"images/list_icon.svg"} alt="Temp_Icon" /></div>
+            <div className="device_card_icon"></div>
             <h4 className="device_card_title">Temperature Sensor</h4>
-            <div className="configure-btn"><a onClick={this.toggle.bind(this)} href="#"><img className="settings_icon" src="images/settings.svg" alt="Configure" /> <span>Configure</span> </a></div>
+            <div className="configure-btn"><a onClick={this.toggle.bind(this)} href="#">Configure</a></div>
         </div>
         <div className='sensor' style={ hidden }>
             <div className="sensor-lft">
-                <div className="device_card_icon"><img src="images/list_icon.svg" alt="Temp_Icon" /></div>
+                <div className="device_card_icon"></div>
                 <h4 className="device_card_title">Temperature Sensor</h4>
             </div>
             <div className="sensor-rht">
@@ -53,7 +53,7 @@ export class Sensor_configure extends React.Component<{}, IAppState> {
                <div className="sensor-rht-list"> <label>Tag</label><div className="configure-btn"><a href="#"><span>Temp..</span> </a></div></div>    
                <div className="sensor-rht-list"><label>Sensor Status</label><div className="configure-btn"><a href="#"><em className="on_off offline"></em> <span>Offline</span> </a></div></div>                               
             </div>  
-            <div className="configure-settings"><img className="settings_icon" src="images/settings.svg" alt="Configure" /></div>
+            <div className="configure-settings" onClick={this.toggle.bind(this)}></div>
         </div>
       
         </>

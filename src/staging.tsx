@@ -40,18 +40,11 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
                 </div>
 
                 <div className="iot_content">		
-                    <div className="smart_em_cont smart_em_lft">					
-                        <span className="smart-em">
-                            <img src="images/M_logo.svg" />
-                        </span>
-                        <span className="welcome_smart-em">
-                            <img src="images/welcome_smart_em.svg" />
-                        </span>				
+                    <div className="smart_em_cont smart_em_lft">
+                        <span className="welcome_smart-em"> </span>				
                     </div>
                     <div className="smart_em_cont smart_em_rgt">
-                        <span className="design_angle">
-                            <img src="images/smart_EM_angle.svg" />
-                        </span>
+                        <span className="design_angle"></span>
                     </div>		
                 </div>
             </div>

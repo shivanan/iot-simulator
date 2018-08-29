@@ -28,7 +28,7 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         
        // var sensors_recent = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"]; 
         
-        var sensors_recent = [ <a href="#"><img src="images/Temperature.svg" /></a>, <a href="#"><img src="images/Humidity.svg" /></a>, <a href="#"><img src="images/Pressure.svg" /></a> ]; 
+        var sensors_recent = [ <a href="#" className="temperature"></a>, <a href="#" className="humidity"></a>, <a href="#" className="pressure"></a> ]; 
         var sensors_recent_list = sensors_recent.map((sensors_recent) =>
         <li>{sensors_recent}</li>
         ); 
@@ -39,7 +39,7 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
             <div onClick={this.addDevice.bind(this,{'id':new Date()+'',type:'temperature'})}>Temp</div>
             <div className="sensors-top">
 				<h5>Sensors</h5>
-				<div className="sensors-icon"><img src="images/Sensors-icon.svg" /></div>
+				<div className="sensors-icon"></div>
 			</div>
             <div className="sensors-search">
                 <input type="text" placeholder="Start Typing" id="myInput" />
