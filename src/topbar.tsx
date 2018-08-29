@@ -16,8 +16,8 @@ export class TopBar extends React.Component<ITopBarProps,ITopBarState> {
          return (
              <div className="topbar">
                <div className="iot_header">               
-                  <div className="logo"><img src="images/logo.svg" alt="logo" /></div>
-                  <div className="header_m-logo"><img src="images/M_logo.svg" /></div>
+                  <div className="logo"></div>
+                  <div className="header_m-logo"></div>
                </div>             
              </div>
            );

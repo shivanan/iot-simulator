@@ -62,11 +62,20 @@ html {
 }
 .iot_header .logo{
 	float: left;
-	width: 70px;
+    width: 70px;
+    background: url(images/logo.svg) no-repeat 0 0;
+    height: 25px;
 }
 .iot_header .header_m-logo{
 	float: right;
     width: 2.2rem;
+    /*background: url(images/M_logo.svg) no-repeat 0 0;*/
+    height: 25px;
+}
+.iot_header .header_m-logo::after{
+	content: "";
+    background: url(images/M_logo.svg) no-repeat 0 0;
+   
 }
 
 .footer{
@@ -236,6 +245,7 @@ html {
     width: 100%;
     position: relative;
     height: 100%;
+    
 }
 .iot_content .smart_em_cont{
 	float: left;
@@ -304,11 +314,12 @@ html {
     background: #101416;
     color: #fff;
     height: 130px;
+    position: relative;
 }
 .device-card .temp {
     float: left;
     padding: 27px 5%;
-    width: 90%;
+    width: 90%;  
 }
 .device-card .device_card_icon{
     float: left;
@@ -347,4 +358,77 @@ html {
 .device-card .configure-btn span {
     float: left;
     padding: 2px 0 0 7%;
+}
+
+.sensor{
+    float: left;
+    width: 100%;
+}
+.sensor-lft{
+    float: left;
+    width: 30%;
+}
+.device-card .sensor .device_card_icon {  
+    width: 50%;
+    text-align: center;
+    margin: 12px 0 0 22%;
+}
+.device-card .sensor h4.device_card_title{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    font-size: .95rem;
+}
+.device-card .sensor .sensor-rht{
+    float: left;
+    width: 65%;
+    margin-top: 25px;
+    margin-left:5%;
+}
+.device-card .sensor .sensor-rht .sensor-rht-list {
+    float: left;
+    width: auto;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.device-card .sensor label {
+    float: left;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: normal;
+    margin-top: 6px;
+}
+.device-card .sensor .configure-btn {
+    float: left;
+    margin: 0 0 0 5px;
+    width: auto;
+}
+.device-card .sensor .configure-btn  a{
+    font-size: .7rem;
+    font-weight: normal;
+    padding: 6px 7px;
+    background: #3e3d3d;
+}
+.device-card .sensor .configure-btn.sensor_id-btn a{
+    border-radius: 10px;
+}
+.device-card .sensor .configure-btn  a span {
+    float: left;
+    padding: 0 0 0 0;
+}
+.device-card .sensor .configure-btn  a .on_off{
+    width: 10px;
+    height: 10px;
+    float: left;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-right: 6px;
+}
+.device-card .sensor .configure-btn  a .on_off.offline{background:#F58220;}
+.device-card .sensor .configure-btn  a .on_off.online{background:#7000CB;}
+.device-card .sensor .configure-settings{
+    width: 25px;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
 }
