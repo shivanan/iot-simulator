@@ -149,12 +149,13 @@ html {
 }
 .sidebar .sensors-top .sensors-icon{
 	float: right;
-    width: 16%;
+    width: 40px;
     margin-top: 9px;
+    cursor: pointer;
 }
 .sidebar .sensors-top .sensors-icon::after{  
     background: url(images/Sensors-icon.svg) no-repeat 0 0;   
-    height: 38px;
+    height: 40px;
 }
 .sidebar .search-chkbox-cont{	
 	float: left;
@@ -469,3 +470,4 @@ html {
     background: url(images/settings.svg) no-repeat 0 0;
     height: 20px;
 }
+
