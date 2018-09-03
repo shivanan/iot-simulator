@@ -1,0 +1,36 @@
+/* RALEWAY */
+/* latin-ext */
+
+@import "raleway.scss";
+
+/* CENTURY GOTHIC */
+@font-face{
+	font-family:"Century Gothic";
+	src:url("./fonts/bd45538f-4200-4946-b177-02de8337032d.eot?#iefix");
+	src:url("./fonts/bd45538f-4200-4946-b177-02de8337032d.eot?#iefix") format("eot")
+	,url("./fonts/c9e387df-c0d3-42e1-8de6-78c41f68594c.svg#c9e387df-c0d3-42e1-8de6-78c41f68594c") format("svg")
+	,url("./fonts/700cfd4c-3384-4654-abe1-aa1a6e8058e4.woff2") format("woff2")
+	,url("./fonts/9908cdad-7524-4206-819e-4f345a666324.woff") format("woff")
+	,url("./fonts/b710c26a-f1ae-4fb8-a9fe-570fd829cbf1.ttf") format("truetype");
+}
+@font-face{
+	font-family:"Century Gothic Bold";
+	src:url("./fonts/b247e158-e647-4a3d-9637-944de5124043.eot?#iefix");
+	src:url("./fonts/b247e158-e647-4a3d-9637-944de5124043.eot?#iefix") format("eot")
+	,url("./fonts/3428a0e6-cb4d-408a-8331-cc78554ab49c.svg#3428a0e6-cb4d-408a-8331-cc78554ab49c") format("svg")
+	,url("./fonts/bc0668e2-e5c8-45ce-954d-3b998c6b6803.woff2") format("woff2")
+	,url("./fonts/2ef5ecda-1772-45e2-843f-a13f5d76ed3a.woff") format("woff")
+	,url("./fonts/33cf10ca-a6bb-4888-a320-d38720c9847b.ttf") format("truetype");
+}
+@font-face{
+	font-family:"Century Gothic Pro Cyr";
+	src:url("./fonts/95fca8c2-732c-4eb8-bc29-c82b89b8e543.eot?#iefix");
+	src:url("./fonts/95fca8c2-732c-4eb8-bc29-c82b89b8e543.eot?#iefix") format("eot")
+	,url("./fonts/7072ecfd-762f-42bb-aa13-2958e3295e6b.svg#7072ecfd-762f-42bb-aa13-2958e3295e6b") format("svg")
+	,url("./fonts/4456f05b-4877-4331-ab1f-781f7f4ff222.woff2") format("woff2")
+	,url("./fonts/bfe05124-bdc6-49ea-bba4-1f0bdab1d1c8.woff") format("woff")
+	,url("./fonts/2068a136-92c6-4ef1-9875-632f8c87b8ec.ttf") format("truetype");
+}
+
+
+// */

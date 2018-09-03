@@ -17,37 +17,28 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
         let el = createDeviceCard(d.type,{device:d});
         return <div key={d.id} className='device-card'>{el}</div>;
     }
-   // render() {
-   //     return <div className='staging' >
-   //     {
-   //         this.props.devices.map(d => this.renderDevice(d))
-   //     }
-   //      </div>;
-   //  }
-
+   
+    renderSplashScreen(){
+        return <div className="iot_content">
+            <div className="smart_em_cont smart_em_lft">
+                <span className="welcome_smart-em"> </span>
+            </div>
+            <div className="smart_em_cont smart_em_rgt">
+                <span className="design_angle"></span>
+            </div>
+        </div>;
+    }
 
     render() {
-        // return <div className='staging' />;
- 
-         return (
+
+        return <div className={'staging '+(this.props.devices.count()>0?'has-devices':'')}>
            
-            <div className='staging'>
+            {
+                this.props.devices.count() > 0 ?
+                (this.props.devices.map(d => this.renderDevice(d)))  : this.renderSplashScreen()
+            }
 
-                <div className="temp_box">
-                    {
-                        this.props.devices.map(d => this.renderDevice(d))
-                    }
-                </div>
-
-                <div className="iot_content">		
-                    <div className="smart_em_cont smart_em_lft">
-                        <span className="welcome_smart-em"> </span>				
-                    </div>
-                    <div className="smart_em_cont smart_em_rgt">
-                        <span className="design_angle"></span>
-                    </div>		
-                </div>
-            </div>
-           );
-     }
+        </div>
+            ;
+    }
 }

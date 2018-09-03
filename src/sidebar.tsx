@@ -1,6 +1,6 @@
+import * as UUID from 'node-uuid';
 import * as React from 'react';
 import { IDevice } from './device';
-import { BottomBar } from './bottombar';
 
 //import { SidebarCollapse } from './sidebar_collapse';
 
@@ -48,10 +48,10 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         <li>{sensors_recent}</li>
         ); 
         
-        
+        let u = UUID.v1().substring(0,8);
 
         return   <div className='sidebar' style={{width: this.state.collapse ? '80px' : '300px'}} >
-            <div onClick={this.addDevice.bind(this,{'id':new Date()+'',type:'temperature'})} style={{display: this.state.collapse ? 'none' : 'block'}} >Temp</div>
+            <div onClick={this.addDevice.bind(this,{'id':u,type:'temperature'})} style={{display: this.state.collapse ? 'none' : 'block'}} >Temp</div>
             <div className="sensors-top">
 				<h5 style={{display: this.state.collapse ? 'none' : 'block'}}>Sensors</h5>               
 				<div className="sensors-icon" onClick={this.toggle}  style={{position: this.state.collapse ? 'absolute' : 'inherit', top: this.state.collapse ? '46%' : '0'}}></div>

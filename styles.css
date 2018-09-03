@@ -1,473 +1,434 @@
+/* RALEWAY */
+/* latin-ext */
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Raleway"), local("Raleway-Regular"), url(https://fonts.gstatic.com/s/raleway/v11/YZaO6llzOP57DpTBv2GnyFKPGs1ZzpMvnHX-7fPOuAc.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Raleway"), local("Raleway-Regular"), url(https://fonts.gstatic.com/s/raleway/v11/QAUlVt1jXOgQavlW5wEfxQLUuEpTyoUstqEm5AMlJo4.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Raleway Medium"), local("Raleway-Medium"), url(https://fonts.gstatic.com/s/raleway/v11/Li18TEFObx_yGdzKDoI_cgsYbbCjybiHxArTLjt7FRU.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Raleway Medium"), local("Raleway-Medium"), url(https://fonts.gstatic.com/s/raleway/v11/CcKI4k9un7TZVWzRVT-T8wzyDMXhdD8sAj6OAJTFsBI.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Raleway SemiBold"), local("Raleway-SemiBold"), url(https://fonts.gstatic.com/s/raleway/v11/STBOO2waD2LpX45SXYjQBQsYbbCjybiHxArTLjt7FRU.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Raleway SemiBold"), local("Raleway-SemiBold"), url(https://fonts.gstatic.com/s/raleway/v11/xkvoNo9fC8O2RDydKj12bwzyDMXhdD8sAj6OAJTFsBI.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Raleway Bold"), local("Raleway-Bold"), url(https://fonts.gstatic.com/s/raleway/v11/WmVKXVcOuffP_qmCpFuyzQsYbbCjybiHxArTLjt7FRU.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Raleway Bold"), local("Raleway-Bold"), url(https://fonts.gstatic.com/s/raleway/v11/JbtMzqLaYbbbCL9X6EvaIwzyDMXhdD8sAj6OAJTFsBI.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+/* CENTURY GOTHIC */
+@font-face {
+  font-family: "Century Gothic";
+  src: url("./fonts/bd45538f-4200-4946-b177-02de8337032d.eot?#iefix");
+  src: url("./fonts/bd45538f-4200-4946-b177-02de8337032d.eot?#iefix") format("eot"), url("./fonts/c9e387df-c0d3-42e1-8de6-78c41f68594c.svg#c9e387df-c0d3-42e1-8de6-78c41f68594c") format("svg"), url("./fonts/700cfd4c-3384-4654-abe1-aa1a6e8058e4.woff2") format("woff2"), url("./fonts/9908cdad-7524-4206-819e-4f345a666324.woff") format("woff"), url("./fonts/b710c26a-f1ae-4fb8-a9fe-570fd829cbf1.ttf") format("truetype"); }
+@font-face {
+  font-family: "Century Gothic Bold";
+  src: url("./fonts/b247e158-e647-4a3d-9637-944de5124043.eot?#iefix");
+  src: url("./fonts/b247e158-e647-4a3d-9637-944de5124043.eot?#iefix") format("eot"), url("./fonts/3428a0e6-cb4d-408a-8331-cc78554ab49c.svg#3428a0e6-cb4d-408a-8331-cc78554ab49c") format("svg"), url("./fonts/bc0668e2-e5c8-45ce-954d-3b998c6b6803.woff2") format("woff2"), url("./fonts/2ef5ecda-1772-45e2-843f-a13f5d76ed3a.woff") format("woff"), url("./fonts/33cf10ca-a6bb-4888-a320-d38720c9847b.ttf") format("truetype"); }
+@font-face {
+  font-family: "Century Gothic Pro Cyr";
+  src: url("./fonts/95fca8c2-732c-4eb8-bc29-c82b89b8e543.eot?#iefix");
+  src: url("./fonts/95fca8c2-732c-4eb8-bc29-c82b89b8e543.eot?#iefix") format("eot"), url("./fonts/7072ecfd-762f-42bb-aa13-2958e3295e6b.svg#7072ecfd-762f-42bb-aa13-2958e3295e6b") format("svg"), url("./fonts/4456f05b-4877-4331-ab1f-781f7f4ff222.woff2") format("woff2"), url("./fonts/bfe05124-bdc6-49ea-bba4-1f0bdab1d1c8.woff") format("woff"), url("./fonts/2068a136-92c6-4ef1-9875-632f8c87b8ec.ttf") format("truetype"); }
 html {
-    background-color:white;
-    font-family: "Century Gothic", Arial, Helvetica;
-}
+  background-color: white;
+  font-family: "Century Gothic"; }
+
 .container {
-    position:absolute;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    top:0px;
-}
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px; }
+
 .topbar {
-    position:absolute;
-    left:0px;
-    top:0px;
-    right:0px;
-    height:50px;
-    background-color:#FAFAFA;
-}
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  height: 50px;
+  background-color: #FAFAFA; }
+
 .sidebar {
-    position:absolute;
-    left:0px;
-    top:40px;
-    width:300px;
-    bottom:0px;
-    background-color:#262F35;
-    color:white;
-}
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  width: 300px;
+  bottom: 0px;
+  background-color: #262F35;
+  color: white; }
 
 .staging {
-    position:absolute;
-    left:300px;
-    top:40px;
-    right:0px;
-    bottom:30px;
-    background-color:white;
-}
-.bottombar {
-    position:absolute;
-    left:300px;
-    bottom:0px;
-    right:0px;
-    height:30px;
-    background-color:#06F;
-}
-.device-card {
-    display:inline-block;
-    margin:10px;
-    width:300px;
-    border:1px solid gray;
-}
+  position: absolute;
+  left: 300px;
+  top: 40px;
+  right: 0px;
+  bottom: 30px;
+  background-color: white; }
+  .staging.has-devices {
+    background-color: black; }
 
+.bottombar {
+  position: absolute;
+  left: 300px;
+  bottom: 0px;
+  right: 0px;
+  height: 30px;
+  background-color: #06F; }
+
+.device-card {
+  display: inline-block;
+  margin: 10px;
+  width: 350px;
+  height: 120px;
+  background-color: #111416;
+  color: #CCC;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative; }
+  .device-card .title {
+    font-size: 14px;
+    height: 30px;
+    padding-left: 40px;
+    line-height: 30px;
+    background-repeat: no-repeat; }
+  .device-card .fields {
+    position: absolute;
+    display: flex;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px 10px 10px 10px; }
+  .device-card .device-field {
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px; }
+  .device-card .device-field-value {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 5px; }
 
 /*Styles*/
+.iot_header .header_m-logo::after, .footer .play-btn a::after, .footer .tick::after, .sidebar .sensors-top .sensors-icon::after, .sensors-recent ul li a::after, .device-card .temp .configure-btn a::before {
+  content: "  -  ";
+  width: 100%;
+  display: inline-block;
+  text-indent: -1000em; }
 
-.iot_header .header_m-logo::after, .footer .play-btn a::after, .footer .tick::after, .sidebar .sensors-top .sensors-icon::after, .sensors-recent ul li a::after, .device-card .temp .configure-btn a::before{
-    content: "  -  ";
-    width: 100%;
-    display:inline-block;
-    text-indent: -1000em;
-}
+.iot_header {
+  float: left;
+  width: 94%;
+  padding: 8px 3%;
+  background: #FAFAFA; }
 
-.iot_header{
-	float: left;
-    width: 94%;
-    padding: 8px 3%;
-    background: #FAFAFA;
-}
-.iot_header .logo{
-	float: left;
-    width: 70px;
-    background: url(images/logo.svg) no-repeat 0 0;
-    height: 25px;
-}
-.iot_header .header_m-logo{
-	float: right;
-    width: 2.2rem;
-   
-}
-.iot_header .header_m-logo::after{	
-    background: url("images/M_logo.svg") no-repeat 0 0;    
-}
+.iot_header .logo {
+  float: left;
+  width: 70px;
+  background: url(images/logo.svg) no-repeat 0 0;
+  height: 25px; }
 
-.footer{
-	float: left;
-	width: 90%;
-	background: #112530;
-	padding: 10px 5%;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-}
-.footer .footer_lft{
-	float: left;
-    width: 80%;
-}
-.footer .play-btn{
-    float: left;
-    width: 35px;
-    margin-top: 0px;
-}
-.footer .play-btn a::after{   
-    background: url(images/play-btn.svg) no-repeat 0 0;   
-    height: 30px;
-}
-.footer .play-duration{
-	float: left;
-    width: 65%;
-    background: #ddd;
-    height: 10px;
-    margin-left: 2%;
-    background-color: #707070;
-    border-radius: 10px;
-    margin-top: 11px;
-    position: relative;
-}
-.footer .play-duration span{
-    background: #7a0aa2;
-    width: 40%;
-    height: 8px;
-    display: inline-block;
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    top: 1px;
-}
-.footer .tick{
-    float: left;
-    width: 23px;
-    margin-left: 2%;
-    margin-top: 4px
-}
-.footer .tick::after{   
-    background: url(images/Tick.svg) no-repeat 0 0;   
-    height: 21px;
-}
-.sidebar .sensors-top{
-    width: 80%;
-    float: left;
-    margin-left: 20px;
-}
-.sidebar .sensors-top h5{
-	float: left;
-	width: 50%;
-	color: #fff;
-	margin-top: 20px;
-	font-size: 1.1rem;
-	font-weight: bold;
-}
-.sidebar .sensors-top .sensors-icon{
-	float: right;
-    width: 40px;
-    margin-top: 9px;
-    cursor: pointer;
-}
-.sidebar .sensors-top .sensors-icon::after{  
-    background: url(images/Sensors-icon.svg) no-repeat 0 0;   
-    height: 40px;
-}
-.sidebar .search-chkbox-cont{	
-	float: left;
-	padding: 15px 0% 5px 28%;
-}
-.sidebar .search-chkbox-cont p{	
-	float: left;
-    padding: 5px 0% 5px 28px;
-    font-size: 0.7rem;
-    color: #fff;
-    margin: 0;
-}
+.iot_header .header_m-logo {
+  float: right;
+  width: 2.2rem; }
+
+.iot_header .header_m-logo::after {
+  background: url("images/M_logo.svg") no-repeat 0 0; }
+
+.footer {
+  float: left;
+  width: 90%;
+  background: #112530;
+  padding: 10px 5%;
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+.footer .footer_lft {
+  float: left;
+  width: 80%; }
+
+.footer .play-btn {
+  float: left;
+  width: 35px;
+  margin-top: 0px; }
+
+.footer .play-btn a::after {
+  background: url(images/play-btn.svg) no-repeat 0 0;
+  height: 30px; }
+
+.footer .play-duration {
+  float: left;
+  width: 65%;
+  background: #ddd;
+  height: 10px;
+  margin-left: 2%;
+  background-color: #707070;
+  border-radius: 10px;
+  margin-top: 11px;
+  position: relative; }
+
+.footer .play-duration span {
+  background: #7a0aa2;
+  width: 40%;
+  height: 8px;
+  display: inline-block;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 1px; }
+
+.footer .tick {
+  float: left;
+  width: 23px;
+  margin-left: 2%;
+  margin-top: 4px; }
+
+.footer .tick::after {
+  background: url(images/Tick.svg) no-repeat 0 0;
+  height: 21px; }
+
+.sidebar .sensors-top {
+  width: 80%;
+  float: left;
+  margin-left: 20px; }
+
+.sidebar .sensors-top h5 {
+  float: left;
+  width: 50%;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold; }
+
+.sidebar .sensors-top .sensors-icon {
+  float: right;
+  width: 40px;
+  margin-top: 9px;
+  cursor: pointer; }
+
+.sidebar .sensors-top .sensors-icon::after {
+  background: url(images/Sensors-icon.svg) no-repeat 0 0;
+  height: 40px; }
+
+.sidebar .search-chkbox-cont {
+  float: left;
+  padding: 15px 0% 5px 28%; }
+
+.sidebar .search-chkbox-cont p {
+  float: left;
+  padding: 5px 0% 5px 28px;
+  font-size: 0.7rem;
+  color: #fff;
+  margin: 0; }
+
 .sidebar .search-chkbox-cont .search-chkbox {
-	position: relative;
-    float: left;
-    width: 100%;
-}
-.sidebar .search-chkbox-cont .search-chkbox input[type="checkbox"]{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    top: 1px;
-    left: 1px;
-    z-index: 1;
-}
+  position: relative;
+  float: left;
+  width: 100%; }
 
-.sidebar .search-chkbox-cont .search-chkbox .checkmark{
-	position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: transparent;
-    border: 1px solid #8ba9ba;
-    border-radius: 5px;
-}
+.sidebar .search-chkbox-cont .search-chkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  top: 1px;
+  left: 1px;
+  z-index: 1; }
+
+.sidebar .search-chkbox-cont .search-chkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid #8ba9ba;
+  border-radius: 5px; }
+
 .sidebar .search-chkbox-cont .search-chkbox .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+  content: "";
+  position: absolute;
+  display: none; }
+
 .sidebar .search-chkbox-cont .search-chkbox input:checked ~ .checkmark:after {
-    display: block;
-}
+  display: block; }
+
 .sidebar .search-chkbox-cont .search-chkbox .checkmark:after {
-    left: 7px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+  left: 7px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
 
-.sidebar .sensors-search{
-    width: 94%;
-    float: left;
-    margin-left: 15px;
-}
+.sidebar .sensors-search {
+  width: 94%;
+  float: left;
+  margin-left: 15px; }
+
 .sidebar .sensors-search #myInput {
-    background: #101416;
-    border: none;
-    color: #929292;
-    font-size: 0.95rem;
-    padding: 14px 5%;
-    width: 80%;
-    border-radius: 10px;
-    outline: none;
-}
-.sidebar .sensors-search ul.sensors-search-list{
-	float: left;
-    width: 88%;
-    margin: 0;
-    padding: 0;
-}
-.sidebar .sensors-search ul.sensors-search-list li{
-    float: left;
-    width: 78%;
-    background-color: #192025;
-    margin-top: 10px;
-    border-radius: 10px;
-    background-image: url(images/list_icon.svg);
-    background-position: 10px 7px;
-    background-repeat: no-repeat;
-    padding: 17px 3% 18px 20%;
-    background-size: 13%;
-    color: #a9a9a9;
-    font-size: .8rem;
-    list-style: none;
-    font-weight: 600;
-    
-}
-.sidebar .sensors-search ul.sensors-search-list li:first-child{
-    background-color: #101416;
-    color: #ffffff;  
-}
+  background: #101416;
+  border: none;
+  color: #929292;
+  font-size: 0.95rem;
+  padding: 14px 5%;
+  width: 80%;
+  border-radius: 10px;
+  outline: none; }
 
-.iot_content{
-	float: left;
-    width: 100%;
-    position: relative;
-    height: 100%;
-    
-}
-.iot_content .smart_em_cont{
-	float: left;
-    width: 50%;
-    padding: 10%;
-    box-sizing: border-box;
-}
+.sidebar .sensors-search ul.sensors-search-list {
+  float: left;
+  width: 88%;
+  margin: 0;
+  padding: 0; }
 
-.iot_content .smart_em_cont.smart_em_lft .welcome_smart-em{
-	display: inline-block;
-	width: 100%;
-    margin-top: 5rem;
-    background: url(images/welcome_smart_em.svg) no-repeat 0 0;
-    height: 15rem;  
-}
-.iot_content .smart_em_cont.smart_em_rgt .design_angle{
-	display: inline-block;
-	width: 100%;
-    margin-top: 5rem;
-    background: url(images/smart_EM_angle.svg) no-repeat 0 0;
-    height: 15rem; 
-}
-.sensors-recent{
-	float: left;
-    width: 94%;
-    margin: 80px 0 0 15px;
-}
-.sensors-recent h6{
-    float: left;
-    width: 100%;
-    color: #fff;
-    font-size: 0.95rem;
-    margin: 0;
-    padding: 0;
-}
-.sensors-recent ul{
-    float: left;
-    width: 100%;
-    margin-top: 15px;
-    margin: 15px 0 0 0;
-    padding: 0;
-}
-.sensors-recent ul li{
-	float: left;
-    width: 24%;
-    margin-right: 9%;
-    list-style: none;
-}
-.sensors-recent ul li a{
-	float: left;
-	width: 100%;
-}
-.sensors-recent ul li a.temperature::after{
-    background: url(images/Temperature.svg) no-repeat 0 0;   
-    height: 5rem;
-}
-.sensors-recent ul li a.humidity::after{
-    background: url(images/Humidity.svg) no-repeat 0 0;    
-    height: 5rem;
-}
-.sensors-recent ul li a.pressure::after{	
-    background: url(images/Pressure.svg) no-repeat 0 0;   
-    height: 5rem;
-}
-.sensors-recent ul li p{
-	float: left;
-	width: 100%;
-	font-size: 0.7rem;
-	color: #fff;
-	text-align: center;
-	margin-top: 5px;
-}
+.sidebar .sensors-search ul.sensors-search-list li {
+  float: left;
+  width: 78%;
+  background-color: #192025;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-image: url(images/list_icon.svg);
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  padding: 17px 3% 18px 20%;
+  background-size: 13%;
+  color: #a9a9a9;
+  font-size: .8rem;
+  list-style: none;
+  font-weight: 600; }
 
-.temp_box .device-card {
-    float: left;
-    width: 31%;
-    margin-left: 1%;
-    background: #101416;
-    color: #fff;
-    height: 130px;
-    position: relative;
-}
-.device-card .temp {
-    float: left;
-    padding: 27px 5%;
-    width: 90%;  
-}
-.device-card .device_card_icon{
-    float: left;
-    width: 21%;
-    background: url(images/list_icon.svg) no-repeat 0 0;
-    height: 5rem;
-}
+.sidebar .sensors-search ul.sensors-search-list li:first-child {
+  background-color: #101416;
+  color: #ffffff; }
 
-.device-card h4.device_card_title {
-    float: left;
-    margin: 18px 0 0 10%;
-    padding: 0;
-    width: 30%;
-}
+.iot_content {
+  float: left;
+  width: 100%;
+  position: relative;
+  height: 100%; }
 
-.device-card .configure-btn {
-    float: right;
-    width: 32%;
-    margin-left: 5%;
-    margin-top: 18px;
-}
-.device-card .configure-btn a{
-    background: #797575;
-    border: none;
-    border-radius: 20px;
-    padding: 7px 12px;
-    font-size: .8rem;
-    color: #fff;
-    font-weight: 700;
-    float: left;
-    vertical-align: top;
-    text-decoration: none;
-}
-.device-card .temp .configure-btn a::before{
-    background: url(images/settings.svg) no-repeat 0 0;
-    height: 1rem;
-    width: 1rem;
-    margin-right: .3rem;
-}
-.device-card .configure-btn .settings_icon {
-    float: left;
-    width: 23%;  
-}
-.device-card .configure-btn span {
-    float: left;
-    padding: 2px 0 0 7%;
-}
+.iot_content .smart_em_cont {
+  float: left;
+  width: 50%;
+  padding: 10%;
+  box-sizing: border-box; }
 
-.sensor{
-    float: left;
-    width: 100%;
-}
-.sensor-lft{
-    float: left;
-    width: 30%;
-}
-.device-card .sensor .device_card_icon {  
-    width: 50%;
-    text-align: center;
-    margin: 12px 0 0 22%;
-    height: 4.3rem;
-}
-.device-card .sensor h4.device_card_title{
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    font-size: .95rem;
-}
-.device-card .sensor .sensor-rht{
-    float: left;
-    width: 65%;
-    margin-top: 25px;
-    margin-left:5%;
-}
-.device-card .sensor .sensor-rht .sensor-rht-list {
-    float: left;
-    width: auto;
-    margin-right: 10px;
-    margin-bottom: 20px;
-}
-.device-card .sensor label {
-    float: left;
-    color: #fff;
-    font-size: .75rem;
-    font-weight: normal;
-    margin-top: 6px;
-}
-.device-card .sensor .configure-btn {
-    float: left;
-    margin: 0 0 0 5px;
-    width: auto;
-}
-.device-card .sensor .configure-btn  a{
-    font-size: .7rem;
-    font-weight: normal;
-    padding: 6px 7px;
-    background: #3e3d3d;
-}
-.device-card .sensor .configure-btn.sensor_id-btn a{
-    border-radius: 10px;
-}
-.device-card .sensor .configure-btn  a span {
-    float: left;
-    padding: 0 0 0 0;
-}
-.device-card .sensor .configure-btn  a .on_off{
-    width: 10px;
-    height: 10px;
-    float: left;
-    border-radius: 50%;
-    margin-top: 3px;
-    margin-right: 6px;
-}
-.device-card .sensor .configure-btn  a .on_off.offline{background:#F58220;}
-.device-card .sensor .configure-btn  a .on_off.online{background:#7000CB;}
-.device-card .sensor .configure-settings{
-    width: 25px;
-    position: absolute;
-    bottom: 7px;
-    right: 2px;
-    background: url(images/settings.svg) no-repeat 0 0;
-    height: 20px;
-}
+.iot_content .smart_em_cont.smart_em_lft .welcome_smart-em {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5rem;
+  background: url(images/welcome_smart_em.svg) no-repeat 0 0;
+  height: 15rem; }
 
+.iot_content .smart_em_cont.smart_em_rgt .design_angle {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5rem;
+  background: url(images/smart_EM_angle.svg) no-repeat 0 0;
+  height: 15rem; }
+
+.sensors-recent {
+  float: left;
+  width: 94%;
+  margin: 80px 0 0 15px; }
+
+.sensors-recent h6 {
+  float: left;
+  width: 100%;
+  color: #fff;
+  font-size: 0.95rem;
+  margin: 0;
+  padding: 0; }
+
+.sensors-recent ul {
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+  margin: 15px 0 0 0;
+  padding: 0; }
+
+.sensors-recent ul li {
+  float: left;
+  width: 24%;
+  margin-right: 9%;
+  list-style: none; }
+
+.sensors-recent ul li a {
+  float: left;
+  width: 100%; }
+
+.sensors-recent ul li a.temperature::after {
+  background: url(images/Temperature.svg) no-repeat 0 0;
+  height: 5rem; }
+
+.sensors-recent ul li a.humidity::after {
+  background: url(images/Humidity.svg) no-repeat 0 0;
+  height: 5rem; }
+
+.sensors-recent ul li a.pressure::after {
+  background: url(images/Pressure.svg) no-repeat 0 0;
+  height: 5rem; }
+
+.sensors-recent ul li p {
+  float: left;
+  width: 100%;
+  font-size: 0.7rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 5px; }
+
+.sensor {
+  float: left;
+  width: 100%; }
+
+.sensor-lft {
+  float: left;
+  width: 30%; }
+
+/*# sourceMappingURL=styles.css.map */

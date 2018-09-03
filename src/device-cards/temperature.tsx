@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { DeviceCard, IDeviceCardState } from '../device-card';
+import { DeviceField } from '../field';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
 import { TemperatureSensor } from '../sensors/temperature';
-import { Sensor_configure } from './sensor_configure';
 
 interface ITempState extends IDeviceCardState {
     value:number | string;
@@ -25,9 +25,25 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
     
     
     render() {      
-        return (
-            <Sensor_configure />
-        );       
+        let url = `url(images/sensors/temperature.svg`;
+        return <div className='temperature'>
+            <div className='title' style={{backgroundImage:url}}>Temperature Sensor</div>
+            <div className='fields'>
+                <DeviceField title='ID'>
+                {
+                    this.props.device.id
+                }
+                </DeviceField>
+                <DeviceField title='Value'>
+                {
+                    Number(this.state.value).toFixed(2) + 'C'
+                }
+                </DeviceField>
+                <DeviceField title='Status'>
+                    <div className='device-card-status online'>Online</div>
+                </DeviceField>
+            </div>
+        </div>;
     }
    
 }
