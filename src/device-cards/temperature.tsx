@@ -15,8 +15,9 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
     toggleStatus() {
-        this.setState({active:!this.state.active});
-        this.sensor.active = this.state.active;
+        this.setState({active:!this.state.active},()=>{
+            this.sensor.active = this.state.active;
+        });
     }
     constructor(props:any) {
         super(props);
