@@ -8,9 +8,10 @@
     "start": "electron dist/main.js"
   },
   "dependencies": {
-    "@types/node-uuid": "0.0.28",
+    "classnames": "^2.2.6",
     "electron": "^2.0.7",
     "immutable": "^3.8.2",
+    "node-fetch": "^2.2.0",
     "node-uuid": "^1.4.8",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -21,7 +22,10 @@
     "webpack": "^4.17.1"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.6",
     "@types/immutable": "^3.8.7",
+    "@types/node-fetch": "^2.1.2",
+    "@types/node-uuid": "0.0.28",
     "@types/react": "^16.4.11",
     "@types/react-dom": "^16.0.7"
   }

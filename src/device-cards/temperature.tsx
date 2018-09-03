@@ -1,3 +1,4 @@
+import * as classNames from 'classnames';
 import * as React from 'react';
 import { DeviceCard, IDeviceCardState } from '../device-card';
 import { DeviceField } from '../field';
@@ -8,14 +9,20 @@ import { TemperatureSensor } from '../sensors/temperature';
 
 interface ITempState extends IDeviceCardState {
     value:number | string;
+    active:boolean;
 }
 export class TemperatureDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
+    toggleStatus() {
+        this.setState({active:!this.state.active});
+        this.sensor.active = this.state.active;
+    }
     constructor(props:any) {
         super(props);
-        this.state = {value:25};
+        this.state = {value:25,active:true};
         this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
+        this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
         });
@@ -40,7 +47,11 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                 }
                 </DeviceField>
                 <DeviceField title='Status'>
-                    <div className='device-card-status online'>Online</div>
+                    <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status',{'online':this.state.active})}>
+                    {
+                        this.state.active?'Online':'Offline'
+                    }
+                    </div>
                 </DeviceField>
             </div>
         </div>;

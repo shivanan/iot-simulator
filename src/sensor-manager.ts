@@ -9,6 +9,9 @@ export function registerSensor(sensor:Sensor,cb:SensorCallback) {
 function tick() {
     for (let i = 0; i < sensors.length; i++) {
         const sensor = sensors[i][0];
+        if (!sensor.active) {
+            continue;
+        }
         sensor.update();
         sensors[i][1](sensor);
     }

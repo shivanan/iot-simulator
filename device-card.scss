@@ -39,4 +39,22 @@
         box-sizing: border-box;
         margin-top: 5px;
     }
+    .device-card-status {
+        cursor:pointer;
+        &.online {
+            &::before {
+                background-color:blue;
+            }
+        }
+        &::before {
+            content:'';
+            display:inline-block;
+            background-color:orange;
+            border-radius:50%;
+            width:10px;
+            height:10px;
+            position:relative;
+            left:-5px;
+        }
+    }
 }

@@ -150,6 +150,19 @@ html {
     border-radius: 6px;
     box-sizing: border-box;
     margin-top: 5px; }
+  .device-card .device-card-status {
+    cursor: pointer; }
+    .device-card .device-card-status.online::before {
+      background-color: blue; }
+    .device-card .device-card-status::before {
+      content: '';
+      display: inline-block;
+      background-color: orange;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      position: relative;
+      left: -5px; }
 
 /*Styles*/
 .iot_header .header_m-logo::after, .footer .play-btn a::after, .footer .tick::after, .sidebar .sensors-top .sensors-icon::after, .sensors-recent ul li a::after, .device-card .temp .configure-btn a::before {
