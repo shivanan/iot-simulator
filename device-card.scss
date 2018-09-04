@@ -20,7 +20,7 @@
         position:absolute;
         display: flex;
         left:0px;
-        right:0px;
+        // right:0px;
         bottom:0px;
         margin:0px 10px 10px 10px;
     }
@@ -55,6 +55,16 @@
             height:10px;
             position:relative;
             left:-5px;
+        }
+    }
+    .primary-value-box {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        .device-field-value {
+            background-color: white;
+            color: #424242;
+            font-size: 18px;
         }
     }
 }
