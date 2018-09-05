@@ -19,3 +19,15 @@ export class DeviceField extends React.Component<IDeviceFieldProps,IDeviceFieldS
         </div>;
     }
 }
+export interface IIncrementDecrementProps {
+    onChange:(val:number) => void;
+}
+export class IncrementDecrement extends React.Component<IIncrementDecrementProps,{}> {
+
+    render() {
+        return <div className='device-increment-decrement'>
+            <div className='decrement ib'  onClick={ ()=>this.props.onChange(-1)} />
+            <div className='increment ib'  onClick={ ()=>this.props.onChange(1) } />
+        </div>;
+    }
+}

@@ -33,7 +33,7 @@ export class Sensor_configure extends React.Component<{}, IAppState> {
 		
 		return ( <> 
       
-       
+       {}
       
         </>
 		)

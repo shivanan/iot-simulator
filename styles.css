@@ -136,7 +136,6 @@ html {
     position: absolute;
     display: flex;
     left: 0px;
-    right: 0px;
     bottom: 0px;
     margin: 0px 10px 10px 10px; }
   .device-card .device-field {
@@ -163,6 +162,43 @@ html {
       height: 10px;
       position: relative;
       left: -5px; }
+  .device-card .primary-value-box {
+    position: absolute;
+    right: 5px;
+    top: 5px; }
+    .device-card .primary-value-box .device-field-value {
+      background-color: white;
+      color: #424242;
+      font-size: 18px; }
+
+.device-increment-decrement {
+  display: flex; }
+  .device-increment-decrement .ib {
+    flex-grow: 1;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer; }
+    .device-increment-decrement .ib::before {
+      content: '';
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100%;
+      display: inline-block;
+      height: 100%;
+      background-size: 20%; }
+    .device-increment-decrement .ib:active {
+      background-color: #06F; }
+  .device-increment-decrement .increment::before {
+    content: '';
+    background-image: url(images/left-dark.svg);
+    transform: rotate(90deg); }
+  .device-increment-decrement .decrement::before {
+    content: '';
+    background-image: url(images/left-dark.svg);
+    transform: rotate(270deg); }
 
 /*Styles*/
 .iot_header .header_m-logo::after, .footer .play-btn a::after, .footer .tick::after, .sidebar .sensors-top .sensors-icon::after, .sensors-recent ul li a::after, .device-card .temp .configure-btn a::before {

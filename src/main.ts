@@ -1,5 +1,6 @@
 // const {app, BrowserWindow,dialog} = require('electron');
-import { app, BrowserWindow, dialog } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain } from 'electron';
+import * as mqtt from 'mqtt';
 var VERSION = '0.1'
 
 var devMode = false;
@@ -12,6 +13,7 @@ if (args.length > 2 ) {
       devMode = true;
   }
 }
+
 let CurrentWindow:BrowserWindow = null;
 function  showDevTools() {
   if (!!CurrentWindow) CurrentWindow.webContents.openDevTools();
@@ -30,7 +32,7 @@ function about() {
 }
 let win:BrowserWindow;
 function createWindow () {
-  win = new BrowserWindow({width: 700, height: 500,titleBarStyle:'hidden',title:'IoT Simulator'});
+  win = new BrowserWindow({width: 700, height: 500,titleBarStyle:'default',title:'IoT Simulator'});
   console.log('DIR',__dirname);
 	win.loadURL(`file://${__dirname}/../index.html`)
   if (devMode) {
@@ -60,8 +62,19 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
   	app.quit()
   }
-})
+});
 
+const client = mqtt.connect('mqtt://localhost');
+
+ipcMain.on('cov',(event:any,arg:{topic:string,message:any})=>{
+  console.log('received cov');
+  //console.log('publishing',arg);
+  try {
+    client.publish(arg.topic,JSON.stringify(arg.message));
+  } catch (error) {
+    console.log('Publishing error',error);    
+  }
+});
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
