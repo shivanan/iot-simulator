@@ -448,10 +448,20 @@ html {
   margin-right: 9%;
   list-style: none; }
 
-.sensors-recent ul li a {
-  float: left;
-  width: 100%; }
-
+.sensors-recent ul li a{ 
+    float: left;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.sensors-recent ul li a span{
+    position: absolute;
+    bottom: -3px;
+    font-size: 0.7rem;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
 .sensors-recent ul li a.temperature::after {
   background: url(images/Temperature.svg) no-repeat 0 0;
   height: 5rem; }

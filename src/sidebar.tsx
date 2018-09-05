@@ -41,16 +41,18 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         ); 
         
        // var sensors_recent = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"]; 
-        
-        var sensors_recent = [ <a href="#" className="temperature"></a>, <a href="#" className="humidity"></a>, <a href="#" className="pressure"></a> ]; 
+        let u = UUID.v1().substring(0,8);
+
+        var sensors_recent = [ <a onClick={this.addDevice.bind(this,{'id':u,type:'temperature'})} style={{display: this.props.collapsed ? 'none' : 'block'}} className="temperature"><span>Temperature</span></a>, 
+        <a onClick={this.addDevice.bind(this,{'id':u,type:'humidity'})} style={{display: this.props.collapsed ? 'none' : 'block'}} className="humidity"><span>Humidity</span></a>, 
+        <a onClick={this.addDevice.bind(this,{'id':u,type:'pressure'})} style={{display: this.props.collapsed ? 'none' : 'block'}} className="pressure"><span>Pressure</span></a> ]; 
         var sensors_recent_list = sensors_recent.map((sensors_recent) =>
         <li>{sensors_recent}</li>
         ); 
         
-        let u = UUID.v1().substring(0,8);
+
         /* change to use props */
-        return   <div className='sidebar' style={{width: this.props.collapsed ? '80px' : '300px'}} >
-            <div onClick={this.addDevice.bind(this,{'id':u,type:'temperature'})} style={{display: this.props.collapsed ? 'none' : 'block'}} >Temp</div>
+        return   <div className='sidebar' style={{width: this.props.collapsed ? '80px' : '300px'}} >           
             <div className="sensors-top">
 				<h5 style={{display: this.props.collapsed ? 'none' : 'block'}} >Sensors</h5>               
 				<div className="sensors-icon" onClick={this.toggle.bind(this)}  style={{position: this.props.collapsed ? 'absolute' : 'inherit', top: this.props.collapsed ? '46%' : '0'}}></div>
