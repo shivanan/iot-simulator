@@ -117,35 +117,50 @@ html {
 
 .device-card {
   display: inline-block;
-  margin: 10px;
-  width: 350px;
+  margin: 10px 5px;
+  width: 380px;
   height: 120px;
   background-color: #111416;
-  color: #CCC;
-  padding: 10px;
+  color: #FFFFFF;
+  padding: 10px 5px;
   border-radius: 5px;
   box-sizing: border-box;
   position: relative; }
   .device-card .title {
-    font-size: 14px;
-    height: 30px;
-    padding-left: 40px;
-    line-height: 30px;
-    background-repeat: no-repeat; }
+    font-size: 12px;
+    height: 0px;
+    padding-left: 0px;
+    background-repeat: no-repeat;
+    width: 71px;
+    float: left;
+    line-height: 19px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 47px;
+    background-position: center top;
+    margin: 0 5px;
+   }
   .device-card .fields {
-    position: absolute;
+    /*position: absolute;
     display: flex;
     left: 0px;
-    bottom: 0px;
-    margin: 0px 10px 10px 10px; }
+    bottom: 0px;*/
+    margin: 0px 0px 0px 0px;
+    float: left;
+    width: 150px;
+   }
+   .device-card .fields .sensor-top, .device-card .fields .sensor-bot{
+      float: left;
+      width: 50%;
+   }
   .device-card .device-field {
-    font-size: 12px;
+    font-size: 11px;
     margin-left: 10px;
     margin-right: 10px; }
   .device-card .device-field-value {
     background-color: rgba(255, 255, 255, 0.15);
-    padding: 5px 10px;
-    font-size: 12px;
+    padding: 8px 10px;
+    font-size: 10px;
     border-radius: 6px;
     box-sizing: border-box;
     margin-top: 5px; }
@@ -163,13 +178,17 @@ html {
       position: relative;
       left: -5px; }
   .device-card .primary-value-box {
-    position: absolute;
+    /*position: absolute;
     right: 5px;
-    top: 5px; }
+    top: 5px; */
+    float: left;
+    width: 90px;
+  }
     .device-card .primary-value-box .device-field-value {
       background-color: white;
-      color: #424242;
-      font-size: 18px; }
+      font-size: 16px;
+      text-align: center;
+      color: #444; }
 
 .device-increment-decrement {
   display: flex; }

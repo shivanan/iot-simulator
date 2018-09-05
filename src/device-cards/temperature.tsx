@@ -52,18 +52,35 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
             </div>
 
             <div className='fields'>
-                <DeviceField title='ID'>
-                    {
-                        this.props.device.id
-                    }
-                </DeviceField>
-                <DeviceField title='Status'>
+                <div className='sensor-top'>
+                    <DeviceField title='Sensor ID'>
+                        {
+                            this.props.device.id
+                        }
+                    </DeviceField>
+                    <DeviceField title='Sensor Status'>
                     <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
                         {
                             this.state.active ? 'Online' : 'Offline'
                         }
                     </div>
+                </DeviceField>                    
+                </div>
+                
+                <div className='sensor-bot'>
+                <DeviceField title='On/Off'>
+                    <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
+                        {
+                            this.state.active ? 'ON' : 'OFF'
+                        }
+                    </div>
                 </DeviceField>
+                <DeviceField title='Tag'>
+                        {
+                            <div>Temp...</div>
+                        }
+                    </DeviceField>
+                </div>
             </div>
         </div>;
     }
