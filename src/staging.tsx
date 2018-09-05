@@ -4,20 +4,22 @@ import { IDevice } from './device';
 import { createDeviceCard } from './iot-simulator';
 export interface IStagingProps {
  devices:List<IDevice>;
+ collapsed: boolean;
 }
 export interface IStagingState {
+   
     
 }
 export class Staging extends React.Component<IStagingProps,IStagingState> {
     constructor(props:IStagingProps) {
         super(props);
-        this.state = {}
+      
     }
     renderDevice(d:IDevice) {
         let el = createDeviceCard(d.type,{device:d});
         return <div key={d.id} className='device-card'>{el}</div>;
     }
-   
+    
     renderSplashScreen(){
         return <div className="iot_content">
             <div className="smart_em_cont smart_em_lft">
@@ -31,7 +33,7 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
 
     render() {
 
-        return <div className={'staging '+(this.props.devices.count()>0?'has-devices':'')}>
+        return <div className={'staging '+(this.props.devices.count()>0?'has-devices':'')} style={{left: this.props.collapsed ? '80px' : '300px'}}>
            
             {
                 this.props.devices.count() > 0 ?

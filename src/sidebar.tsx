@@ -7,33 +7,32 @@ import { IDevice } from './device';
 
 interface ISideBarProps {
     onAddDevice:(device:IDevice) => void;
+    /* change this to something simple */
+    //onScreenChanges:(screenchange:ScreenChange)=> void;
+    onSideBarCollapse:(collapsed:boolean) => void;
+    collapsed: boolean;
 }
 
 interface ISideBarState {
-    collapse: boolean;
+    /* not required in state - let it belong to the master iot device state
+    since we need to use it in 2 places - sidebar annd staging */
+    //collapse: boolean;
 }
 
 export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
     constructor(props:ISideBarProps) {     
         super(props);
        
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            collapse: false,
-          };
     }
     addDevice(d:IDevice) {
         this.props.onAddDevice(d);
     }
 
-   
-   
-
     toggle() {
-        this.setState({ collapse: !this.state.collapse });
+        this.props.onSideBarCollapse(!this.props.collapsed);
+        // this.props.onScreenChanges(e);
     }
-    
-
+   
 
     render() {
         const numbers = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"];        
@@ -49,14 +48,14 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         ); 
         
         let u = UUID.v1().substring(0,8);
-
-        return   <div className='sidebar' style={{width: this.state.collapse ? '80px' : '300px'}} >
-            <div onClick={this.addDevice.bind(this,{'id':u,type:'temperature'})} style={{display: this.state.collapse ? 'none' : 'block'}} >Temp</div>
+        /* change to use props */
+        return   <div className='sidebar' style={{width: this.props.collapsed ? '80px' : '300px'}} >
+            <div onClick={this.addDevice.bind(this,{'id':u,type:'temperature'})} style={{display: this.props.collapsed ? 'none' : 'block'}} >Temp</div>
             <div className="sensors-top">
-				<h5 style={{display: this.state.collapse ? 'none' : 'block'}}>Sensors</h5>               
-				<div className="sensors-icon" onClick={this.toggle}  style={{position: this.state.collapse ? 'absolute' : 'inherit', top: this.state.collapse ? '46%' : '0'}}></div>
+				<h5 style={{display: this.props.collapsed ? 'none' : 'block'}} >Sensors</h5>               
+				<div className="sensors-icon" onClick={this.toggle.bind(this)}  style={{position: this.props.collapsed ? 'absolute' : 'inherit', top: this.props.collapsed ? '46%' : '0'}}></div>
 			</div> 
-            <div className="sensors-search" style={{display: this.state.collapse ? 'none' : 'block'}} >
+            <div className="sensors-search" style={{display: this.props.collapsed ? 'none' : 'block'}} >
                 <input type="text" placeholder="Start Typing" id="myInput" />
                 <div className="search-chkbox-cont">
 						<div className="search-chkbox">
@@ -68,7 +67,7 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
                 <ul className="sensors-search-list">{listItems}</ul>
             </div>         
 
-            <div id="mount-point" style={{display: this.state.collapse ? 'none' : 'block'}} >
+            <div id="mount-point" style={{display: this.props.collapsed ? 'none' : 'block'}} >
                 <div className="sensors-recent">
                     <h6>Recent</h6>
                     <ul>{sensors_recent_list}</ul>

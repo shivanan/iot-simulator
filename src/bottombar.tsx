@@ -1,19 +1,21 @@
 import * as React from 'react';
 export interface IBottomBarProps {
-    
+
+    collapsed: boolean;
 }
 export interface IBottomBarState {
     
 }
+
 export class BottomBar extends React.Component<IBottomBarProps,IBottomBarState> {
     constructor(props:IBottomBarProps) {
         super(props);
-        this.state = {}
+       
     }
     render() {
         // return <div className='bottombar' />;
          return (
-             <div className="bottombar">
+             <div className="bottombar" style={{left: this.props.collapsed ? '80px' : '300px'}}>
                  <div className="footer">			
                      <div className="footer_lft">				   
                          <div className="play-btn"><a href="#"></a></div>
