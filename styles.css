@@ -119,7 +119,7 @@ html {
   display: inline-block;
   margin: 10px 5px;
   width: 380px;
-  height: 120px;
+  height: 130px;
   background-color: #111416;
   color: #FFFFFF;
   padding: 10px 5px;
@@ -138,20 +138,28 @@ html {
     font-weight: bold;
     padding-top: 47px;
     background-position: center top;
-    margin: 0 5px;
+    margin: 5px;
    }
-  .device-card .fields {
-    /*position: absolute;
-    display: flex;
-    left: 0px;
-    bottom: 0px;*/
-    margin: 0px 0px 0px 0px;
-    float: left;
-    width: 150px;
+  .device-card .fields {   
+      margin: 0px 0px 0px 0px;
+      float: left;
+      width: 160px;
    }
    .device-card .fields .sensor-top, .device-card .fields .sensor-bot{
       float: left;
-      width: 50%;
+      width: 100%;
+      margin-bottom: 10px;
+   }
+   .device-card .fields .sensor-top .device-field, .device-card .fields .sensor-bot .device-field{
+      width: 55px;
+      float: left;
+      margin: 0 5px;
+    }
+   .device-card .fields .sensor-top .device-field:first-child{
+      width:85px;
+   }
+   .device-card .fields .sensor-bot .device-field:first-child{
+      width:70px;
    }
   .device-card .device-field {
     font-size: 11px;
@@ -191,7 +199,8 @@ html {
       color: #444; }
 
 .device-increment-decrement {
-  display: flex; }
+  display: flex;
+  margin-top:10px; }
   .device-increment-decrement .ib {
     flex-grow: 1;
     margin: 5px;
@@ -218,7 +227,70 @@ html {
     content: '';
     background-image: url(images/left-dark.svg);
     transform: rotate(270deg); }
-
+  .expand-collapsearrow{
+      float: left;
+      width: 35px;
+  }
+  .device-top-bottom-arrow {
+    float: left;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+  .expand-collapsearrow .device-top-bottom-arrow .ib{
+    flex-grow: 1;
+    margin: 6px 5px;
+    cursor: pointer;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    float: left;
+    width: 24px;
+    border-radius: 50%;
+    color: #060606;
+}
+.expand-collapsearrow .device-top-bottom-arrow .ib:hover{  
+  background-color: rgba(255, 255, 255, 1); 
+}
+.expand-collapsearrow .device-top-bottom-arrow .ib::before{
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  display: inline-block;
+  height: 100%;
+  background-size: 26%;
+}
+.expand-collapsearrow .device-top-bottom-arrow .top_arrow::before{
+  content: '';
+  background-image: url(images/left-dark.svg);
+  transform: rotate(90deg);
+}
+.expand-collapsearrow .device-top-bottom-arrow .bottom_arrow::before{
+  content: '';
+  background-image: url(images/left-dark.svg);
+  transform: rotate(270deg);
+}
+.expand-collapsearrow .expand-collapse{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: rgba(113, 42, 42, 0);
+}
+.expand-collapsearrow .expand-collapse::before{
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 22px;
+  display: inline-block;
+  height: 22px;
+  background-size: 100%;
+  background-image: url(images/Expand_card.svg); 
+  cursor: pointer;
+}
+.expand-collapsearrow .expand-collapse:hover::before{
+   width: 33px;
+  height: 33px; 
+  background-image: url(images/collapse_card.svg);
+}
 /*Styles*/
 .iot_header .header_m-logo::after, .footer .play-btn a::after, .footer .tick::after, .sidebar .sensors-top .sensors-icon::after, .sensors-recent ul li a::after, .device-card .temp .configure-btn a::before {
   content: "  -  ";

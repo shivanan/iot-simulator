@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { DeviceCard, IDeviceCardState } from '../device-card';
-import { DeviceField, IncrementDecrement } from '../field';
+import { DeviceField, IncrementDecrement, TopBootomArrow } from '../field';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
 import { TemperatureSensor } from '../sensors/temperature';
+
 
 interface ITempState extends IDeviceCardState {
     value:number | string;
@@ -58,30 +59,35 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                             this.props.device.id
                         }
                     </DeviceField>
-                    <DeviceField title='Sensor Status'>
-                    <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
-                        {
-                            this.state.active ? 'Online' : 'Offline'
-                        }
-                    </div>
-                </DeviceField>                    
+                    <DeviceField title='On/Off'>
+                        <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
+                            {
+                                this.state.active ? 'ON' : 'OFF'
+                            }
+                        </div>
+                    </DeviceField>                                      
                 </div>
                 
                 <div className='sensor-bot'>
-                <DeviceField title='On/Off'>
-                    <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
-                        {
-                            this.state.active ? 'ON' : 'OFF'
-                        }
-                    </div>
-                </DeviceField>
-                <DeviceField title='Tag'>
-                        {
-                            <div>Temp...</div>
-                        }
+                    <DeviceField title='Sensor Status'>
+                        <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
+                            {
+                                this.state.active ? 'Online' : 'Offline'
+                            }
+                        </div>
+                    </DeviceField> 
+                    <DeviceField title='Tag'>
+                            {
+                                <div>Temp...</div>
+                            }
                     </DeviceField>
                 </div>
             </div>
+            <div className="expand-collapsearrow">
+                    <div className="expand-collapse"></div>
+                    <TopBootomArrow onChange={this.onIncrement.bind(this)} />            
+            </div>
+
         </div>;
     }
    

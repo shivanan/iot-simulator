@@ -31,3 +31,16 @@ export class IncrementDecrement extends React.Component<IIncrementDecrementProps
         </div>;
     }
 }
+
+export interface ITopBootomArrowProps {
+    onChange:(val:number) => void;
+}
+export class TopBootomArrow extends React.Component<ITopBootomArrowProps,{}> {
+
+    render() {
+        return <div className='device-top-bottom-arrow'>
+            <div className='top_arrow ib'  onClick={()=>this.props.onChange} />
+            <div className='bottom_arrow ib'  onClick={()=>this.props.onChange} />
+        </div>;
+    }
+}
