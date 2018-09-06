@@ -33,7 +33,7 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
 
     render() {
 
-        return <div className={'staging '+(this.props.devices.count()>0?'has-devices':'')} style={{left: this.props.collapsed ? '80px' : '300px'}}>
+        return <div className={'staging '+(this.props.devices.count()>0?'has-devices':'')} style={{left: this.props.collapsed ? '80px' : '277px'}}>
            
             {
                 this.props.devices.count() > 0 ?

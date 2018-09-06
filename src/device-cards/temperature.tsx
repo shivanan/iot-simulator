@@ -20,6 +20,11 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
             this.sensor.active = this.state.active;
         });
     }
+    toggleBtnStatus() {
+        this.setState({active:!this.state.active},()=>{
+            this.sensor.active = this.state.active;
+        });
+    }
     constructor(props:any) {
         super(props);
         this.state = {value:25,active:true};
@@ -60,12 +65,13 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                         }
                     </DeviceField>
                     <DeviceField title='On/Off'>
-                        <div onClick={this.toggleStatus.bind(this)} className={classNames('device-card-status', { 'online': this.state.active })}>
+                        <div onClick={this.toggleBtnStatus.bind(this)} className={classNames('on-off-status', { 'on': this.state.active })}>
                             {
                                 this.state.active ? 'ON' : 'OFF'
                             }
                         </div>
-                    </DeviceField>                                      
+                    </DeviceField>      
+                                                    
                 </div>
                 
                 <div className='sensor-bot'>

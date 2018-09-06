@@ -52,7 +52,7 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         
 
         /* change to use props */
-        return   <div className='sidebar' style={{width: this.props.collapsed ? '80px' : '300px'}} >           
+        return   <div className='sidebar' style={{width: this.props.collapsed ? '80px' : '277px'}} >           
             <div className="sensors-top">
 				<h5 style={{display: this.props.collapsed ? 'none' : 'block'}} >Sensors</h5>               
 				<div className="sensors-icon" onClick={this.toggle.bind(this)}  style={{position: this.props.collapsed ? 'absolute' : 'inherit', top: this.props.collapsed ? '46%' : '0'}}></div>

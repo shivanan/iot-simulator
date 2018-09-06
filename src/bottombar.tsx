@@ -15,7 +15,7 @@ export class BottomBar extends React.Component<IBottomBarProps,IBottomBarState> 
     render() {
         // return <div className='bottombar' />;
          return (
-             <div className="bottombar" style={{left: this.props.collapsed ? '80px' : '300px'}}>
+             <div className="bottombar" style={{left: this.props.collapsed ? '80px' : '277px'}}>
                  <div className="footer">			
                      <div className="footer_lft">				   
                          <div className="play-btn"><a href="#"></a></div>

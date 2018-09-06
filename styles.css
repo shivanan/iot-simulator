@@ -92,7 +92,7 @@ html {
   position: absolute;
   left: 0px;
   top: 40px;
-  width: 300px;
+  width: 277px;
   bottom: 0px;
   background-color: #262F35;
   color: white; }
@@ -143,7 +143,7 @@ html {
   .device-card .fields {   
       margin: 0px 0px 0px 0px;
       float: left;
-      width: 160px;
+      width: 168px;
    }
    .device-card .fields .sensor-top, .device-card .fields .sensor-bot{
       float: left;
@@ -151,13 +151,18 @@ html {
       margin-bottom: 10px;
    }
    .device-card .fields .sensor-top .device-field, .device-card .fields .sensor-bot .device-field{
-      width: 55px;
+      width: 57px;
       float: left;
       margin: 0 5px;
     }
    .device-card .fields .sensor-top .device-field:first-child{
       width:85px;
    }
+   .device-card .fields .sensor-top .device-field:last-child .device-field-value{
+      border-radius: 25px;
+      padding: 7px 10px 7px 26px;
+      position: relative;
+ }
    .device-card .fields .sensor-bot .device-field:first-child{
       width:70px;
    }
@@ -175,7 +180,7 @@ html {
   .device-card .device-card-status {
     cursor: pointer; }
     .device-card .device-card-status.online::before {
-      background-color: blue; }
+      background-color: #9d0cd2 }
     .device-card .device-card-status::before {
       content: '';
       display: inline-block;
@@ -184,7 +189,27 @@ html {
       width: 10px;
       height: 10px;
       position: relative;
-      left: -5px; }
+      left: -5px;
+      top: 1px;}
+
+      .device-card .on-off-status {
+        cursor: pointer; }
+        .device-card .on-off-status.on::before {
+          background-color: #9d0cd2;
+          right: 5px;
+        
+        }
+        .device-card .on-off-status::before {
+          content: '';
+          display: inline-block;
+          background-color: orange;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          left: 5px;
+          top: 4px;}
+
   .device-card .primary-value-box {
     /*position: absolute;
     right: 5px;
@@ -206,8 +231,8 @@ html {
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.5);
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.15);
     cursor: pointer; }
     .device-increment-decrement .ib::before {
       content: '';
@@ -216,39 +241,38 @@ html {
       width: 100%;
       display: inline-block;
       height: 100%;
-      background-size: 20%; }
-    .device-increment-decrement .ib:active {
+      background-size: 50%; }
+    .device-increment-decrement .ib:active, .device-increment-decrement .ib:hover {
       background-color: #06F; }
   .device-increment-decrement .increment::before {
     content: '';
-    background-image: url(images/left-dark.svg);
-    transform: rotate(90deg); }
+    background-image: url(images/arrow.svg);
+    transform: rotate(180deg); }
   .device-increment-decrement .decrement::before {
     content: '';
-    background-image: url(images/left-dark.svg);
-    transform: rotate(270deg); }
+    background-image: url(images/arrow.svg); }
   .expand-collapsearrow{
       float: left;
-      width: 35px;
+      width: 30px;
   }
   .device-top-bottom-arrow {
     float: left;
-    margin-top: 40px;
-    margin-left: 5px;
+    margin-top: 45px;
+    margin-left: 0px;
 }
   .expand-collapsearrow .device-top-bottom-arrow .ib{
     flex-grow: 1;
     margin: 6px 5px;
     cursor: pointer;
-    height: 24px;
-    background-color: rgba(255, 255, 255, 0.5);
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.15);
     float: left;
-    width: 24px;
+    width: 22px;
     border-radius: 50%;
     color: #060606;
 }
 .expand-collapsearrow .device-top-bottom-arrow .ib:hover{  
-  background-color: rgba(255, 255, 255, 1); 
+  background-color:#fff; 
 }
 .expand-collapsearrow .device-top-bottom-arrow .ib::before{
   content: '';
@@ -257,17 +281,16 @@ html {
   width: 100%;
   display: inline-block;
   height: 100%;
-  background-size: 26%;
+  background-size: 50%;
 }
 .expand-collapsearrow .device-top-bottom-arrow .top_arrow::before{
   content: '';
-  background-image: url(images/left-dark.svg);
-  transform: rotate(90deg);
+  background-image: url(images/arrow.svg);
+  transform: rotate(180deg);
 }
 .expand-collapsearrow .device-top-bottom-arrow .bottom_arrow::before{
   content: '';
-  background-image: url(images/left-dark.svg);
-  transform: rotate(270deg);
+  background-image: url(images/arrow.svg);
 }
 .expand-collapsearrow .expand-collapse{
   position: absolute;
