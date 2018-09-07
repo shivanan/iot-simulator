@@ -103,7 +103,8 @@ html {
   top: 40px;
   right: 0px;
   bottom: 30px;
-  background-color: white; }
+  background-color: white;
+  padding-left: 3px; }
   .staging.has-devices {
     background-color: black; }
 
@@ -117,7 +118,7 @@ html {
 
 .device-card {
   display: inline-block;
-  margin: 10px 5px;
+  margin: 5px 5px 0px 5px;
   width: 380px;
   height: 130px;
   background-color: #111416;

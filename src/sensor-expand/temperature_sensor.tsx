@@ -5,13 +5,14 @@ import { DeviceField, IncrementDecrement, TopBootomArrow } from '../field';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
-import { PressureSensor } from '../sensors/pressure';
+import { TemperatureSensor } from '../sensors/temperature';
 
-interface IPressureState extends IDeviceCardState {
+
+interface ITempState extends IDeviceCardState {
     value:number | string;
     active:boolean;
 }
-export class PressureDevice extends DeviceCard<IPressureState> {
+export class TemperatureDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
     toggleStatus() {
@@ -27,7 +28,7 @@ export class PressureDevice extends DeviceCard<IPressureState> {
     constructor(props:any) {
         super(props);
         this.state = {value:25,active:true};
-        this.sensor = new PressureSensor(this.props.device.id+':pressure',this.state.value);
+        this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
@@ -44,11 +45,11 @@ export class PressureDevice extends DeviceCard<IPressureState> {
     
     
     render() {
-        let url = `url(images/sensors/pressure.svg`;
-        return <div className='pressure'>
-            <div className='title' style={{ backgroundImage: url }}>Pressure Sensor</div>
+        let url = `url(images/sensors/temperature.svg`;
+        return <div className='temperature'>
+            <div className='title' style={{ backgroundImage: url }}>Temperature Sensor</div>
             <div className='primary-value-box'>
-                <DeviceField title='Pressure'>
+                <DeviceField title='Temperature'>
                     {
                         Number(this.state.value).toFixed(2) + 'C'
                     }
@@ -56,7 +57,7 @@ export class PressureDevice extends DeviceCard<IPressureState> {
                 <IncrementDecrement onChange={this.onIncrement.bind(this)} />
             </div>
 
-           <div className='fields'>
+            <div className='fields'>
                 <div className='sensor-top'>
                     <DeviceField title='Sensor ID'>
                         {
@@ -92,9 +93,10 @@ export class PressureDevice extends DeviceCard<IPressureState> {
                     <div className="expand-collapse"></div>
                     <TopBootomArrow onChange={this.onIncrement.bind(this)} />            
             </div>
+
         </div>;
     }
    
 }
 
-registerDeviceCard('pressure',(props) => <PressureDevice {...props} />);
+registerDeviceCard('temperature',(props) => <TemperatureDevice {...props} />);
