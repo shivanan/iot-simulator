@@ -505,12 +505,29 @@ html {
   color: #a9a9a9;
   font-size: .8rem;
   list-style: none;
-  font-weight: 600; }
+  font-weight: 600; 
+   position: relative;}
 
 .sidebar .sensors-search ul.sensors-search-list li:first-child {
   background-color: #101416;
   color: #ffffff; }
-
+  .sidebar .sensors-search ul.sensors-search-list li span.filter_add{
+    position: absolute;
+    width: 60px;
+    height: 50px;
+    right: 0;
+    top: 0;
+    background-color:#f37915;
+    border-radius: 25px 10px 10px 25px;
+  }
+  .sidebar .sensors-search ul.sensors-search-list li span.filter_add::before{
+    content: ' + ';
+    position: absolute;
+    font-size: 2rem;
+    left: 38%;
+    top: 5px;
+    color: #fff;
+  }
 .iot_content {
   float: left;
   width: 100%;

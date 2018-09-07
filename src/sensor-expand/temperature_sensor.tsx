@@ -5,14 +5,15 @@ import { DeviceField, IncrementDecrement, TopBootomArrow } from '../field';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
-import { TemperatureSensor } from '../sensors/temperature';
+import { TemperatureSensorExpand } from '../sensors/temperature_sensor';
 
 
 interface ITempState extends IDeviceCardState {
     value:number | string;
     active:boolean;
+    
 }
-export class TemperatureDevice extends DeviceCard<ITempState> {
+export class TemperaturesensorDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
     toggleStatus() {
@@ -20,15 +21,11 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
             this.sensor.active = this.state.active;
         });
     }
-    toggleBtnStatus() {
-        this.setState({active:!this.state.active},()=>{
-            this.sensor.active = this.state.active;
-        });
-    }
+    
     constructor(props:any) {
         super(props);
         this.state = {value:25,active:true};
-        this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
+        this.sensor = new TemperatureSensorExpand(this.props.device.id+':temp',this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
@@ -46,7 +43,7 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
     
     render() {
         let url = `url(images/sensors/temperature.svg`;
-        return <div className='temperature'>
+        return <div className='temperature-sensor'>
             <div className='title' style={{ backgroundImage: url }}>Temperature Sensor</div>
             <div className='primary-value-box'>
                 <DeviceField title='Temperature'>
@@ -63,14 +60,7 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                         {
                             this.props.device.id
                         }
-                    </DeviceField>
-                    <DeviceField title='On/Off'>
-                        <div onClick={this.toggleBtnStatus.bind(this)} className={classNames('on-off-status', { 'on': this.state.active })}>
-                            {
-                                this.state.active ? 'ON' : 'OFF'
-                            }
-                        </div>
-                    </DeviceField>      
+                    </DeviceField>                  
                                                     
                 </div>
                 
@@ -89,14 +79,12 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                     </DeviceField>
                 </div>
             </div>
-            <div className="expand-collapsearrow">
-                    <div className="expand-collapse"></div>
-                    <TopBootomArrow onChange={this.onIncrement.bind(this)} />            
-            </div>
+
+          
 
         </div>;
     }
    
 }
 
-registerDeviceCard('temperature',(props) => <TemperatureDevice {...props} />);
+registerDeviceCard('temperature-expand',(props) => <TemperaturesensorDevice {...props} />);

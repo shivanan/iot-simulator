@@ -6,12 +6,21 @@ import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
 import { TemperatureSensor } from '../sensors/temperature';
-
+import { TemperaturesensorDevice } from '../sensor-expand/temperature_sensor';
+import { IExpandDevice } from '../expand-device';
+import * as UUID from 'node-uuid';
 
 interface ITempState extends IDeviceCardState {
     value:number | string;
     active:boolean;
+    onAddDevice:(device:IExpandDevice) => void;
+    
 }
+interface ITempProps {
+    onAddDevice:(device:IExpandDevice) => void;
+   
+}
+
 export class TemperatureDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
@@ -24,6 +33,10 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         this.setState({active:!this.state.active},()=>{
             this.sensor.active = this.state.active;
         });
+    }
+    
+    addDevice(d:IExpandDevice) {
+        this.state.onAddDevice(d);
     }
     constructor(props:any) {
         super(props);
@@ -46,6 +59,7 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
     
     render() {
         let url = `url(images/sensors/temperature.svg`;
+        let u = UUID.v1().substring(0,8);
         return <div className='temperature'>
             <div className='title' style={{ backgroundImage: url }}>Temperature Sensor</div>
             <div className='primary-value-box'>
@@ -90,9 +104,10 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                 </div>
             </div>
             <div className="expand-collapsearrow">
-                    <div className="expand-collapse"></div>
+                    <div className="expand-collapse" onClick={this.addDevice.bind(this,{'id':u,type:'temperature_sensor'})}></div>
                     <TopBootomArrow onChange={this.onIncrement.bind(this)} />            
             </div>
+
 
         </div>;
     }

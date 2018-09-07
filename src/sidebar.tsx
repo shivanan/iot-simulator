@@ -1,6 +1,7 @@
 import * as UUID from 'node-uuid';
 import * as React from 'react';
 import { IDevice } from './device';
+import { SideBarFilter } from './sidebar_filter';
 
 //import { SidebarCollapse } from './sidebar_collapse';
 
@@ -33,11 +34,10 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
         // this.props.onScreenChanges(e);
     }
    
-
     render() {
-        const numbers = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"];        
+        const numbers = ["T1.BLDG01.FL23" , "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"];        
         const listItems = numbers.map((numbers) =>
-        <li>{numbers}</li>
+        <li>{numbers}<span className="filter_add"/></li>
         ); 
         
        // var sensors_recent = ["T1.BLDG01.FL23", "T1.BLDG01.FL23", "T2.BLDG01.FL23", "T2.BLDG01.FL23"]; 
@@ -67,6 +67,7 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
 						</div>						
 					</div>
                 <ul className="sensors-search-list">{listItems}</ul>
+                <div id="mount-point">{ SideBarFilter }</div>
             </div>         
 
             <div id="mount-point" style={{display: this.props.collapsed ? 'none' : 'block'}} >
