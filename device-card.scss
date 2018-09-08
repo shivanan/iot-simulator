@@ -1,70 +1,268 @@
-.device-card {
-    display:inline-block;
-    margin:10px;
-    width:350px;
-    height:120px;
-    background-color: #111416;
-    color:#CCC;
-    padding:10px;
-    border-radius:5px;
-    box-sizing:border-box;
-    position:relative;
-    .title {
-        font-size: 14px;
-        height: 30px;
-        padding-left: 40px;
-        line-height: 30px;
-        background-repeat: no-repeat;
-    }
+@mixin fields {
     .fields {
-        position:absolute;
-        display: flex;
-        left:0px;
-        // right:0px;
-        bottom:0px;
-        margin:0px 10px 10px 10px;
-    }
-
-    .device-field {
-        font-size: 12px;
+        margin: 0px 0px 0px 0px;
+        float: left;
+        width: 168px;
+        .sensor-top, .sensor-bot {
+          float: left;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .sensor-top .device-field, .sensor-bot .device-field {
+          // width: 57px;
+          float: left;
+          margin: 0 5px;
+        }
+        .sensor-top .device-field {
+          /*&:first-child {
+            width: 85px;
+          }
+          &:last-child .device-field-value {
+            border-radius: 25px;
+            padding: 7px 10px 7px 26px;
+            position: relative;
+          }*/
+        }
+        .sensor-bot .device-field:first-child {
+          /*width: 70px; */
+        }
+      }
+      .device-field {
+        font-size: 11px;
         margin-left: 10px;
         margin-right: 10px;
-    }
-
-    .device-field-value {
+      }
+      .device-field-value {
         background-color: rgba(255, 255, 255, 0.15);
-        padding: 5px 10px;
-        font-size: 12px;
+        padding: 8px 10px;
+        font-size: 10px;
         border-radius: 6px;
         box-sizing: border-box;
         margin-top: 5px;
-    }
-    .device-card-status {
-        cursor:pointer;
-        &.online {
-            &::before {
-                background-color:blue;
-            }
+        &.curved {
+          border-radius: 15px;
+        }
+      }
+      .device-card-status {
+        cursor: pointer;
+        &.online::before {
+          background-color: #9d0cd2;
         }
         &::before {
-            content:'';
-            display:inline-block;
-            background-color:orange;
-            border-radius:50%;
-            width:10px;
-            height:10px;
-            position:relative;
-            left:-5px;
+          content: '';
+          display: inline-block;
+          background-color: orange;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          position: relative;
+          left: -5px;
+          top: 1px;
         }
+      }
+      .on-off-status {
+        cursor: pointer;
+        position:relative;
+        text-align: right;
+        width:40px;
+        &.on{
+          text-align: left;
+          &::before {
+            background-color: #9d0cd2;
+            text-align: left;
+            right:-3px;
+            top:-3px;
+            left:auto;
+          }
+        }
+        &::before {
+          content: '';
+          left:-3px;
+          top:-3px;
+          display: inline-block;
+          background-color: orange;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+
+        }
+      }
+}
+@mixin expand-collapse {
+  .expand-collapse {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: rgba(113, 42, 42, 0);
+    &::before {
+      content: '';
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 22px;
+      display: inline-block;
+      height: 22px;
+      background-size: 100%;
+      background-image: url(images/Expand_card.svg);
+      cursor: pointer;
+    }
+    &:hover::before {
+      // width: 33px;
+      // height: 33px;
+      background-size: 100%;
+      background-image: url(images/collapse_card.svg);
+    }
+  }
+}
+.device-card-expanded {
+    position: absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    background-color: #446889;
+    width:auto;
+    height:auto;
+    margin:0px;
+    color:white;
+    z-index:1;
+    .title {
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin: 50px 0px 0px 50px;
+        width: 200px;
+        height: 60px;
+        padding-left: 80px;
+        line-height: 60px;
+        font-size: 20px;
+        font-weight:bold;
     }
     .primary-value-box {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        .device-field-value {
-            background-color: white;
-            color: #424242;
-            font-size: 18px;
+      width:200px;
+      margin:20px 120px;
+      .device-field-title {
+        font-size:14px;
+      }
+      .device-field-value {
+        font-size:18px;
+      }
+      
+    }
+    .expand-collapse {
+        &::before {
+          background-image: url(images/collapse_card.svg);
         }
+        &:hover::before {
+          background-image: url(images/collapse_card.svg) !important;
+
+        }
+      }
+    @include fields;
+    @include expand-collapse;
+    .fields {
+      margin-left:120px;
+      width:auto;
+      .device-field {
+        display:inline-block;
+        .device-field-title {
+          font-size: 14px;
+        }
+        .device-field-value {
+          font-size:14px;
+        }
+      }
     }
 }
+
+.device-card {
+ 
+  display: inline-block;
+  margin: 5px 5px 0px 5px;
+  width: 380px;
+  height: 130px;
+  background-color: #111416;
+  color: #FFFFFF;
+  padding: 10px 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+  .title {
+    font-size: 12px;
+    height: 0px;
+    padding-left: 0px;
+    background-repeat: no-repeat;
+    width: 71px;
+    float: left;
+    line-height: 19px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 47px;
+    background-position: center top;
+    margin: 5px;
+  }
+  @include fields;
+ 
+  .primary-value-box {
+    /*position: absolute;
+    right: 5px;
+    top: 5px; */
+    float: left;
+    width: 90px;
+    .device-field-value {
+      background-color: white;
+      font-size: 16px;
+      text-align: center;
+      color: #444;
+    }
+  }
+}
+
+
+.expand-collapsearrow {
+    float: left;
+    width: 30px;
+  }
+  
+  .device-top-bottom-arrow {
+    float: left;
+    margin-top: 45px;
+    margin-left: 0px;
+  }
+  
+  .expand-collapsearrow {
+    .device-top-bottom-arrow {
+      .ib {
+        flex-grow: 1;
+        margin: 6px 5px;
+        cursor: pointer;
+        height: 22px;
+        background-color: rgba(255, 255, 255, 0.15);
+        float: left;
+        width: 22px;
+        border-radius: 50%;
+        color: #060606;
+        &:hover {
+          background-color: #fff;
+        }
+        &::before {
+          content: '';
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100%;
+          display: inline-block;
+          height: 100%;
+          background-size: 50%;
+        }
+      }
+      .top_arrow::before {
+        content: '';
+        background-image: url(images/arrow.svg);
+        transform: rotate(180deg);
+      }
+      .bottom_arrow::before {
+        content: '';
+        background-image: url(images/arrow.svg);
+      }
+    }
+    @include expand-collapse;
+  }

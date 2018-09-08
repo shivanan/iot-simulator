@@ -1,6 +1,9 @@
+import * as classNames from 'classnames';
 import * as React from 'react';
+
 export interface IDeviceFieldProps {
     title: string;
+    curved?:boolean;
 }
 export interface IDeviceFieldState {
     
@@ -13,7 +16,7 @@ export class DeviceField extends React.Component<IDeviceFieldProps,IDeviceFieldS
     render() {
         return <div className='device-field'>
             <div className='device-field-title'>{this.props.title}</div>
-            <div className='device-field-value'>
+            <div className={classNames('device-field-value',{'curved':this.props.curved===true})}>
             {this.props.children}
             </div>
         </div>;

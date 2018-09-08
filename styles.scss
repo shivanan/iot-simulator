@@ -22,7 +22,10 @@ html {
     position:absolute;
     left:0px;
     top:40px;
-    width:300px;
+    width:220px;
+    &.sidebar-collapsed {
+        width:80px;
+    }
     bottom:0px;
     background-color:#262F35;
     color:white;
@@ -30,11 +33,15 @@ html {
 
 .staging {
     position:absolute;
-    left:300px;
+    left:220px;
     top:40px;
     right:0px;
-    bottom:30px;
+    bottom:0px;
+    overflow:auto;
     background-color:white;
+    &.sidebar-collapsed {
+        left: 80px;
+    }
     &.has-devices {
         background-color: black;
     }
@@ -44,7 +51,7 @@ html {
     left:300px;
     bottom:0px;
     right:0px;
-    height:30px;
+    height:0px;
     background-color:#06F;
 }
 @import "device-card.scss";
