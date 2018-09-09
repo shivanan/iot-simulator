@@ -246,20 +246,18 @@ html {
     margin-top: 10px;
     border-radius: 10px;
     background-image: url(images/list_icon.svg);
-    background-position: 10px 7px;
+    background-position: 0px 0px;
+    cursor:pointer;
     background-repeat: no-repeat;
     padding: 17px 3% 18px 20%;
-    background-size: 13%;
+    background-size: 25%;
     color: #a9a9a9;
     font-size: .8rem;
     list-style: none;
     font-weight: 600;
     
 }
-.sidebar .sensors-search ul.sensors-search-list li:first-child{
-    background-color: #101416;
-    color: #ffffff;  
-}
+
 
 .iot_content{
 	float: left;

@@ -54,7 +54,11 @@ export class SideBar extends React.Component<ISideBarProps,ISideBarState> {
                 
                 <ul className="sensors-search-list">
                 {
-                    sensors.map(v => <li onClick={this.addDevice.bind(this,v[0])}>{v[1]}<span className="filter_add"/></li>)
+                    sensors.map(v => <li 
+                        style={{backgroundImage:`url(images/${v[0]}.svg)`}} 
+                        onClick={this.addDevice.bind(this,v[0])}>{v[1]}
+                            <span className="filter_add"/>
+                        </li>)
                 }
                 </ul>
             </div>         
