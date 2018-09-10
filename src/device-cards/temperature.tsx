@@ -8,17 +8,16 @@ import { registerSensor } from '../sensor-manager';
 import { TemperatureSensor } from '../sensors/temperature';
 import { TemperaturesensorDevice } from '../sensor-expand/temperature_sensor';
 import { IExpandDevice } from '../expand-device';
-import * as UUID from 'node-uuid';
+
 
 interface ITempState extends IDeviceCardState {
     value:number | string;
     active:boolean;
-    onAddDevice:(device:IExpandDevice) => void;
+    
     
 }
 interface ITempProps {
-    onAddDevice:(device:IExpandDevice) => void;
-   
+  
 }
 
 export class TemperatureDevice extends DeviceCard<ITempState> {
@@ -35,9 +34,7 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         });
     }
     
-    addDevice(d:IExpandDevice) {
-        this.state.onAddDevice(d);
-    }
+  
     constructor(props:any) {
         super(props);
         this.state = {value:25,active:true};
@@ -104,7 +101,7 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
                 </div>
             </div>
             <div className="expand-collapsearrow">
-                    <div className="expand-collapse" onClick={this.addDevice.bind(this,{'id':u,type:'temperature_sensor'})}></div>
+                    <div className="expand-collapse" onClick={this.props.bind(this,{'id':u,type:'temperature_sensor'})}></div>
                     <TopBootomArrow onChange={this.onIncrement.bind(this)} />            
             </div>
 
