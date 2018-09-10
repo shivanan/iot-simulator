@@ -1,4 +1,4 @@
-
+/*
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { SideBar } from './sidebar';
@@ -9,8 +9,8 @@ interface ISideBarFilterProps {
 }
 
 interface ISideBarFilterState {
-    /* not required in state - let it belong to the master iot device state
-    since we need to use it in 2 places - sidebar annd staging */
+    // not required in state - let it belong to the master iot device state
+    // since we need to use it in 2 places - sidebar annd staging 
     //collapse: boolean;
 }
 
@@ -70,4 +70,4 @@ export class SideBarFilter extends React.Component<ISideBarFilterProps,ISideBarF
       });
 
 
- 
+ */

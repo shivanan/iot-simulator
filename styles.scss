@@ -22,7 +22,10 @@ html {
     position:absolute;
     left:0px;
     top:40px;
-    width:300px;
+    width:220px;
+    &.sidebar-collapsed {
+        width:80px;
+    }
     bottom:0px;
     background-color:#262F35;
     color:white;
@@ -30,11 +33,15 @@ html {
 
 .staging {
     position:absolute;
-    left:300px;
+    left:220px;
     top:40px;
     right:0px;
-    bottom:30px;
+    bottom:0px;
+    overflow:auto;
     background-color:white;
+    &.sidebar-collapsed {
+        left: 80px;
+    }
     &.has-devices {
         background-color: black;
     }
@@ -44,7 +51,7 @@ html {
     left:300px;
     bottom:0px;
     right:0px;
-    height:30px;
+    height:0px;
     background-color:#06F;
 }
 @import "device-card.scss";
@@ -239,20 +246,18 @@ html {
     margin-top: 10px;
     border-radius: 10px;
     background-image: url(images/list_icon.svg);
-    background-position: 10px 7px;
+    background-position: 0px 0px;
+    cursor:pointer;
     background-repeat: no-repeat;
     padding: 17px 3% 18px 20%;
-    background-size: 13%;
+    background-size: 25%;
     color: #a9a9a9;
     font-size: .8rem;
     list-style: none;
     font-weight: 600;
     
 }
-.sidebar .sensors-search ul.sensors-search-list li:first-child{
-    background-color: #101416;
-    color: #ffffff;  
-}
+
 
 .iot_content{
 	float: left;

@@ -92,19 +92,23 @@ html {
   position: absolute;
   left: 0px;
   top: 40px;
-  width: 277px;
+  width: 220px;
   bottom: 0px;
   background-color: #262F35;
   color: white; }
+  .sidebar.sidebar-collapsed {
+    width: 80px; }
 
 .staging {
   position: absolute;
-  left: 300px;
+  left: 220px;
   top: 40px;
   right: 0px;
-  bottom: 30px;
-  background-color: white;
-  padding-left: 3px; }
+  bottom: 0px;
+  overflow: auto;
+  background-color: white; }
+  .staging.sidebar-collapsed {
+    left: 80px; }
   .staging.has-devices {
     background-color: black; }
 
@@ -113,8 +117,141 @@ html {
   left: 300px;
   bottom: 0px;
   right: 0px;
-  height: 30px;
+  height: 0px;
   background-color: #06F; }
+
+.device-card-expanded {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #446889;
+  width: auto;
+  height: auto;
+  margin: 0px;
+  color: white;
+  z-index: 1; }
+  .device-card-expanded .title {
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 50px 0px 0px 50px;
+    width: 200px;
+    height: 60px;
+    padding-left: 80px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold; }
+  .device-card-expanded .primary-value-box {
+    width: 200px;
+    margin: 20px 120px; }
+    .device-card-expanded .primary-value-box .device-field-title {
+      font-size: 14px; }
+    .device-card-expanded .primary-value-box .device-field-value {
+      font-size: 18px; }
+  .device-card-expanded .expand-collapse::before {
+    background-image: url(images/collapse_card.svg); }
+  .device-card-expanded .expand-collapse:hover::before {
+    background-image: url(images/collapse_card.svg) !important; }
+  .device-card-expanded .fields {
+    margin: 0px 0px 0px 0px;
+    float: left;
+    width: 168px; }
+    .device-card-expanded .fields .sensor-top, .device-card-expanded .fields .sensor-bot {
+      float: left;
+      width: 100%;
+      margin-bottom: 10px; }
+    .device-card-expanded .fields .sensor-top .device-field, .device-card-expanded .fields .sensor-bot .device-field {
+      float: left;
+      margin: 0 5px; }
+    .device-card-expanded .fields .sensor-top .device-field {
+      /*&:first-child {
+        width: 85px;
+      }
+      &:last-child .device-field-value {
+        border-radius: 25px;
+        padding: 7px 10px 7px 26px;
+        position: relative;
+      }*/ }
+    .device-card-expanded .fields .sensor-bot .device-field:first-child {
+      /*width: 70px; */ }
+  .device-card-expanded .device-field {
+    font-size: 11px;
+    margin-left: 10px;
+    margin-right: 10px; }
+  .device-card-expanded .device-field-value {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 8px 10px;
+    font-size: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 5px; }
+    .device-card-expanded .device-field-value.curved {
+      border-radius: 15px; }
+  .device-card-expanded .device-card-status {
+    cursor: pointer; }
+    .device-card-expanded .device-card-status.online::before {
+      background-color: #9d0cd2; }
+    .device-card-expanded .device-card-status::before {
+      content: '';
+      display: inline-block;
+      background-color: orange;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      position: relative;
+      left: -5px;
+      top: 1px; }
+  .device-card-expanded .on-off-status {
+    cursor: pointer;
+    position: relative;
+    text-align: right;
+    width: 40px; }
+    .device-card-expanded .on-off-status.on {
+      text-align: left; }
+      .device-card-expanded .on-off-status.on::before {
+        background-color: #9d0cd2;
+        text-align: left;
+        right: -3px;
+        top: -3px;
+        left: auto; }
+    .device-card-expanded .on-off-status::before {
+      content: '';
+      left: -3px;
+      top: -3px;
+      display: inline-block;
+      background-color: orange;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      position: absolute; }
+  .device-card-expanded .expand-collapse {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: rgba(113, 42, 42, 0); }
+    .device-card-expanded .expand-collapse::before {
+      content: '';
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 22px;
+      display: inline-block;
+      height: 22px;
+      background-size: 100%;
+      background-image: url(images/Expand_card.svg);
+      cursor: pointer; }
+    .device-card-expanded .expand-collapse:hover::before {
+      background-size: 100%;
+      background-image: url(images/collapse_card.svg); }
+  .device-card-expanded .fields {
+    margin-left: 120px;
+    width: auto; }
+    .device-card-expanded .fields .device-field {
+      display: inline-block; }
+      .device-card-expanded .fields .device-field .device-field-title {
+        font-size: 14px; }
+      .device-card-expanded .fields .device-field .device-field-value {
+        font-size: 14px; }
 
 .device-card {
   display: inline-block;
@@ -139,34 +276,29 @@ html {
     font-weight: bold;
     padding-top: 47px;
     background-position: center top;
-    margin: 5px;
-   }
-  .device-card .fields {   
-      margin: 0px 0px 0px 0px;
-      float: left;
-      width: 168px;
-   }
-   .device-card .fields .sensor-top, .device-card .fields .sensor-bot{
+    margin: 5px; }
+  .device-card .fields {
+    margin: 0px 0px 0px 0px;
+    float: left;
+    width: 168px; }
+    .device-card .fields .sensor-top, .device-card .fields .sensor-bot {
       float: left;
       width: 100%;
-      margin-bottom: 10px;
-   }
-   .device-card .fields .sensor-top .device-field, .device-card .fields .sensor-bot .device-field{
-      width: 57px;
+      margin-bottom: 10px; }
+    .device-card .fields .sensor-top .device-field, .device-card .fields .sensor-bot .device-field {
       float: left;
-      margin: 0 5px;
-    }
-   .device-card .fields .sensor-top .device-field:first-child{
-      width:85px;
-   }
-   .device-card .fields .sensor-top .device-field:last-child .device-field-value{
-      border-radius: 25px;
-      padding: 7px 10px 7px 26px;
-      position: relative;
- }
-   .device-card .fields .sensor-bot .device-field:first-child{
-      width:70px;
-   }
+      margin: 0 5px; }
+    .device-card .fields .sensor-top .device-field {
+      /*&:first-child {
+        width: 85px;
+      }
+      &:last-child .device-field-value {
+        border-radius: 25px;
+        padding: 7px 10px 7px 26px;
+        position: relative;
+      }*/ }
+    .device-card .fields .sensor-bot .device-field:first-child {
+      /*width: 70px; */ }
   .device-card .device-field {
     font-size: 11px;
     margin-left: 10px;
@@ -178,10 +310,12 @@ html {
     border-radius: 6px;
     box-sizing: border-box;
     margin-top: 5px; }
+    .device-card .device-field-value.curved {
+      border-radius: 15px; }
   .device-card .device-card-status {
     cursor: pointer; }
     .device-card .device-card-status.online::before {
-      background-color: #9d0cd2 }
+      background-color: #9d0cd2; }
     .device-card .device-card-status::before {
       content: '';
       display: inline-block;
@@ -191,49 +325,106 @@ html {
       height: 10px;
       position: relative;
       left: -5px;
-      top: 1px;}
-
-      .device-card .on-off-status {
-        cursor: pointer; }
-        .device-card .on-off-status.on::before {
-          background-color: #9d0cd2;
-          right: 5px;
-        
-        }
-        .device-card .on-off-status::before {
-          content: '';
-          display: inline-block;
-          background-color: orange;
-          border-radius: 50%;
-          width: 18px;
-          height: 18px;
-          position: absolute;
-          left: 5px;
-          top: 4px;}
-
+      top: 1px; }
+  .device-card .on-off-status {
+    cursor: pointer;
+    position: relative;
+    text-align: right;
+    width: 40px; }
+    .device-card .on-off-status.on {
+      text-align: left; }
+      .device-card .on-off-status.on::before {
+        background-color: #9d0cd2;
+        text-align: left;
+        right: -3px;
+        top: -3px;
+        left: auto; }
+    .device-card .on-off-status::before {
+      content: '';
+      left: -3px;
+      top: -3px;
+      display: inline-block;
+      background-color: orange;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      position: absolute; }
   .device-card .primary-value-box {
     /*position: absolute;
     right: 5px;
     top: 5px; */
     float: left;
-    width: 90px;
-  }
+    width: 90px; }
     .device-card .primary-value-box .device-field-value {
       background-color: white;
-      font-size: 16px;
+      font-size: 12px;
       text-align: center;
       color: #444; }
 
+.expand-collapsearrow {
+  float: left;
+  width: 30px; }
+
+.device-top-bottom-arrow {
+  float: left;
+  margin-top: 45px;
+  margin-left: 0px; }
+
+.expand-collapsearrow .device-top-bottom-arrow .ib {
+  flex-grow: 1;
+  margin: 6px 5px;
+  cursor: pointer;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0.15);
+  float: left;
+  width: 22px;
+  border-radius: 50%;
+  color: #060606; }
+  .expand-collapsearrow .device-top-bottom-arrow .ib:hover {
+    background-color: #fff; }
+  .expand-collapsearrow .device-top-bottom-arrow .ib::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    background-size: 50%; }
+.expand-collapsearrow .device-top-bottom-arrow .top_arrow::before {
+  content: '';
+  background-image: url(images/arrow.svg);
+  transform: rotate(180deg); }
+.expand-collapsearrow .device-top-bottom-arrow .bottom_arrow::before {
+  content: '';
+  background-image: url(images/arrow.svg); }
+.expand-collapsearrow .expand-collapse {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: rgba(113, 42, 42, 0); }
+  .expand-collapsearrow .expand-collapse::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 22px;
+    display: inline-block;
+    height: 22px;
+    background-size: 100%;
+    background-image: url(images/Expand_card.svg);
+    cursor: pointer; }
+  .expand-collapsearrow .expand-collapse:hover::before {
+    background-size: 100%;
+    background-image: url(images/collapse_card.svg); }
+
 .device-increment-decrement {
-  display: flex;
-  margin-top:10px; }
+  display: flex; }
   .device-increment-decrement .ib {
-    flex-grow: 1;
+    width: 40px;
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
-    height: 32px;
-    background-color: rgba(255, 255, 255, 0.15);
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer; }
     .device-increment-decrement .ib::before {
       content: '';
@@ -242,79 +433,18 @@ html {
       width: 100%;
       display: inline-block;
       height: 100%;
-      background-size: 50%; }
-    .device-increment-decrement .ib:active, .device-increment-decrement .ib:hover {
+      background-size: 20%; }
+    .device-increment-decrement .ib:active {
       background-color: #06F; }
   .device-increment-decrement .increment::before {
     content: '';
-    background-image: url(images/arrow.svg);
-    transform: rotate(180deg); }
+    background-image: url(images/left-dark.svg);
+    transform: rotate(90deg); }
   .device-increment-decrement .decrement::before {
     content: '';
-    background-image: url(images/arrow.svg); }
-  .expand-collapsearrow{
-      float: left;
-      width: 30px;
-  }
-  .device-top-bottom-arrow {
-    float: left;
-    margin-top: 45px;
-    margin-left: 0px;
-}
-  .expand-collapsearrow .device-top-bottom-arrow .ib{
-    flex-grow: 1;
-    margin: 6px 5px;
-    cursor: pointer;
-    height: 22px;
-    background-color: rgba(255, 255, 255, 0.15);
-    float: left;
-    width: 22px;
-    border-radius: 50%;
-    color: #060606;
-}
-.expand-collapsearrow .device-top-bottom-arrow .ib:hover{  
-  background-color:#fff; 
-}
-.expand-collapsearrow .device-top-bottom-arrow .ib::before{
-  content: '';
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  display: inline-block;
-  height: 100%;
-  background-size: 50%;
-}
-.expand-collapsearrow .device-top-bottom-arrow .top_arrow::before{
-  content: '';
-  background-image: url(images/arrow.svg);
-  transform: rotate(180deg);
-}
-.expand-collapsearrow .device-top-bottom-arrow .bottom_arrow::before{
-  content: '';
-  background-image: url(images/arrow.svg);
-}
-.expand-collapsearrow .expand-collapse{
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: rgba(113, 42, 42, 0);
-}
-.expand-collapsearrow .expand-collapse::before{
-  content: '';
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 22px;
-  display: inline-block;
-  height: 22px;
-  background-size: 100%;
-  background-image: url(images/Expand_card.svg); 
-  cursor: pointer;
-}
-.expand-collapsearrow .expand-collapse:hover::before{
-   width: 33px;
-  height: 33px; 
-  background-image: url(images/collapse_card.svg);
-}
+    background-image: url(images/left-dark.svg);
+    transform: rotate(270deg); }
+
 /*Styles*/
 .iot_header .header_m-logo::after, .footer .play-btn a::after, .footer .tick::after, .sidebar .sensors-top .sensors-icon::after, .sensors-recent ul li a::after, .device-card .temp .configure-btn a::before {
   content: "  -  ";
@@ -498,36 +628,16 @@ html {
   margin-top: 10px;
   border-radius: 10px;
   background-image: url(images/list_icon.svg);
-  background-position: 10px 7px;
+  background-position: 0px 0px;
+  cursor: pointer;
   background-repeat: no-repeat;
   padding: 17px 3% 18px 20%;
-  background-size: 13%;
+  background-size: 25%;
   color: #a9a9a9;
   font-size: .8rem;
   list-style: none;
-  font-weight: 600; 
-   position: relative;}
+  font-weight: 600; }
 
-.sidebar .sensors-search ul.sensors-search-list li:first-child {
-  background-color: #101416;
-  color: #ffffff; }
-  .sidebar .sensors-search ul.sensors-search-list li span.filter_add{
-    position: absolute;
-    width: 60px;
-    height: 50px;
-    right: 0;
-    top: 0;
-    background-color:#f37915;
-    border-radius: 25px 10px 10px 25px;
-  }
-  .sidebar .sensors-search ul.sensors-search-list li span.filter_add::before{
-    content: ' + ';
-    position: absolute;
-    font-size: 2rem;
-    left: 38%;
-    top: 5px;
-    color: #fff;
-  }
 .iot_content {
   float: left;
   width: 100%;
@@ -580,20 +690,10 @@ html {
   margin-right: 9%;
   list-style: none; }
 
-.sensors-recent ul li a{ 
-    float: left;
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-}
-.sensors-recent ul li a span{
-    position: absolute;
-    bottom: -3px;
-    font-size: 0.7rem;
-    color: #fff;
-    width: 100%;
-    text-align: center;
-}
+.sensors-recent ul li a {
+  float: left;
+  width: 100%; }
+
 .sensors-recent ul li a.temperature::after {
   background: url(images/Temperature.svg) no-repeat 0 0;
   height: 5rem; }

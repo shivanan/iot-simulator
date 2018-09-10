@@ -1,5 +1,5 @@
 import { ISensorValue } from './sensor-data';
-declare type SensorValue= number|string;
+export declare type SensorValue= number|string;
 export  class Sensor {
     device:string;
     value:SensorValue
