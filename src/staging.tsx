@@ -32,11 +32,19 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
     }
     renderSplashScreen(){
         return <div className="iot_content">
+
+        <div className="settings">
+            <div className="userLogin">
+            
+            </div>
+        </div>
+
+
             <div className="smart_em_cont smart_em_lft">
-                <span className="welcome_smart-em"> </span>
+                <span className="welcome_smart-em" />
             </div>
             <div className="smart_em_cont smart_em_rgt">
-                <span className="design_angle"></span>
+                <span className="design_angle" />
             </div>
         </div>;
     }

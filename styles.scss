@@ -48,11 +48,14 @@ html {
 }
 .bottombar {
     position:absolute;
-    left:300px;
+    left:220px;
     bottom:0px;
     right:0px;
-    height:0px;
-    background-color:#06F;
+    height:50px;
+    background-color:#172f40;
+    &.sidebar-collapsed {
+        left: 80px;
+    }
 }
 @import "device-card.scss";
 @import "fields.scss";
@@ -338,9 +341,46 @@ html {
 	margin-top: 5px;
 }
 
+.bottombar .settings-icon{
+    display: flex;
+    background: url(images/settings.svg) no-repeat 0 0;
+    width: 30px;
+    height: 30px;
+    margin: 6px 5px 0 0;
+    background-color: #192025;
+    border-radius: 50%;
+    text-align: center;
+    float: right;
+    background-size: 65%;
+    background-position: center center;
+    cursor: pointer;
+    border: 5px solid #172f40;
 
+    &:hover{
+        background-color: #9d0cd2;  
+        border: 5px solid #192025;
+    }
+}
+.bottombar .sensors-nav{
+    display: flex;
+    background: url(images/sensors-nav.svg) no-repeat 0 0;
+    width: 30px;
+    height: 30px;
+    margin: 6px 20px 0 0;
+    background-color: #192025;
+    border-radius: 50%;
+    text-align: center;
+    float: right;
+    background-size: 65%;
+    background-position: center center;
+    cursor: pointer;
+    border: 5px solid #172f40;
 
-
+    &:hover{
+        background-color: #9d0cd2;  
+        border: 5px solid #192025;
+    }
+}
 
 .sensor{
     float: left;

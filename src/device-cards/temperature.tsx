@@ -32,6 +32,8 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
     }
     constructor(props:any) {
         super(props);
+        
+        
         this.state = {value:25,active:true};
         this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
         this.sensor.active = this.state.active;

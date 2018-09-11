@@ -48,7 +48,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
             <TopBar />
             <SideBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onAddDevice={this.addDevice.bind(this)} />
             <Staging expandedDevice={this.state.expandedDevice} collapsed={this.state.collapse} devices={this.state.devices} onDeviceStateChange={this.deviceStateChange.bind(this)} />
-            <BottomBar collapsed={this.state.collapse} />
+            <BottomBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} />
         </div>
     }
 }
