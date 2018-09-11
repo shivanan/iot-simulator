@@ -382,6 +382,32 @@ html {
     }
 }
 
+.settings{
+    display: flex;
+    font-size: 15px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: none;
+
+    &.settingsShow{
+        display: block;
+    }
+     .settingsPanel{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        top: 50%;
+        width: 400px;
+        height: 400px;
+        background: #122029;
+        margin: -200px 0 0 -200px;
+        border-radius: 15%;
+     }
+}
+
 .sensor{
     float: left;
     width: 100%;

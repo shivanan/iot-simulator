@@ -1,39 +1,39 @@
-import * as React from 'react';
-import { settings } from 'cluster';
-import { BottomBar } from './bottombar';
+  import * as classNames from 'classnames';
+  import * as React from 'react';
+  //import { settings } from 'cluster';
+  //import { BottomBar } from './bottombar';
+  //import { Form, Text } from 'react-form';
 
 
 export interface ISettingsProps {
-    collapsed: boolean;
-    toggleState:() => void;
-    value:number | string;
-    active:boolean;
+    //onSideBarCollapse:(collapsed:boolean) => void;
+    //collapsed: boolean;
+    onActiveSettings:(settingsActived:boolean)=> void;
+    settingsActived:boolean 
 }
 export interface ISettingsState {
     
 }
 
-
 export class Settings extends React.Component<ISettingsProps,ISettingsState> {
-    constructor(props : any) {
-      super(props);
-     
+    constructor(props:ISettingsProps) {
+        super(props);      
+        this.state = {
+           
+        }
     }
-  
+    render() {  
+      
+ 
+         return (
+             <div  className={classNames('settings',{'settingsShow':this.props.settingsActived})}>
+                   <div className="settingsPanel">
+                               
+                 
 
-    render() {
-      return (
-          //   return <div className="settings" state={this.props.state} toggleState={this.toggleState.bind(this)}></div> ;
-          <div className="settings">
 
-                <form>
-                    <label>
-                        Name:
-                        <input type="text" name="name" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                    </form>
-                </div>
-      );
-    }
-  }
+                   </div>    
+             </div>
+           );
+     }
+}
