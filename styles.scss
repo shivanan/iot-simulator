@@ -53,6 +53,7 @@ html {
     right:0px;
     height:50px;
     background-color:#172f40;
+    z-index: 1;
     &.sidebar-collapsed {
         left: 80px;
     }
@@ -382,15 +383,16 @@ html {
     }
 }
 
-.settings{
+.settingsDivPanel{
     display: flex;
     font-size: 15px;
     position: relative;
     width: 100%;
     height: 100%;
-    background:rgba(0, 0, 0, 0.8);
+    background:rgba(0, 0, 0, 0.9);
     color: #fff;
     display: none;
+    z-index: 1;
 
     &.settingsShow{
         display: block;
@@ -404,8 +406,63 @@ html {
         height: 400px;
         background: #122029;
         margin: -200px 0 0 -200px;
-        border-radius: 15%;
-     }
+        border-radius: 10%;
+        padding: 30px;
+
+        h3{
+            font-size: 1rem;
+            float: left;
+            width: 100%;
+            margin: 15px 0 10px 0;
+
+        }
+        .form-group{
+            float: left;
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+
+            label{
+                font-size: .8rem;
+                color: #fff;
+                float: left;
+                margin-top: 15px;
+                width: 160px;
+                line-height: 1.2rem;            
+            }
+                input, select{
+                    background: #2d343a;
+                    border: none;
+                    width: 190px;
+                    margin: 10px 0 0 0px;
+                    border-radius: 8px;
+                    padding: 7px 5px;
+                    outline: none;
+                    display: inline-block;                
+            }
+            select{             
+                width: 200px;                          
+            }
+        }
+        button{
+            background: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 6px 15px;
+            color: #192025;
+            cursor: pointer;
+        }
+    }
+    .settings-footer{
+        float: right;
+        margin-top: 15px;
+        width: 173px;
+
+        .settings-close{
+            float: left;
+            margin-right: 10px;
+        }
+    }
 }
 
 .sensor{

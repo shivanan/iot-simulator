@@ -118,7 +118,8 @@ html {
   bottom: 0px;
   right: 0px;
   height: 50px;
-  background-color: #172f40; }
+  background-color: #172f40;
+  z-index: 1; }
   .bottombar.sidebar-collapsed {
     left: 80px; }
 
@@ -752,18 +753,19 @@ html {
     background-color: #9d0cd2;
     border: 5px solid #192025; }
 
-.settings {
+.settingsDivPanel {
   display: flex;
   font-size: 15px;
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   color: #fff;
-  display: none; }
-  .settings.settingsShow {
+  display: none;
+  z-index: 1; }
+  .settingsDivPanel.settingsShow {
     display: block; }
-  .settings .settingsPanel {
+  .settingsDivPanel .settingsPanel {
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -772,7 +774,50 @@ html {
     height: 400px;
     background: #122029;
     margin: -200px 0 0 -200px;
-    border-radius: 15%; }
+    border-radius: 10%;
+    padding: 30px; }
+    .settingsDivPanel .settingsPanel h3 {
+      font-size: 1rem;
+      float: left;
+      width: 100%;
+      margin: 15px 0 10px 0; }
+    .settingsDivPanel .settingsPanel .form-group {
+      float: left;
+      width: 100%;
+      padding: 10px 0;
+      border: none; }
+      .settingsDivPanel .settingsPanel .form-group label {
+        font-size: .8rem;
+        color: #fff;
+        float: left;
+        margin-top: 15px;
+        width: 160px;
+        line-height: 1.2rem; }
+      .settingsDivPanel .settingsPanel .form-group input, .settingsDivPanel .settingsPanel .form-group select {
+        background: #2d343a;
+        border: none;
+        width: 190px;
+        margin: 10px 0 0 0px;
+        border-radius: 8px;
+        padding: 7px 5px;
+        outline: none;
+        display: inline-block; }
+      .settingsDivPanel .settingsPanel .form-group select {
+        width: 200px; }
+    .settingsDivPanel .settingsPanel button {
+      background: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 15px;
+      color: #192025;
+      cursor: pointer; }
+  .settingsDivPanel .settings-footer {
+    float: right;
+    margin-top: 15px;
+    width: 173px; }
+    .settingsDivPanel .settings-footer .settings-close {
+      float: left;
+      margin-right: 10px; }
 
 .sensor {
   float: left;

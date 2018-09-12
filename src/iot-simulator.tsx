@@ -43,25 +43,6 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
           };
     }
 
-
-
-    //checkAndOnboardUser() {
-   //     if (getLocalSetting(LocalSettingKey.Hidesettings) == '1') return;
-   //     this.setState({ settings: true });
-   // }
-   // onboardUser() {
-       // this.setState({ settings: true, activePanel: '' });
-   // }
-
-   // closesettings(hide: boolean) {
-   //     if (hide) {
-   //          setLocalSetting(LocalSettingKey.Hidesettings, '1');
-   //     }
-   //      this.setState({ settings: false });
-   //  }
-
-   
-
     toggle(collapsed:boolean) {
         this.setState({ collapse:collapsed });       
     }
@@ -86,7 +67,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
             <SideBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onAddDevice={this.addDevice.bind(this)} />
             <Staging expandedDevice={this.state.expandedDevice} collapsed={this.state.collapse} devices={this.state.devices} onDeviceStateChange={this.deviceStateChange.bind(this)} />
             <BottomBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onActiveSettings={this.onCallSettings.bind(this)} settingsActived={this.state.settingsActive} />
-            <Settings onActiveSettings={this.onCallSettings.bind(this)} settingsActived={this.state.settingsActive}/>
+            <Settings  settingsActived={this.state.settingsActive}/>
 
             {/* <div visible={this.state.settings}>
 

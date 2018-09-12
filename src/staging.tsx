@@ -32,14 +32,6 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
     }
     renderSplashScreen(){
         return <div className="iot_content">
-
-        <div className="settings">
-            <div className="userLogin">
-            
-            </div>
-        </div>
-
-
             <div className="smart_em_cont smart_em_lft">
                 <span className="welcome_smart-em" />
             </div>
@@ -50,6 +42,7 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
     }
 
     render() {
+
 
         return <div className={classNames('staging '+(this.props.devices.count()>0?'has-devices':''),{'sidebar-collapsed':this.props.collapsed})} 
         
