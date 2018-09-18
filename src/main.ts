@@ -1,6 +1,7 @@
 // const {app, BrowserWindow,dialog} = require('electron');
 import { app, BrowserWindow, dialog, ipcMain } from 'electron';
 import * as mqtt from 'mqtt';
+import { IIotSimulatorSettings } from './iot-simulator-settings';
 var VERSION = '0.1'
 
 var devMode = false;
@@ -64,17 +65,62 @@ app.on('window-all-closed', () => {
   }
 });
 
-const client = mqtt.connect('mqtt://localhost');
+let client:mqtt.MqttClient = null;
+let settings:IIotSimulatorSettings = null;
 
+function checkConnection() {
+  console.log('Checking connnection');
+  if (settings == null) {
+    scheduleConnectionCheck();
+    return;    
+  }
+  if (!settings.host) {
+    scheduleConnectionCheck();
+    return;
+  }
+
+  if (client == null)  {
+
+    let port = 1883;
+    let host = settings.host;
+
+    if (host.indexOf(':')>0) {
+      let parts = host.split(':');
+      host = parts[0];
+      port = Number(parts[1]);
+    }
+    console.log('Connecting to',host,port);
+    client = mqtt.connect({host,port});
+  } else {
+    if (!client.connected) {
+      console.log('Status',client.connected);
+    }
+  }
+  scheduleConnectionCheck();
+}
+function scheduleConnectionCheck() {
+  setTimeout(checkConnection,1000);
+}
+
+scheduleConnectionCheck();
+ipcMain.on('settings',(eveent:any,arg:IIotSimulatorSettings) => {
+  console.log('Got settings. Force a refresh');
+  settings = arg;
+  client = null;
+});
 ipcMain.on('cov',(event:any,arg:{topic:string,message:any})=>{
-  console.log('received cov');
-  //console.log('publishing',arg);
+  if (!client || !client.connected) {
+    return;
+  }
   try {
     client.publish(arg.topic,JSON.stringify(arg.message));
   } catch (error) {
     console.log('Publishing error',error);    
   }
 });
+
+
+
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.

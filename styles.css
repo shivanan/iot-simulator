@@ -775,7 +775,8 @@ html {
     background: #122029;
     margin: -200px 0 0 -200px;
     border-radius: 10%;
-    padding: 30px; }
+    padding: 30px;
+    color: white; }
     .settingsDivPanel .settingsPanel h3 {
       font-size: 1rem;
       float: left;
@@ -799,9 +800,11 @@ html {
         width: 190px;
         margin: 10px 0 0 0px;
         border-radius: 8px;
-        padding: 7px 5px;
+        padding: 10px;
+        font-size: 14px;
         outline: none;
-        display: inline-block; }
+        display: inline-block;
+        color: white; }
       .settingsDivPanel .settingsPanel .form-group select {
         width: 200px; }
     .settingsDivPanel .settingsPanel button {

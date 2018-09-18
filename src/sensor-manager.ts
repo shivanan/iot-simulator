@@ -1,4 +1,5 @@
 
+import { IIotSimulatorSettings } from "./iot-simulator-settings";
 import { Sensor } from "./sensor";
 const {ipcRenderer} = (window as any).require('electron');
 
@@ -8,7 +9,9 @@ export function registerSensor(sensor:Sensor,cb:SensorCallback) {
     sensors.push([sensor,cb]);
 }
 
-
+export function saveSettings(settings:IIotSimulatorSettings) {
+    ipcRenderer.send('settings',settings);
+}
 function publish(sensors:Sensor[]) {
     sensors.forEach(s => {
         let topic = `/iot-simulator/devices/${s.device}`;

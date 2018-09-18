@@ -3,10 +3,12 @@ import * as React from 'react';
 import { BottomBar } from './bottombar';
 import { IDevice } from './device';
 import { DeviceCardState, IDeviceCardProps } from './device-card';
+import { IIotSimulatorSettings } from './iot-simulator-settings';
+import { saveSettings } from './sensor-manager';
+import { Settings } from './settings';
 import { SideBar } from './sidebar';
 import { Staging } from './staging';
 import { TopBar } from './topbar';
-import { Settings } from './settings';
 
 
 interface IIoTSimulatorProps {
@@ -20,6 +22,7 @@ interface IIoTSimulatorState {
     devices:List<IDevice>;
     collapse: boolean;
     expandedDevice:IDevice;
+    settings:IIotSimulatorSettings;
    
 }
 type DeviceCreator = (props:IDeviceCardProps) => JSX.Element;
@@ -40,6 +43,12 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
             collapse: false,
             expandedDevice:null,
             settingsActive:false,
+            settings:{
+                host:'',
+                user:'',
+                password:'',
+                topicPrefix:'/iot-simulator',
+            }
           };
     }
 
@@ -48,6 +57,23 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
     }
     onCallSettings(settingsActived:boolean){
         this.setState({ settingsActive : settingsActived });          
+    }
+
+    closeSettings() {
+        this.setState({settingsActive:false});
+    }
+    onSave(settings:IIotSimulatorSettings) {
+        this.setState({
+            settings: {
+                host: settings.host,
+                user: settings.user,
+                password: settings.password,
+                topicPrefix: settings.topicPrefix,
+            },
+            settingsActive: false
+        }, () => {
+            saveSettings(this.state.settings);
+        });
     }
 
     addDevice(device:IDevice) {
@@ -67,7 +93,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
             <SideBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onAddDevice={this.addDevice.bind(this)} />
             <Staging expandedDevice={this.state.expandedDevice} collapsed={this.state.collapse} devices={this.state.devices} onDeviceStateChange={this.deviceStateChange.bind(this)} />
             <BottomBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onActiveSettings={this.onCallSettings.bind(this)} settingsActived={this.state.settingsActive} />
-            <Settings  settingsActived={this.state.settingsActive}/>
+            <Settings onSave={this.onSave.bind(this)}  settings={this.state.settings}  settingsActived={this.state.settingsActive} onClose={this.closeSettings.bind(this)}/>
 
             {/* <div visible={this.state.settings}>
 
