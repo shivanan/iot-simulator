@@ -1,16 +1,16 @@
 @mixin fields {
     .fields {
-        margin: 0px 0px 0px 0px;
-        float: left;
-        width: 168px;
+        display:inline-block;
+        margin: 0px 0px 0px 30px;
+      
         .sensor-top, .sensor-bot {
-          float: left;
+      
           width: 100%;
           margin-bottom: 10px;
         }
         .sensor-top .device-field, .sensor-bot .device-field {
           // width: 57px;
-          float: left;
+      
           margin: 0 5px;
         }
         .sensor-top .device-field {
@@ -206,8 +206,10 @@
     /*position: absolute;
     right: 5px;
     top: 5px; */
-    float: left;
-    width: 90px;
+
+    display: inline-block;
+    width: 100px;
+    margin-left:20px;
     .device-field-value {
       background-color: white;
       font-size: 12px;
@@ -224,7 +226,7 @@
   }
   
   .device-top-bottom-arrow {
-    float: left;
+    display:none;
     margin-top: 45px;
     margin-left: 0px;
   }

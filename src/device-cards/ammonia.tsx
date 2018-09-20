@@ -4,7 +4,7 @@ import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
-import { TemperatureSensor } from '../sensors/temperature';
+import { AmmoniaSensor } from '../sensors/ammonia';
 import { AnalogSensorDevice } from './analog-sensor';
 
 interface ITempState extends IDeviceCardState {
@@ -13,7 +13,7 @@ interface ITempState extends IDeviceCardState {
     
 }
 
-export class TemperatureDevice extends DeviceCard<ITempState> {
+export class AmmoniaDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
     toggleStatus() {
@@ -35,7 +35,7 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         
         
         this.state = {value:25,active:true};
-        this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
+        this.sensor = new AmmoniaSensor(this.props.device.id+':nh3',this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
@@ -60,18 +60,16 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
          state={this.props.state}
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
-        sensorType='temperature'
-        sensorName='Temperature Sensor'
+        sensorType='ammonia'
+        sensorName='Ammonia Sensor'
         device={this.props.device}
         active={this.state.active}
         onActiveChanged={this.toggleStatus.bind(this)}
         toggleState={this.toggleState.bind(this)}
-        units='C'
+        units='ppm'
 
         />;
     }
-    
-   
 }
 
-registerDeviceCard('temperature','Temperature Sensor',(props) => <TemperatureDevice {...props} />);
+registerDeviceCard('ammonia','Ammonia Sensor',(props) => <AmmoniaDevice {...props} />);

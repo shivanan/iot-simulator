@@ -38,12 +38,22 @@ html {
     right:0px;
     bottom:0px;
     overflow:auto;
-    background-color:white;
+    background-color: black;
+    .blank {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 40px;
+        text-align: center;
+        top: 50%;
+        position: relative;
+        transform: translateY(-50%);
+    }
     &.sidebar-collapsed {
         left: 80px;
     }
     &.has-devices {
-        background-color: black;
+        .blank {
+            display:none;
+        }
     }
 }
 .bottombar {
@@ -223,9 +233,7 @@ html {
 }
 
 .sidebar .sensors-search{
-    width: 94%;
-    float: left;
-    margin-left: 15px;
+    margin-left: 9px;
 }
 .sidebar .sensors-search #myInput {
     background: #101416;
@@ -244,21 +252,29 @@ html {
     padding: 0;
 }
 .sidebar .sensors-search ul.sensors-search-list li{
-    float: left;
-    width: 78%;
+    display:flex;
+
     background-color: #192025;
     margin-top: 10px;
     border-radius: 10px;
-    background-image: url(images/list_icon.svg);
-    background-position: 0px 0px;
     cursor:pointer;
-    background-repeat: no-repeat;
-    padding: 17px 3% 18px 20%;
-    background-size: 25%;
+    padding:10px;
     color: #a9a9a9;
     font-size: .8rem;
     list-style: none;
     font-weight: 600;
+    .icon {
+        display:block;
+        font-size:30px;
+        width:1em;
+        height:1em;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right:10px;
+    }
+    .title {
+        align-self: center;
+    }
     
 }
 
@@ -321,18 +337,7 @@ html {
 	float: left;
 	width: 100%;
 }
-.sensors-recent ul li a.temperature::after{
-    background: url(images/Temperature.svg) no-repeat 0 0;   
-    height: 5rem;
-}
-.sensors-recent ul li a.humidity::after{
-    background: url(images/Humidity.svg) no-repeat 0 0;    
-    height: 5rem;
-}
-.sensors-recent ul li a.pressure::after{	
-    background: url(images/Pressure.svg) no-repeat 0 0;   
-    height: 5rem;
-}
+
 .sensors-recent ul li p{
 	float: left;
 	width: 100%;
@@ -363,7 +368,7 @@ html {
     }
 }
 .bottombar .sensors-nav{
-    display: flex;
+    display:none;
     background: url(images/sensors-nav.svg) no-repeat 0 0;
     width: 30px;
     height: 30px;

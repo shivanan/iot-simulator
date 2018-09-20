@@ -2,9 +2,6 @@ import * as React from 'react';
 import { DeviceCard, DeviceCardState, IDeviceCardState } from '../device-card';
 import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
-import { Sensor } from '../sensor';
-import { registerSensor } from '../sensor-manager';
-import { TemperatureSensor } from '../sensors/temperature';
 import { AnalogSensorDevice } from './analog-sensor';
 
 interface ITempState extends IDeviceCardState {
@@ -13,19 +10,14 @@ interface ITempState extends IDeviceCardState {
     
 }
 
-export class TemperatureDevice extends DeviceCard<ITempState> {
-    sensor:Sensor = null;
+export class LightDevice extends DeviceCard<ITempState> {
 
     toggleStatus() {
         this.setState({active:!this.state.active},()=>{
-            this.sensor.active = this.state.active;
+            //this.sensor.active = this.state.active;
         });
     }
-    toggleBtnStatus() {
-        this.setState({active:!this.state.active},()=>{
-            this.sensor.active = this.state.active;
-        });
-    }
+  
     
     addDevice(d:IExpandDevice) {
         //this.state.onAddDevice(d);
@@ -34,20 +26,12 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         super(props);
         
         
-        this.state = {value:25,active:true};
-        this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
-        this.sensor.active = this.state.active;
-        registerSensor(this.sensor,()=>{
-            this.setState({value:this.sensor.computeValue()});
-        });
+        this.state = {value:1,active:true};
+
         
     }
     onIncrement(val:number) {
-        let newVal = Number(this.sensor.value) + val;
-        this.sensor.forceValue(newVal);
-
-        /* temporarily set next value until next sensor update */
-        this.setState({value:newVal});
+        
     }
    
     toggleState() {
@@ -60,13 +44,13 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
          state={this.props.state}
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
-        sensorType='temperature'
-        sensorName='Temperature Sensor'
+        sensorType='light'
+        sensorName='Light'
         device={this.props.device}
         active={this.state.active}
         onActiveChanged={this.toggleStatus.bind(this)}
         toggleState={this.toggleState.bind(this)}
-        units='C'
+        units=''
 
         />;
     }
@@ -74,4 +58,4 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
    
 }
 
-registerDeviceCard('temperature','Temperature Sensor',(props) => <TemperatureDevice {...props} />);
+registerDeviceCard('light','Light',(props) => <LightDevice {...props} />);

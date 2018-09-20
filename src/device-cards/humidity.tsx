@@ -72,4 +72,4 @@ export class HumidityDevice extends DeviceCard<IHumidityState> {
    
 }
 
-registerDeviceCard('humidity',(props) => <HumidityDevice {...props} />);
+registerDeviceCard('humidity','Humidity Sensor',(props) => <HumidityDevice {...props} />);

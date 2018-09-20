@@ -26,12 +26,19 @@ interface IIoTSimulatorState {
    
 }
 type DeviceCreator = (props:IDeviceCardProps) => JSX.Element;
-const DeviceCardMap:{[name:string]:DeviceCreator} = {};
-export function registerDeviceCard(name:string,f:DeviceCreator) {
-    DeviceCardMap[name] = f;
+const DeviceCardMap:{[name:string]:[DeviceCreator,string]} = {};
+export function registerDeviceCard(name:string,title:string,f:DeviceCreator) {
+    DeviceCardMap[name] = [f,title];
+}
+export function getAllDevices():Array<[string,string]> {
+    let r:Array<[string,string]> = [];
+    for(let k in DeviceCardMap) {
+        r.push([k,DeviceCardMap[k][1]]);
+    }
+    return r;
 }
 export function createDeviceCard(name:string,props:IDeviceCardProps):JSX.Element {
-    return DeviceCardMap[name](props);
+    return DeviceCardMap[name][0](props);
 }
 export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
     constructor(props:any) {

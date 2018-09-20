@@ -1,11 +1,20 @@
 // const {app, BrowserWindow,dialog} = require('electron');
-import { app, BrowserWindow, dialog, ipcMain } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, Menu } from 'electron';
 import * as mqtt from 'mqtt';
 import { IIotSimulatorSettings } from './iot-simulator-settings';
+
+
 var VERSION = '0.1'
 
 var devMode = false;
-
+var template = [{
+  label: "IoT Simulator",
+  submenu: [
+      { label: "About",  click: function() {about();}},
+      { label: "Reload", accelerator: "CmdOrCtrl+R", click: function() {reload();}},
+      { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+  ]}
+];
 var args = process.argv;
 if (args.length > 2 ) {
   for(var i=0;i<args.length;i++) {
@@ -46,6 +55,7 @@ function createWindow () {
     CurrentWindow = null;
 	});
   CurrentWindow = win;
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
  
 }
 

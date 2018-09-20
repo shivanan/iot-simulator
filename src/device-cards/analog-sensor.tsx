@@ -17,6 +17,7 @@ interface IAnalogSensorProps  {
     tags?:string;
     toggleState:() => void;
     units: string;
+    transformValue?:(val:number) => string;
 }
 
 export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
@@ -37,6 +38,7 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
             <div className='primary-value-box'>
                 <DeviceField title={this.props.sensorName}>
                     {
+                        this.props.transformValue?this.props.transformValue(this.props.value):
                         Number(this.props.value).toFixed(2) + this.props.units
                     }
                 </DeviceField>
@@ -49,13 +51,7 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
                             this.props.device.id
                         }
                     </DeviceField>
-                    <DeviceField title='On/Off' curved={true}>
-                        <div onClick={this.toggleActive.bind(this)} className={classNames('on-off-status', { 'on': this.props.active })}>
-                            {
-                                this.props.active ? 'ON' : 'OFF'
-                            }
-                        </div>
-                    </DeviceField>      
+                    
                                                     
           
                     <DeviceField title='Sensor Status'>
@@ -65,11 +61,7 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
                             }
                         </div>
                     </DeviceField> 
-                    <DeviceField title='Tag'>
-                            {
-                                <div>{this.props.tags || ''}</div>
-                            }
-                    </DeviceField>
+                 
                
             </div>
         </div>;
@@ -89,8 +81,9 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
         return <div className='analog-sensor'>
             <div className='title' style={{ backgroundImage: url }}>{this.props.sensorName}</div>
             <div className='primary-value-box'>
-                <DeviceField title={this.props.sensorName}>
+                <DeviceField title={'Value'}>
                     {
+                        this.props.transformValue?this.props.transformValue(this.props.value):
                         Number(this.props.value).toFixed(2) + this.props.units
                     }
                 </DeviceField>
@@ -104,13 +97,7 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
                             this.props.device.id
                         }
                     </DeviceField>
-                    <DeviceField title='On/Off'  curved={true}>
-                        <div onClick={this.toggleActive.bind(this)} className={classNames('on-off-status', { 'on': this.props.active })}>
-                            {
-                                this.props.active ? 'ON' : 'OFF'
-                            }
-                        </div>
-                    </DeviceField>      
+                   
                                                     
                 </div>
                 
@@ -122,11 +109,7 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
                             }
                         </div>
                     </DeviceField> 
-                    <DeviceField title='Tag'>
-                            {
-                                <div>{this.props.tags||' ' }</div>
-                            }
-                    </DeviceField>
+             
                 </div>
             </div>
             <div className="expand-collapsearrow">

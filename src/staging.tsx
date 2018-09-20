@@ -31,14 +31,7 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
         this.props.onDeviceStateChange(device,newState);
     }
     renderSplashScreen(){
-        return <div className="iot_content">
-            <div className="smart_em_cont smart_em_lft">
-                <span className="welcome_smart-em" />
-            </div>
-            <div className="smart_em_cont smart_em_rgt">
-                <span className="design_angle" />
-            </div>
-        </div>;
+        return <div className='blank'>Add devices here</div>;
     }
 
     render() {

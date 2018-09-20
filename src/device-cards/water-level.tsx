@@ -4,7 +4,7 @@ import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor } from '../sensor-manager';
-import { TemperatureSensor } from '../sensors/temperature';
+import { WaterLevelSensor } from '../sensors/water-level';
 import { AnalogSensorDevice } from './analog-sensor';
 
 interface ITempState extends IDeviceCardState {
@@ -13,7 +13,7 @@ interface ITempState extends IDeviceCardState {
     
 }
 
-export class TemperatureDevice extends DeviceCard<ITempState> {
+export class WaterLevelDevice extends DeviceCard<ITempState> {
     sensor:Sensor = null;
 
     toggleStatus() {
@@ -34,8 +34,8 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         super(props);
         
         
-        this.state = {value:25,active:true};
-        this.sensor = new TemperatureSensor(this.props.device.id+':temp',this.state.value);
+        this.state = {value:0,active:true};
+        this.sensor = new WaterLevelSensor(this.props.device.id+':wl',this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
@@ -43,7 +43,8 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
         
     }
     onIncrement(val:number) {
-        let newVal = Number(this.sensor.value) + val;
+        let newVal = Number(this.sensor.value) + val*0.2;
+        newVal = Math.max(0,Math.min(newVal,1.0));
         this.sensor.forceValue(newVal);
 
         /* temporarily set next value until next sensor update */
@@ -60,13 +61,14 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
          state={this.props.state}
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
-        sensorType='temperature'
-        sensorName='Temperature Sensor'
+        sensorType='waterlevel'
+        sensorName='Water Level Sensor'
         device={this.props.device}
         active={this.state.active}
         onActiveChanged={this.toggleStatus.bind(this)}
         toggleState={this.toggleState.bind(this)}
-        units='C'
+        units=''
+        transformValue={(val) => Math.round(val*100)+'%'}
 
         />;
     }
@@ -74,4 +76,4 @@ export class TemperatureDevice extends DeviceCard<ITempState> {
    
 }
 
-registerDeviceCard('temperature','Temperature Sensor',(props) => <TemperatureDevice {...props} />);
+registerDeviceCard('waterlevel','Water Level Sensor',(props) => <WaterLevelDevice {...props} />);

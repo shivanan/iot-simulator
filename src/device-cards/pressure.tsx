@@ -72,4 +72,4 @@ export class PressureDevice extends DeviceCard<IPressureState> {
    
 }
 
-registerDeviceCard('pressure',(props) => <PressureDevice {...props} />);
+registerDeviceCard('pressure','Pressure Sensor',(props) => <PressureDevice {...props} />);
