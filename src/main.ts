@@ -12,6 +12,7 @@ var template = [{
   submenu: [
       { label: "About",  click: function() {about();}},
       { label: "Reload", accelerator: "CmdOrCtrl+R", click: function() {reload();}},
+      { label: "Inspector", accelerator: "CmdOrCtrl+Shift+I", click: function() {showDevTools();}},
       { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
   ]}
 ];
