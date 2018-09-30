@@ -8,7 +8,14 @@ const sensors:Array<[Sensor,SensorCallback]> = [];
 export function registerSensor(sensor:Sensor,cb:SensorCallback) {
     sensors.push([sensor,cb]);
 }
-
+export function unregisterSensor(sensor:Sensor) {
+    for(let i=0;i<sensors.length;i++) {
+        if (sensor === sensors[i][0]) {
+            sensors.splice(i,1);
+            break;
+        }
+    }
+}
 export function saveSettings(settings:IIotSimulatorSettings) {
     ipcRenderer.send('settings',settings);
 }

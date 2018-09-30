@@ -9,6 +9,7 @@ export interface IStagingProps {
  collapsed: boolean;
  onDeviceStateChange:(device:IDevice,newState:DeviceCardState) => void;
  expandedDevice:IDevice;
+ onDeviceDeleted:(device:IDevice) => void;
 }
 export interface IStagingState {
    
@@ -24,8 +25,12 @@ export class Staging extends React.Component<IStagingProps,IStagingState> {
             device:d,
             state:d===this.props.expandedDevice?DeviceCardState.expanded:DeviceCardState.normal,
             onStateChange:(newState)=>this.deviceStateChange(d,newState),
+            onDelete:()=>this.onDelete(d)
         });
         return <div key={d.id} className={this.props.expandedDevice===d?'device-card-expanded':'device-card'}>{el}</div>;
+    }
+    onDelete(d:IDevice) {
+        this.props.onDeviceDeleted(d);
     }
     deviceStateChange(device:IDevice,newState:DeviceCardState) {
         this.props.onDeviceStateChange(device,newState);

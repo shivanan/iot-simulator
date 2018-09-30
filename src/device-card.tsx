@@ -8,6 +8,7 @@ export interface IDeviceCardProps {
     device:IDevice;
     state:DeviceCardState;
     onStateChange:(newState:DeviceCardState) => void;
+    onDelete: () => void;
 
 }
 export interface IDeviceCardState {

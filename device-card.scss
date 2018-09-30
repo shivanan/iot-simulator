@@ -148,6 +148,18 @@
       }
       
     }
+    .delete {
+      position:absolute;
+      width:20px;
+      height:20px;
+      right:50px;
+      top:10px;
+      background-image: url(images/active-delete.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+    }
     .expand-collapse {
         &::before {
           background-image: url(images/collapse_card.svg);

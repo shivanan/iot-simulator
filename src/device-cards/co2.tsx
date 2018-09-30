@@ -3,7 +3,7 @@ import { DeviceCard, DeviceCardState, IDeviceCardState } from '../device-card';
 import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
-import { registerSensor } from '../sensor-manager';
+import { registerSensor, unregisterSensor } from '../sensor-manager';
 import { CO2Sensor } from '../sensors/co2';
 import { AnalogSensorDevice } from './analog-sensor';
 
@@ -55,9 +55,16 @@ export class CO2Device extends DeviceCard<ITempState> {
         let newState = state === DeviceCardState.expanded?DeviceCardState.normal:DeviceCardState.expanded;
         this.props.onStateChange(newState);
     }
+    onDelete() {
+        unregisterSensor(this.sensor);
+        this.props.onDelete();
+    }
     render() {
         return <AnalogSensorDevice 
          state={this.props.state}
+         onDelete={this.onDelete.bind(this)}
+
+
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
         sensorType='co2'

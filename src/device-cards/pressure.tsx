@@ -3,7 +3,7 @@ import { DeviceCard, DeviceCardState, IDeviceCardState } from '../device-card';
 import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
-import { registerSensor } from '../sensor-manager';
+import { registerSensor, unregisterSensor } from '../sensor-manager';
 import { PressureSensor } from '../sensors/pressure';
 import { AnalogSensorDevice } from './analog-sensor';
 
@@ -53,8 +53,15 @@ export class PressureDevice extends DeviceCard<IPressureState> {
         let newState = state === DeviceCardState.expanded?DeviceCardState.normal:DeviceCardState.expanded;
         this.props.onStateChange(newState);
     }
+    onDelete() {
+        unregisterSensor(this.sensor);
+        this.props.onDelete();
+    }
     render() {
         return <AnalogSensorDevice 
+        onDelete={this.onDelete.bind(this)}
+
+
          state={this.props.state}
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}

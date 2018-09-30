@@ -159,6 +159,16 @@ html {
       font-size: 14px; }
     .device-card-expanded .primary-value-box .device-field-value {
       font-size: 18px; }
+  .device-card-expanded .delete {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 50px;
+    top: 10px;
+    background-image: url(images/active-delete.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; }
   .device-card-expanded .expand-collapse::before {
     background-image: url(images/collapse_card.svg); }
   .device-card-expanded .expand-collapse:hover::before {

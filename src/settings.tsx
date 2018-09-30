@@ -10,15 +10,21 @@ export interface ISettingsProps {
 }
 export interface ISettingsState {
     settings:IIotSimulatorSettings;
+    activated:boolean;
 }
 
 export class Settings extends React.Component<ISettingsProps, ISettingsState> {
     constructor(props: ISettingsProps) {
         super(props);
-        this.state = {settings:props.settings};
+        this.state = {settings:props.settings,activated:props.settingsActived};
     };
 
-    
+    static getDerivedStateFromProps(props:ISettingsProps,state:ISettingsState):ISettingsState {
+        if (props.settingsActived && !state.activated) {
+            return {settings:props.settings,activated:props.settingsActived};
+        }
+        return state;
+    }
     changeSetting(key:keyof IIotSimulatorSettings,e:any) {
         let v = e.target.value;
         let settings = {...this.state.settings};

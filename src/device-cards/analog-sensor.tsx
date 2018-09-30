@@ -17,6 +17,7 @@ interface IAnalogSensorProps  {
     tags?:string;
     toggleState:() => void;
     units: string;
+    onDelete:() => void;
     transformValue?:(val:number) => string;
 }
 
@@ -26,14 +27,17 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
    toggleActive() {
        this.props.onActiveChanged();
    }
-    
+    renderDelete() {
+        return  <div className="delete" onClick={this.props.onDelete.bind(this)}></div>;
+
+    }
     renderExpanded() {
         let url = `url(images/sensors/${this.props.sensorType}.svg`;
         
         return <div className='analog-sensor'>
             <div className='title' style={{ backgroundImage: url }}>{this.props.sensorName}</div>
             {
-                this.renderExpandCollapse()
+                [this.renderDelete(),this.renderExpandCollapse()]
             }
             <div className='primary-value-box'>
                 <DeviceField title={this.props.sensorName}>

@@ -2,14 +2,14 @@
   "name": "iot-simulator",
   "productName": "IoT Simulator",
   "version": "0.0.1",
-  "main": "main.js",
+  "main": "./dist/main.bundle.js",
   "description": "An IoT Simulator",
   "scripts": {
     "start": "electron dist/main.bundle.js"
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "electron": "^2.0.10",
+    "electron-json-storage": "^4.1.2",
     "immutable": "^3.8.2",
     "mqtt": "^2.18.8",
     "node-fetch": "^2.2.0",
@@ -33,6 +33,27 @@
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.8",
     "react-toggle-button": "^2.2.0",
+    "electron": "^2.0.10",
     "shebang-loader": "0.0.1"
+  },
+  "build": {
+    "appId": "com.iviva.iot-simulator",
+    "files": [
+      "dist/*.js",
+      "node_modules/**/*",
+      "package.json",
+      "*.css",
+      "*.html",
+      "fonts/*",
+      "images/**/*"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "./build/"
+    },
+    "extraFiles": [
+      "credentials"
+    ],
+    "publish": null
   }
 }

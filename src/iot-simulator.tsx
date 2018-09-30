@@ -1,3 +1,4 @@
+import * as ejs from 'electron-json-storage';
 import { List } from 'immutable';
 import * as React from 'react';
 import { BottomBar } from './bottombar';
@@ -57,8 +58,35 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
                 topicPrefix:'/iot-simulator',
             }
           };
+          debugger;
+          ejs.get('settings',(err:any,data:any) => {
+              console.log('got settings',data);
+            if (!!err) {
+                console.log('Error loading settings:',err);
+                return;
+            }
+            if (!data.settings) data.settings = {};
+            let newSettings = {
+                host: data.settings.host || '',
+                user: data.settings.user || '',
+                password: data.settings.password || '',
+                topicPrefix: data.settings.topicPrefix || '/iot-simulator',
+            };
+            let loadedDevices = List<IDevice>();
+            let savedDevices = data.devices|| [];
+            for(var i=0;i<savedDevices.length;i++) {
+                let d = savedDevices[i];
+                let m:IDevice = {id:d.id,type:d.type};
+                loadedDevices = loadedDevices.push(m);
+            }
+            this.setState({settings:newSettings,devices:loadedDevices});
+          });
     }
-
+    saveSettings() {
+        let obj = {settings:this.state.settings,devices:this.state.devices.toJS()};
+        console.log('Saving',obj);
+        ejs.set('settings',obj,(err)=>{if (!!err)console.log('Error saving settings: ',err);});
+    }
     toggle(collapsed:boolean) {
         this.setState({ collapse:collapsed });       
     }
@@ -79,12 +107,21 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
             },
             settingsActive: false
         }, () => {
+            this.saveSettings();
             saveSettings(this.state.settings);
         });
     }
 
+    removeDevice(device:IDevice) {
+        this.setState({devices:List(this.state.devices.filter(x => x !==device))},()=>{
+            this.saveSettings();
+        });
+
+    }
     addDevice(device:IDevice) {
-        this.setState({devices:this.state.devices.push(device)});
+        this.setState({devices:this.state.devices.push(device)},()=>{
+            this.saveSettings();
+        });
     }
     deviceStateChange(device:IDevice,newState:DeviceCardState) {
         if (newState === DeviceCardState.expanded) {
@@ -98,7 +135,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
         return <div className='container'>
             <TopBar />
             <SideBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onAddDevice={this.addDevice.bind(this)} />
-            <Staging expandedDevice={this.state.expandedDevice} collapsed={this.state.collapse} devices={this.state.devices} onDeviceStateChange={this.deviceStateChange.bind(this)} />
+            <Staging onDeviceDeleted={this.removeDevice.bind(this)} expandedDevice={this.state.expandedDevice} collapsed={this.state.collapse} devices={this.state.devices} onDeviceStateChange={this.deviceStateChange.bind(this)} />
             <BottomBar onSideBarCollapse={this.toggle.bind(this)} collapsed={this.state.collapse} onActiveSettings={this.onCallSettings.bind(this)} settingsActived={this.state.settingsActive} />
             <Settings onSave={this.onSave.bind(this)}  settings={this.state.settings}  settingsActived={this.state.settingsActive} onClose={this.closeSettings.bind(this)}/>
 

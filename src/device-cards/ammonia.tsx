@@ -3,7 +3,7 @@ import { DeviceCard, DeviceCardState, IDeviceCardState } from '../device-card';
 import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
-import { registerSensor } from '../sensor-manager';
+import { registerSensor, unregisterSensor } from '../sensor-manager';
 import { AmmoniaSensor } from '../sensors/ammonia';
 import { AnalogSensorDevice } from './analog-sensor';
 
@@ -55,10 +55,18 @@ export class AmmoniaDevice extends DeviceCard<ITempState> {
         let newState = state === DeviceCardState.expanded?DeviceCardState.normal:DeviceCardState.expanded;
         this.props.onStateChange(newState);
     }
+
+    onDelete() {
+        unregisterSensor(this.sensor);
+        this.props.onDelete();
+    }
+
     render() {
         return <AnalogSensorDevice 
          state={this.props.state}
          value={Number(this.state.value)}
+         onDelete={this.onDelete.bind(this)}
+
         onIncrement={this.onIncrement.bind(this)}
         sensorType='ammonia'
         sensorName='Ammonia Sensor'

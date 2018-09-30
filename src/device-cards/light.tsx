@@ -39,8 +39,14 @@ export class LightDevice extends DeviceCard<ITempState> {
         let newState = state === DeviceCardState.expanded?DeviceCardState.normal:DeviceCardState.expanded;
         this.props.onStateChange(newState);
     }
+    onDelete() {
+        this.props.onDelete();
+    }
     render() {
         return <AnalogSensorDevice 
+        onDelete={this.onDelete.bind(this)}
+
+
          state={this.props.state}
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
