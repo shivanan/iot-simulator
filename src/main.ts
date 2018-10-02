@@ -14,7 +14,18 @@ var template = [{
       { label: "Reload", accelerator: "CmdOrCtrl+R", click: function() {reload();}},
       { label: "Inspector", accelerator: "CmdOrCtrl+Shift+I", click: function() {showDevTools();}},
       { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
-  ]}
+  ]},
+  {
+    label: "Edit",
+    submenu: [
+        { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+        { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+        { type: "separator" },
+        { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+        { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+        { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+        { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+  ]},
 ];
 var args = process.argv;
 if (args.length > 2 ) {

@@ -16,8 +16,15 @@ export function unregisterSensor(sensor:Sensor) {
         }
     }
 }
+let sensorPollingInterval = 2000;
+
 export function saveSettings(settings:IIotSimulatorSettings) {
     ipcRenderer.send('settings',settings);
+    let newInterval = Number(settings.pollingInterval);
+    if (isNaN(newInterval)) {
+        newInterval = 2;
+    }
+    sensorPollingInterval = newInterval*1000;
 }
 function publish(sensors:Sensor[]) {
     sensors.forEach(s => {
@@ -38,6 +45,6 @@ function tick() {
         toPublish.push(sensor);
     }
     publish(toPublish);
-    setTimeout(tick,1000);
+    setTimeout(tick,sensorPollingInterval);
 }
 tick();

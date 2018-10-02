@@ -58,6 +58,10 @@ export class Settings extends React.Component<ISettingsProps, ISettingsState> {
                         <label>Topic Prefix</label>
                         <input type="text" value={this.state.settings.topicPrefix} onChange={this.changeSetting.bind(this,'topicPrefix')}   className="form-control" />
                     </fieldset>
+                    <fieldset className="form-group">
+                        <label>Polling Interval (s)</label>
+                        <input type="text" value={this.state.settings.pollingInterval} onChange={this.changeSetting.bind(this,'pollingInterval')}   className="form-control" />
+                    </fieldset>
                     <div className="settings-footer">
                         <button onClick={this.onSave.bind(this)} className="settings-save">Save</button>
                         <button onClick={this.props.onClose.bind(this)} className="settings-close">Close</button>

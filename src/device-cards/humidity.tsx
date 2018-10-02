@@ -33,7 +33,7 @@ export class HumidityDevice extends DeviceCard<IHumidityState> {
     constructor(props:any) {
         super(props);
         this.state = {value:12,active:true};
-        this.sensor = new HumiditySensor(this.props.device.id+':h',this.state.value);
+        this.sensor = new HumiditySensor(this.props.device.id,this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});

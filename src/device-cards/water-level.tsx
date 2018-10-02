@@ -35,7 +35,7 @@ export class WaterLevelDevice extends DeviceCard<ITempState> {
         
         
         this.state = {value:0,active:true};
-        this.sensor = new WaterLevelSensor(this.props.device.id+':wl',this.state.value);
+        this.sensor = new WaterLevelSensor(this.props.device.id,this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});

@@ -35,7 +35,7 @@ export class CO2Device extends DeviceCard<ITempState> {
         
         
         this.state = {value:25,active:true};
-        this.sensor = new CO2Sensor(this.props.device.id+':co2',this.state.value);
+        this.sensor = new CO2Sensor(this.props.device.id,this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});

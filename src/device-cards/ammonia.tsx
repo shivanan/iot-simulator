@@ -35,7 +35,7 @@ export class AmmoniaDevice extends DeviceCard<ITempState> {
         
         
         this.state = {value:25,active:true};
-        this.sensor = new AmmoniaSensor(this.props.device.id+':nh3',this.state.value);
+        this.sensor = new AmmoniaSensor(this.props.device.id,this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});

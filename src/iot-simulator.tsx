@@ -56,9 +56,10 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
                 user:'',
                 password:'',
                 topicPrefix:'/iot-simulator',
+                pollingInterval:'2',
             }
           };
-          debugger;
+
           ejs.get('settings',(err:any,data:any) => {
               console.log('got settings',data);
             if (!!err) {
@@ -71,6 +72,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
                 user: data.settings.user || '',
                 password: data.settings.password || '',
                 topicPrefix: data.settings.topicPrefix || '/iot-simulator',
+                pollingInterval: data.pollingInterval || '2',
             };
             let loadedDevices = List<IDevice>();
             let savedDevices = data.devices|| [];
@@ -79,7 +81,9 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
                 let m:IDevice = {id:d.id,type:d.type};
                 loadedDevices = loadedDevices.push(m);
             }
-            this.setState({settings:newSettings,devices:loadedDevices});
+            this.setState({settings:newSettings,devices:loadedDevices},()=>{
+                saveSettings(this.state.settings);
+            });
           });
     }
     saveSettings() {
@@ -104,6 +108,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
                 user: settings.user,
                 password: settings.password,
                 topicPrefix: settings.topicPrefix,
+                pollingInterval:settings.pollingInterval,
             },
             settingsActive: false
         }, () => {
