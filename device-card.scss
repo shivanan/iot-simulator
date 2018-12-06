@@ -184,6 +184,7 @@
         }
       }
     }
+   
 }
 
 .device-card {
@@ -193,7 +194,7 @@
   width: 380px;
   height: 130px;
   background-color: #111416;
-  color: #FFFFFF;
+  color: #00FF00;
   padding: 10px 5px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -228,6 +229,8 @@
       text-align: center;
       color: #444;
     }
+   
+
   }
 }
 
@@ -280,3 +283,4 @@
     }
     @include expand-collapse;
   }
+

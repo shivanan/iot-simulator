@@ -1,5 +1,5 @@
 {
-  "name": "iot-simulator",
+  "name": "c",
   "productName": "IoT Simulator",
   "version": "0.0.1",
   "main": "./dist/main.bundle.js",
@@ -8,21 +8,34 @@
     "start": "electron dist/main.bundle.js"
   },
   "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/lab": "latest",
+    "@types/electron-json-storage": "^4.0.0",
+    "@types/react-slider": "^0.8.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.6",
-    "electron-json-storage": "^4.1.2",
+    "contentful": "^7.0.5",
+    "electron-json-storage": "^4.1.4",
     "immutable": "^3.8.2",
+    "material-ui": "^0.20.2",
     "mqtt": "^2.18.8",
-    "node-fetch": "^2.2.0",
+    "node-fetch": "^2.3.0",
     "node-uuid": "^1.4.8",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-form": "^3.5.6",
     "react-settings-pane": "^0.1.5",
+    "react-slider": "^0.11.2",
     "source-map-loader": "^0.2.4",
-    "styled-components": "^3.4.9",
+    "styled-components": "^3.4.10",
     "ts-loader": "^4.5.0",
-    "typescript": "^3.0.1",
-    "webpack": "^4.20.2"
+    "typescript": "^3.1.6",
+    "webpack": "^4.25.1",
+    "webpack-dev-server": "^3.1.10"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
@@ -30,10 +43,10 @@
     "@types/mqtt": "^2.5.0",
     "@types/node-fetch": "^2.1.2",
     "@types/node-uuid": "0.0.28",
-    "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.8",
+    "@types/react": "^16.7.3",
+    "@types/react-dom": "^16.0.9",
+    "electron": "^2.0.13",
     "react-toggle-button": "^2.2.0",
-    "electron": "^2.0.10",
     "shebang-loader": "0.0.1"
   },
   "build": {
@@ -55,5 +68,15 @@
       "credentials"
     ],
     "publish": null
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UdhayakumarEcyber/iot-simulator-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UdhayakumarEcyber/iot-simulator-1/issues"
+  },
+  "homepage": "https://github.com/UdhayakumarEcyber/iot-simulator-1#readme"
 }

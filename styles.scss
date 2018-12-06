@@ -402,18 +402,20 @@ html {
     &.settingsShow{
         display: block;
     }
+    &.settingsShow.settingsHide{
+        display: none;
+    }
      .settingsPanel{
         position: absolute;
         left: 50%;
         bottom: 0;
         top: 50%;
         width: 400px;
-        height: 400px;
+        height: 350px;
         background: #122029;
         margin: -200px 0 0 -200px;
         border-radius: 10%;
-        padding: 30px;
-        color:white;
+        padding: 20px 30px;
 
         h3{
             font-size: 1rem;
@@ -425,7 +427,7 @@ html {
         .form-group{
             float: left;
             width: 100%;
-            padding: 10px 0;
+            padding: 5px 0;
             border: none;
 
             label{
@@ -433,13 +435,13 @@ html {
                 color: #fff;
                 float: left;
                 margin-top: 15px;
-                width: 160px;
+                width: 175px;
                 line-height: 1.2rem;            
             }
                 input, select{
                     background: #2d343a;
                     border: none;
-                    width: 190px;
+                    width: 210px;
                     margin: 10px 0 0 0px;
                     border-radius: 8px;
                     padding: 10px;
@@ -449,23 +451,24 @@ html {
                     color:white;             
             }
             select{             
-                width: 200px;                          
+                width: 220px;                          
             }
         }
         button{
-            background: #fff;
+            background: #bdbdbd;
             border: none;
             border-radius: 8px;
             padding: 6px 15px;
             color: #192025;
             cursor: pointer;
+            font-family: "Century Gothic";
         }
     }
     .settings-footer{
         float: right;
         margin-top: 15px;
-        width: 173px;
-
+        width: 139px;        
+        
         .settings-close{
             float: left;
             margin-right: 10px;
@@ -481,5 +484,4 @@ html {
     float: left;
     width: 30%;
 }
-
 

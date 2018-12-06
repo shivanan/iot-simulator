@@ -141,7 +141,7 @@ html {
   height: auto;
   margin: 0px;
   color: white;
-  z-index: 1; }
+  z-index: 2; }
   .device-card-expanded .title {
     background-repeat: no-repeat;
     display: inline-block;
@@ -154,7 +154,8 @@ html {
     font-weight: bold; }
   .device-card-expanded .primary-value-box {
     width: 200px;
-    margin: 20px 120px; }
+    margin: 30px 30px 30px 30px;
+    display: inline-block; }
     .device-card-expanded .primary-value-box .device-field-title {
       font-size: 14px; }
     .device-card-expanded .primary-value-box .device-field-value {
@@ -173,25 +174,32 @@ html {
     background-image: url(images/collapse_card.svg); }
   .device-card-expanded .expand-collapse:hover::before {
     background-image: url(images/collapse_card.svg) !important; }
-  .device-card-expanded .fields {
+    .device-card-expanded .fields {
     display: inline-block;
-    margin: 0px 0px 0px 30px; }
-    .device-card-expanded .fields .sensor-top, .device-card-expanded .fields .sensor-bot {
+    margin: 0px 0px 0px 30px; 
+  }
+  .device-card-expanded .light-sensor .fields {
+    width: 130px;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+    .device-card-expanded .fields .sensor-top, .device-card-expanded .fields .sensor-bot, .light-sensor .sensor-top {
       width: 100%;
       margin-bottom: 10px; }
     .device-card-expanded .fields .sensor-top .device-field, .device-card-expanded .fields .sensor-bot .device-field {
       margin: 0 5px; }
-    .device-card-expanded .fields .sensor-top .device-field {
-      /*&:first-child {
+    /*.device-card-expanded .fields .sensor-top .device-field {
+      &:first-child {
         width: 85px;
       }
       &:last-child .device-field-value {
         border-radius: 25px;
         padding: 7px 10px 7px 26px;
         position: relative;
-      }*/ }
-    .device-card-expanded .fields .sensor-bot .device-field:first-child {
-      /*width: 70px; */ }
+      } }*/
+    /*.device-card-expanded .fields .sensor-bot .device-field:first-child {
+      width: 70px;  }*/
   .device-card-expanded .device-field {
     font-size: 11px;
     margin-left: 10px;
@@ -272,15 +280,17 @@ html {
 
 .device-card {
   display: inline-block;
-  margin: 5px 5px 0px 5px;
+  margin: 10px 0px 0px 10px;
   width: 380px;
-  height: 130px;
+  height: 160px;
   background-color: #111416;
   color: #FFFFFF;
   padding: 10px 5px;
   border-radius: 5px;
   box-sizing: border-box;
-  position: relative; }
+  position: relative;
+  vertical-align: top;
+ }
   .device-card .title {
     font-size: 12px;
     height: 0px;
@@ -297,22 +307,28 @@ html {
   .device-card .fields {
     display: inline-block;
     margin: 0px 0px 0px 30px; }
-    .device-card .fields .sensor-top, .device-card .fields .sensor-bot {
+    .device-card .light-sensor .fields {
+      width: 130px;
+      vertical-align: top;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    .device-card .fields .sensor-top, .device-card .fields .sensor-bot, .light-sensor .sensor-top{
       width: 100%;
       margin-bottom: 10px; }
     .device-card .fields .sensor-top .device-field, .device-card .fields .sensor-bot .device-field {
       margin: 0 5px; }
-    .device-card .fields .sensor-top .device-field {
-      /*&:first-child {
+    /* .device-card .fields .sensor-top .device-field {
+     &:first-child {
         width: 85px;
       }
       &:last-child .device-field-value {
         border-radius: 25px;
         padding: 7px 10px 7px 26px;
         position: relative;
-      }*/ }
-    .device-card .fields .sensor-bot .device-field:first-child {
-      /*width: 70px; */ }
+      } }*/
+    /* .device-card .fields .sensor-bot .device-field:first-child {
+     width: 70px;  }*/
   .device-card .device-field {
     font-size: 11px;
     margin-left: 10px;
@@ -374,7 +390,29 @@ html {
       background-color: white;
       font-size: 12px;
       text-align: center;
-      color: #444; }
+      color: #444; 
+    }
+    .light-sensor .slider {
+      background: #ececec;
+      width: 100%;
+      height: 1px;
+      border-radius: 10px;
+      margin: 20px 0 35px 0;
+    }
+    .light-sensor  .handle{
+      width: 26px;
+      height: 26px;
+      top: -15px;
+      background-image: url(images/lft-rgt-arrow.svg);
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid #b3b3b3;
+      text-align: center;
+      background-position: center;
+      background-size: 86%;
+      cursor: pointer;
+      }    
 
 .expand-collapsearrow {
   float: left;
@@ -768,13 +806,15 @@ html {
   z-index: 1; }
   .settingsDivPanel.settingsShow {
     display: block; }
+  .settingsDivPanel.settingsShow.settingsHide {
+    display: none; }
   .settingsDivPanel .settingsPanel {
     position: absolute;
     left: 50%;
     bottom: 0;
     top: 50%;
     width: 400px;
-    height: 400px;
+    height: 350px;
     background: #122029;
     margin: -200px 0 0 -200px;
     border-radius: 10%;
@@ -788,19 +828,19 @@ html {
     .settingsDivPanel .settingsPanel .form-group {
       float: left;
       width: 100%;
-      padding: 10px 0;
+      padding: 5px 0;
       border: none; }
       .settingsDivPanel .settingsPanel .form-group label {
         font-size: .8rem;
         color: #fff;
         float: left;
         margin-top: 15px;
-        width: 160px;
+        width: 175px;
         line-height: 1.2rem; }
       .settingsDivPanel .settingsPanel .form-group input, .settingsDivPanel .settingsPanel .form-group select {
         background: #2d343a;
         border: none;
-        width: 190px;
+        width: 210px;
         margin: 10px 0 0 0px;
         border-radius: 8px;
         padding: 10px;
@@ -809,18 +849,19 @@ html {
         display: inline-block;
         color: white; }
       .settingsDivPanel .settingsPanel .form-group select {
-        width: 200px; }
+        width: 220px; }
     .settingsDivPanel .settingsPanel button {
-      background: #fff;
+      background: #bdbdbd;
       border: none;
       border-radius: 8px;
       padding: 6px 15px;
       color: #192025;
-      cursor: pointer; }
+      cursor: pointer;
+      font-family: "Century Gothic"; }
   .settingsDivPanel .settings-footer {
     float: right;
     margin-top: 15px;
-    width: 173px; }
+    width: 139px; }
     .settingsDivPanel .settings-footer .settings-close {
       float: left;
       margin-right: 10px; }
@@ -832,5 +873,48 @@ html {
 .sensor-lft {
   float: left;
   width: 30%; }
-
+  .analog-sensor{
+    margin-top: 20px; 
+  }
+  .device-card .light-sensor .title{
+      margin-top:30px;
+  }
+  .device-card .light-sensor .sensor-light-box, .device-card-expanded .light-sensor .sensor-light-box{
+      background-color: #282828;
+      width: 85px;
+      display: inline-block;
+      padding-top: 0px;
+      margin: 5px;
+      border-radius: 5px;
+  }
+  .device-card .light-sensor .sensor-light-box.fullmode, .device-card-expanded .light-sensor .sensor-light-box.sensor-light-box.fullmode {  
+      background-color: #201547;
+  }
+  .device-card .light-sensor .sensor-light-box .sensor-light, .device-card-expanded .light-sensor .sensor-light-box .sensor-light{
+      background-repeat: no-repeat;
+      width: 85px;
+      float: left;
+      height: 75px;
+      background-position: center center;
+      -webkit-transition: opacity 1s ease-in-out;
+      -moz-transition: opacity 1s ease-in-out;
+      -o-transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease-in-out;     
+  }
+  .device-card .light-sensor .sensor-light-box.lightoff .sensor-light, .device-card-expanded .light-sensor .sensor-light-box.lightoff .sensor-light { 
+      background-image: url(images/light-off-bright.svg);
+  }
+  .device-card .light-sensor .sensor-light-box.midmode .sensor-light, .device-card-expanded .light-sensor .sensor-light-box.midmode .sensor-light {  
+      background-image: url(images/light-half-bright.svg);
+  }
+  .device-card .light-sensor .sensor-light-box.fullmode .sensor-light, .device-card-expanded .light-sensor .sensor-light-box.fullmode .sensor-light {  
+      background-image: url(images/light-full-bright.svg);
+      background-position: 3px -1px;
+  }
+.slide_value{
+    position: absolute;
+    color: #fff;
+    top: -21px;
+    font-size: 0.8em;
+}
 /*# sourceMappingURL=styles.css.map */

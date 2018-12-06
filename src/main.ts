@@ -67,7 +67,7 @@ function createWindow () {
     CurrentWindow = null;
 	});
   CurrentWindow = win;
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  Menu.setApplicationMenu((Menu.buildFromTemplate as any)(template));
  
 }
 
@@ -91,7 +91,7 @@ let client:mqtt.MqttClient = null;
 let settings:IIotSimulatorSettings = null;
 
 function checkConnection() {
-  console.log('Checking connnection');
+  //console.log('Checking connnection');
   if (settings == null) {
     scheduleConnectionCheck();
     return;    
@@ -126,7 +126,7 @@ function scheduleConnectionCheck() {
 
 scheduleConnectionCheck();
 ipcMain.on('settings',(eveent:any,arg:IIotSimulatorSettings) => {
-  console.log('Got settings. Force a refresh');
+  //console.log('Got settings. Force a refresh');
   settings = arg;
   client = null;
 });

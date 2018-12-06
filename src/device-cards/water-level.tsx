@@ -66,7 +66,7 @@ export class WaterLevelDevice extends DeviceCard<ITempState> {
          onDelete={this.onDelete.bind(this)}
 
 
-         value={Number(this.state.value)}
+        value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
         sensorType='waterlevel'
         sensorName='Water Level Sensor'

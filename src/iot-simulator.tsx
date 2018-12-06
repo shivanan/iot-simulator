@@ -89,7 +89,7 @@ export class IoTSimulator extends React.Component<{},IIoTSimulatorState> {
     saveSettings() {
         let obj = {settings:this.state.settings,devices:this.state.devices.toJS()};
         console.log('Saving',obj);
-        ejs.set('settings',obj,(err)=>{if (!!err)console.log('Error saving settings: ',err);});
+        ejs.set('settings',obj,(err:any)=>{if (!!err)console.log('Error saving settings: ',err);});
     }
     toggle(collapsed:boolean) {
         this.setState({ collapse:collapsed });       
