@@ -14,7 +14,7 @@ interface ILightSensorProps  {
     sensorType: string;
     sensorName: string;
     sensorPict: string;
-    sensorPictName: string;
+  
     device:IDevice;
     active: boolean;
     onActiveChanged:() => void;
@@ -31,19 +31,7 @@ interface ILightSensorState {
 
 export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {  
     
-    constructor(props:any) {
-        super(props);
-        this.state = {
-                       
-        };
-      }
-
-      handleChange = (value:any) => {
-        this.setState({
-          value,
-        });
-      }
-
+    
    toggleActive() {
        this.props.onActiveChanged();
    }
@@ -54,8 +42,7 @@ export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {
     renderExpanded() {
         let url = `url(images/sensors/${this.props.sensorType}.svg`;
        
-        let className = 'sensor-light-box'; 
-        
+        let className = 'sensor-light-box';         
       
         if(this.props.value == 50) {
             className += ' midmode';  
@@ -70,33 +57,40 @@ export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {
         console.log(className);
         
         return <div className='light-sensor'>
-            <div className='title' style={{ backgroundImage: url }}>{this.props.sensorName}</div>
+
+             <div className={className}>
+                <div className='sensor-light'>
+                    <span className="sensor-light-title">{this.props.sensorName}</span>
+                </div>
+            </div> 
+
             {
                 [this.renderDelete(),this.renderExpandCollapse()]
             }
 
             <div className='primary-value-box'>
-                <div className={className}>
-                        <div className='sensor-light'>
-                            {this.props.sensorPictName}
-                        </div>
-                </div>
-                 <DeviceField title='Sensor ID'>
+                <DeviceField title={'Value'}>
+                    {
+                        this.props.transformValue?this.props.transformValue(this.props.value):
+                        Number(this.props.value).toFixed(2) + this.props.units
+                    }
+                </DeviceField>
+               
+                <ReactSlider min={0} max={100} step={50} defaultValue={this.props.value} value={this.props.value} onChange={this.props.lightChange.bind(this)} />  
+                
+            </div>
+
+            <div className='fields'>
+                <div className='sensor-top'>
+                    <DeviceField title='Sensor ID'>
                         {
                             this.props.device.id
                         }
-                  </DeviceField>               
-            </div>
-            <div className='fields'>
-
-                   <ReactSlider min={0} max={100} step={50} defaultValue={0}  onChange={this.props.lightChange.bind(this)}>    
-                    <div className="slide_value">  
-                            {            
-                                this.props.value  
-                            }    
-                        </div>            
-                    </ReactSlider>
-
+                    </DeviceField>                   
+                                                    
+                </div>
+                
+                <div className='sensor-bot'>
                     <DeviceField title='Sensor Status'>
                         <div onClick={this.toggleActive.bind(this)} className={classNames('device-card-status', { 'online': this.props.active })}>
                             {
@@ -104,8 +98,10 @@ export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {
                             }
                         </div>
                     </DeviceField> 
-               
+             
+                </div>
             </div>
+
         </div>;
     }
    
@@ -137,36 +133,36 @@ export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {
         console.log(className);
         
         return <div className='light-sensor'>
-            <div className='title' style={{ backgroundImage: url }}>{this.props.sensorName}</div>
+
+            <div className={className}>
+                <div className='sensor-light'>
+                    <span className="sensor-light-title">{this.props.sensorName}</span>
+                </div>
+            </div>  
 
             <div className='primary-value-box'>
-
-                <div className={className}>
-                        <div className='sensor-light'>
-                            {this.props.sensorPictName}
-                        </div>
-                </div>      
+                <DeviceField title={'Value'}>
+                    {
+                        this.props.transformValue?this.props.transformValue(this.props.value):
+                        Number(this.props.value).toFixed(2) + this.props.units
+                    }
+                </DeviceField>
+               
+                <ReactSlider min={0} max={100} step={50} defaultValue={this.props.value} value={this.props.value} onChange={this.props.lightChange.bind(this)} />  
                 
+            </div>
+
+            <div className='fields'>
                 <div className='sensor-top'>
                     <DeviceField title='Sensor ID'>
                         {
                             this.props.device.id
                         }
-                    </DeviceField>                  
+                    </DeviceField>                   
+                                                    
                 </div>
-            </div>
-
-            <div className='fields'>
-
-                  <ReactSlider min={0} max={100} step={50} defaultValue={0} onChange={this.props.lightChange.bind(this)}>  
-                  <div className="slide_value">  
-                        {            
-                            this.props.value  
-                        }    
-                      </div>            
-                </ReactSlider>
-
-                 <div className='sensor-bot'>
+                
+                <div className='sensor-bot'>
                     <DeviceField title='Sensor Status'>
                         <div onClick={this.toggleActive.bind(this)} className={classNames('device-card-status', { 'online': this.props.active })}>
                             {
@@ -177,6 +173,9 @@ export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {
              
                 </div>
             </div>
+
+
+
             <div className="expand-collapsearrow">
                    {
                        this.renderExpandCollapse()

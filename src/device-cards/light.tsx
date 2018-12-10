@@ -67,7 +67,6 @@ export class LightDevice extends DeviceCard<ITempState> {
         return <LightSensorDevice 
         onDelete={this.onDelete.bind(this)}
 
-
         state={this.props.state}
         value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
@@ -75,7 +74,6 @@ export class LightDevice extends DeviceCard<ITempState> {
         sensorType='light'
         sensorName='Light Sensor'
         sensorPict='light-pict'
-        sensorPictName=''
         device={this.props.device}
         active={this.state.active}
         onActiveChanged={this.toggleStatus.bind(this)}
@@ -83,9 +81,7 @@ export class LightDevice extends DeviceCard<ITempState> {
         units=''
         //transformValue={(val) => Math.round(val*100) + ' ' + 'm/s'}
         />;
-    }
-    
-   
+    }   
 }
 
 registerDeviceCard('light','Light Sensor',(props) => <LightDevice {...props} />);
