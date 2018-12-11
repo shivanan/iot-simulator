@@ -3,9 +3,9 @@ import { DeviceCard, DeviceCardState, IDeviceCardState } from '../device-card';
 import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
+import { registerSensor } from '../sensor-manager';
+import { LightSensor } from '../sensors/light';
 import { LightSensorDevice } from './light-sensor';
-import { registerSensor, unregisterSensor } from '../sensor-manager';
-import {LightSensor } from '../sensors/light';
 
 
 interface ITempState extends IDeviceCardState {
@@ -72,7 +72,7 @@ export class LightDevice extends DeviceCard<ITempState> {
         onIncrement={this.onIncrement.bind(this)}
         lightChange={this.lightChange.bind(this)}
         sensorType='light'
-        sensorName='Light Sensor'
+        sensorName='Light'
         sensorPict='light-pict'
         device={this.props.device}
         active={this.state.active}
@@ -84,4 +84,4 @@ export class LightDevice extends DeviceCard<ITempState> {
     }   
 }
 
-registerDeviceCard('light','Light Sensor',(props) => <LightDevice {...props} />);
+registerDeviceCard('light','Light',(props) => <LightDevice {...props} />);
