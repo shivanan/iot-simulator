@@ -17,7 +17,40 @@ export function unregisterSensor(sensor:Sensor) {
     }
 }
 let sensorPollingInterval = 2000;
+ipcRenderer.on('message',(event:string,payload:any)=>{
+    let {topic,message} = payload as {topic:string,message:any};
 
+    if (!topic.startsWith('/iot-simulator/in/')) {
+        /* unrecognized message */
+        return;
+    }
+
+    let topicDeviceInfo = topic.substring('/iot-simulator/in/'.length);
+    /* this should be device/value */
+    let parts = topicDeviceInfo.split('/');
+    if (parts.length < 2) return;
+    var value:string = null;
+    try {
+        value = JSON.parse(message).value;
+    } catch {
+        console.log('Error parsing payload:',message);
+        return;
+    }
+    if (value == null) {
+        console.log('Null value received',message);
+        return;
+    }
+    let [device,..._rest] = parts;
+    let rest = _rest.join('/');
+    sensors.forEach(q => {
+        let s = q[0];
+        if (s.device === device) {
+            s.forceValue(value);
+        }
+    });
+
+    console.log('got message',message);
+});
 export function saveSettings(settings:IIotSimulatorSettings) {
     ipcRenderer.send('settings',settings);
     let newInterval = Number(settings.pollingInterval);
@@ -28,7 +61,7 @@ export function saveSettings(settings:IIotSimulatorSettings) {
 }
 function publish(sensors:Sensor[]) {
     sensors.forEach(s => {
-        let topic = `/iot-simulator/devices/${s.device}`;
+        let topic = `/iot-simulator/out/devices/${s.device}`;
         let value = '' + s.value;
         ipcRenderer.send('cov',{topic,message:{value,device:s.device}});
     });

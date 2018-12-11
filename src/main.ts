@@ -86,12 +86,15 @@ app.on('window-all-closed', () => {
   	app.quit()
   }
 });
-
+function sendToWindow(event:string,message:any) {
+  if (!CurrentWindow) return;
+  console.log('Sending to window');
+  CurrentWindow.webContents.send(event,message);
+}
 let client:mqtt.MqttClient = null;
 let settings:IIotSimulatorSettings = null;
 
 function checkConnection() {
-  //console.log('Checking connnection');
   if (settings == null) {
     scheduleConnectionCheck();
     return;    
@@ -113,6 +116,14 @@ function checkConnection() {
     }
     console.log('Connecting to',host,port);
     client = mqtt.connect({host,port});
+    client.on('message',(topic,buffer)=>{
+      const message = buffer.toString();
+      console.log('topic',topic,'m',message);
+      sendToWindow('message',{topic,message});
+
+    })
+    client.subscribe('/iot-simulator/in/#',(topic,message)=>{
+    });
   } else {
     if (!client.connected) {
       console.log('Status',client.connected);
@@ -126,7 +137,6 @@ function scheduleConnectionCheck() {
 
 scheduleConnectionCheck();
 ipcMain.on('settings',(eveent:any,arg:IIotSimulatorSettings) => {
-  //console.log('Got settings. Force a refresh');
   settings = arg;
   client = null;
 });
