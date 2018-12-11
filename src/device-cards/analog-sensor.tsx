@@ -35,7 +35,9 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
         let url = `url(images/sensors/${this.props.sensorType}.svg`;
         
         return <div className='analog-sensor'>
-            <div className='title' style={{ backgroundImage: url }}>{this.props.sensorName}</div>
+            <div className='title' style={{ backgroundImage: url }}>
+               <span className="analog-sensor-title">{this.props.sensorName}</span>
+            </div>
             {
                 [this.renderDelete(),this.renderExpandCollapse()]
             }
