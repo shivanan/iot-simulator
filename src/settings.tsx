@@ -52,7 +52,7 @@ export class Settings extends React.Component<ISettingsProps, ISettingsState> {
                     </fieldset>
                     <fieldset className="form-group">
                         <label>Password</label>
-                        <input type="text" value={this.state.settings.password} onChange={this.changeSetting.bind(this,'password')}   className="form-control" />
+                        <input type="password" value={this.state.settings.password} onChange={this.changeSetting.bind(this,'password')}   className="form-control" />
                     </fieldset>
                     <fieldset className="form-group">
                         <label>Topic Prefix</label>

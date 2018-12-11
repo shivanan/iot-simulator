@@ -145,23 +145,23 @@ html {
   .device-card-expanded .title,  .device-card-expanded .light-sensor .sensor-light-title {
     background-repeat: no-repeat;
     display: inline-block;
-    margin: 50px 0px 0px 50px;
-    width: 200px;
-    height: 60px;
-    padding-left: 80px;
-    line-height: 60px;
-    font-size: 20px;
-    font-weight: bold; }
+    padding-left: 0;
+    font-size: 19px;
+    font-weight: bold;
+    position: relative;
+    width: 115px;
+    height: 130px;
+    margin: 40px 10px 0 40px; }
 
-   .device-card-expanded .light-sensor .sensor-light-title {
+   .device-card-expanded .light-sensor .sensor-light-title, .device-card-expanded .analog-sensor .analog-sensor-title {
       position: absolute;
-      bottom: -60px;
+      top: 130px;
       padding: 0;
       width: 100%;
       text-align: center;
       margin: 0;
      }
-
+    
   .device-card-expanded .primary-value-box {
     width: 200px;
     margin: 30px 30px 30px 30px;
@@ -184,21 +184,43 @@ html {
     background-image: url(images/collapse_card.svg); }
   .device-card-expanded .expand-collapse:hover::before {
     background-image: url(images/collapse_card.svg) !important; }
-    .device-card-expanded .fields {
+  
+  .device-card-expanded .fields {
     display: inline-block;
-    margin: 0px 0px 0px 30px; 
+    width: 200px;
+    vertical-align: top;
+    margin-top: 33px;
+    margin-left: 10px;
+}
+  .device-card-expanded  .device-increment-decrement {
+    display: flex;
+    margin-left: 37px;
   }
+  .device-card-expanded  .device-increment-decrement .ib {
+    width: 60px;
+    margin: 15px 7px 0px 7px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+
   .device-card-expanded .light-sensor .fields {
     width: 200px;
     vertical-align: top;
     margin-top: 20px;
     margin-left: 10px;
   }
+
+
+  
     .device-card-expanded .fields .sensor-top, .device-card-expanded .fields .sensor-bot, .light-sensor .sensor-top {
       width: 100%;
       margin-bottom: 10px; }
     .device-card-expanded .fields .sensor-top .device-field, .device-card-expanded .fields .sensor-bot .device-field {
-      margin: 0 5px;
+      margin: 10px 5px 0 5px;
       width: 100%; }
     /*.device-card-expanded .fields .sensor-top .device-field {
       &:first-child {
@@ -214,7 +236,8 @@ html {
   .device-card-expanded .device-field {
     font-size: 11px;
     margin-left: 10px;
-    margin-right: 10px; }
+    margin-right: 10px; 
+    width:100%;}
   .device-card-expanded .device-field-value {
     background-color: rgba(255, 255, 255, 0.15);
     padding: 8px 10px;
@@ -279,11 +302,10 @@ html {
     .device-card-expanded .expand-collapse:hover::before {
       background-size: 100%;
       background-image: url(images/collapse_card.svg); }
-  .device-card-expanded .fields {
-    margin-left: 120px;
-    width: auto; }
+     
     .device-card-expanded .fields .device-field {
-      display: inline-block; }
+      display: inline-block;
+      margin-top: 20px; }
       .device-card-expanded .fields .device-field .device-field-title {
         font-size: 14px; }
       .device-card-expanded .fields .device-field .device-field-value {
@@ -856,7 +878,7 @@ html {
         color: #fff;
         float: left;
         margin-top: 15px;
-        width: 175px;
+        width:150px;
         line-height: 1.2rem; }
       .settingsDivPanel .settingsPanel .form-group input, .settingsDivPanel .settingsPanel .form-group select {
         background: #2d343a;
@@ -882,7 +904,7 @@ html {
   .settingsDivPanel .settings-footer {
     float: right;
     margin-top: 15px;
-    width: 139px; }
+    width: 155px; }
     .settingsDivPanel .settings-footer .settings-close {
       float: left;
       margin-right: 10px; }
@@ -896,8 +918,7 @@ html {
   width: 30%; }
   .analog-sensor, .light-sensor{
     margin-top: 20px; 
-  }
- 
+  } 
   .device-card .light-sensor .sensor-light-title{
     font-size: 12px;
     margin: 5px;
@@ -952,13 +973,6 @@ html {
  .device-card-expanded .light-sensor .sensor-light-box.fullmode .sensor-light {  
       background-position: 13px 0px;
 }
-/*.slide_value{
-    position: absolute;
-    color: #fff;
-    top: -21px;
-    font-size: 0.8em;
-}*/
-
 .device-card .light-sensor .primary-value-box {
   vertical-align: top;
 }
