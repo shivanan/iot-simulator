@@ -205,34 +205,30 @@ html {
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
   }
-
-
+  .device-card-expanded .device-topic {
+    width: 100%;
+    display: inline-block;
+    margin: 40px 0 0 35px;
+}
+.device-card-expanded .device-topic .publishing-topic, .device-card-expanded .device-topic .receiving-topic {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+  }
   .device-card-expanded .light-sensor .fields {
     width: 200px;
     vertical-align: top;
     margin-top: 20px;
     margin-left: 10px;
-  }
-
-
-  
+  }  
     .device-card-expanded .fields .sensor-top, .device-card-expanded .fields .sensor-bot, .light-sensor .sensor-top {
       width: 100%;
       margin-bottom: 10px; }
     .device-card-expanded .fields .sensor-top .device-field, .device-card-expanded .fields .sensor-bot .device-field {
       margin: 10px 5px 0 5px;
       width: 100%; }
-    /*.device-card-expanded .fields .sensor-top .device-field {
-      &:first-child {
-        width: 85px;
-      }
-      &:last-child .device-field-value {
-        border-radius: 25px;
-        padding: 7px 10px 7px 26px;
-        position: relative;
-      } }*/
-    /*.device-card-expanded .fields .sensor-bot .device-field:first-child {
-      width: 70px;  }*/
+   
   .device-card-expanded .device-field {
     font-size: 11px;
     margin-left: 10px;
@@ -900,7 +896,7 @@ html {
       padding: 6px 15px;
       color: #192025;
       cursor: pointer;
-      font-family: "Century Gothic"; }
+      font-family: "Raleway"; }
   .settingsDivPanel .settings-footer {
     float: right;
     margin-top: 15px;

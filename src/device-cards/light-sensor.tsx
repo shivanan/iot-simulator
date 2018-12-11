@@ -14,7 +14,6 @@ interface ILightSensorProps  {
     sensorType: string;
     sensorName: string;
     sensorPict: string;
-  
     device:IDevice;
     active: boolean;
     onActiveChanged:() => void;
@@ -100,6 +99,11 @@ export class LightSensorDevice extends React.Component<ILightSensorProps,{}> {
                     </DeviceField> 
              
                 </div>
+            </div>
+
+             <div className='device-topic'>
+                 <div className='publishing-topic'><label>Publishing Topic : </label>/iot-simulator/out/{this.props.device.id}/value</div>
+                 <div className='receiving-topic'><label>Receiving Topic : </label>/iot-simulator/in/{this.props.device.id}/value</div>
             </div>
 
         </div>;
