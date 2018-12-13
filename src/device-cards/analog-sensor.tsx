@@ -32,10 +32,17 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
 
     }
     renderExpanded() {
-        let url = `url(images/sensors/${this.props.sensorType}.svg`;
+        //let url = `url(images/sensors/${this.props.sensorType}.svg`;
+       
+        var titleStyle = {
+            color: 'white',
+            backgroundImage: `url(images/sensors/${this.props.sensorType}.svg`,
+            backgroundPosition: 'center center'
+          };
+          
         
         return <div className='analog-sensor'>
-            <div className='title' style={{ backgroundImage: url }}>
+            <div className='title' style={titleStyle} >
                <span className="analog-sensor-title">{this.props.sensorName}</span>
             </div>
             {
@@ -90,10 +97,17 @@ export class AnalogSensorDevice extends React.Component<IAnalogSensorProps,{}> {
             return this.renderExpanded();
 
         }
-        let url = `url(images/sensors/${this.props.sensorType}.svg`;
+       
+         //let url = `url(images/sensors/${this.props.sensorType}.svg`;
+       
+         var titleStyle = {
+            color: 'white',
+            backgroundImage: `url(images/sensors/${this.props.sensorType}.svg`,
+            backgroundPosition: 'center center'
+          };
         
         return <div className='analog-sensor'>
-            <div className='title' style={{ backgroundImage: url }}>{this.props.sensorName}</div>
+            <div className='title'  style={titleStyle}>{this.props.sensorName}</div>
             <div className='primary-value-box'>
                 <DeviceField title={'Value'}>
                     {
