@@ -4,7 +4,7 @@ import { IExpandDevice } from '../expand-device';
 import { registerDeviceCard } from '../iot-simulator';
 import { Sensor } from '../sensor';
 import { registerSensor, unregisterSensor } from '../sensor-manager';
-import { AirconditionerSensor } from '../sensors/airconditioner';
+import { Airconditioner } from '../sensors/airconditioner';
 import { AnalogSensorDevice } from './analog-sensor';
 
 interface IACState extends IDeviceCardState {
@@ -35,7 +35,7 @@ export class AirconditionerDevice extends DeviceCard<IACState> {
         
         
         this.state = {value:25,active:true};
-        this.sensor = new AirconditionerSensor(this.props.device.id,this.state.value);
+        this.sensor = new Airconditioner(this.props.device.id,this.state.value);
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});
@@ -67,7 +67,7 @@ export class AirconditionerDevice extends DeviceCard<IACState> {
          value={Number(this.state.value)}
         onIncrement={this.onIncrement.bind(this)}
         sensorType='Airconditioner'
-        sensorName='Airconditioner Sensor'
+        sensorName='Airconditioner'
         device={this.props.device}
         active={this.state.active}
         onActiveChanged={this.toggleStatus.bind(this)}
@@ -80,4 +80,4 @@ export class AirconditionerDevice extends DeviceCard<IACState> {
    
 }
 
-registerDeviceCard('Airconditioner','Airconditioner Sensor',(props) => <AirconditionerDevice {...props} />);
+registerDeviceCard('Airconditioner','Airconditioner',(props) => <AirconditionerDevice {...props} />);
