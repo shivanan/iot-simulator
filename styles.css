@@ -693,7 +693,20 @@ html {
   transform: rotate(45deg); }
 
 .sidebar .sensors-search {
-  margin-left: 9px; }
+  margin-left: 9px;
+  width: 94%;
+  overflow-y: auto;
+  height: 74%; }
+
+  .sidebar .sensors-search::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.3em;
+    border-radius:5px;
+}
+
+.sidebar .sensors-search::-webkit-scrollbar-thumb {
+    background: #000000;
+}
 
 .sidebar .sensors-search #myInput {
   background: #101416;
@@ -707,7 +720,7 @@ html {
 
 .sidebar .sensors-search ul.sensors-search-list {
   float: left;
-  width: 88%;
+  width: 95%;
   margin: 0;
   padding: 0; }
 
