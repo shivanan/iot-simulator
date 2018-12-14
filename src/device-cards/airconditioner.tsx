@@ -35,7 +35,9 @@ export class AirconditionerDevice extends DeviceCard<IACState> {
         
         
         this.state = {value:25,active:true};
-        this.sensor = new Airconditioner(this.props.device.id,this.state.value);
+        this.sensor = new Airconditioner(this.props.device.id,this.state.value,(active)=>{
+            this.setState({active:active});
+        });
         this.sensor.active = this.state.active;
         registerSensor(this.sensor,()=>{
             this.setState({value:this.sensor.computeValue()});

@@ -40,12 +40,17 @@ ipcRenderer.on('message',(event:string,payload:any)=>{
         console.log('Null value received',message);
         return;
     }
-    let [device,..._rest] = parts;
-    let rest = _rest.join('/');
+    let [device,parameter,..._rest] = parts;
+    
     sensors.forEach(q => {
         let s = q[0];
         if (s.device === device) {
-            s.forceValue(value);
+            if (parameter === 'value') {
+                s.forceValue(value);
+            } 
+            if (parameter === 'status') {
+                s.setActiveState(Number(value)==1);
+            }
         }
     });
 
