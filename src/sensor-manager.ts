@@ -30,26 +30,37 @@ ipcRenderer.on('message',(event:string,payload:any)=>{
     let parts = topicDeviceInfo.split('/');
     if (parts.length < 2) return;
     var value:string = null;
+    var status:string = null;
     try {
-        value = JSON.parse(message).value;
+
+        const obj = JSON.parse(message);
+
+        status = obj.status; 
+        value = obj.value;
+
+        if (typeof status === 'undefined') {
+            status = null;
+        }
+        if (typeof value === 'undefined') {
+            value = null;
+        }
+
     } catch {
         console.log('Error parsing payload:',message);
         return;
     }
-    if (value == null) {
-        console.log('Null value received',message);
-        return;
-    }
+    
     let [device,parameter,..._rest] = parts;
     
     sensors.forEach(q => {
         let s = q[0];
+        console.log('ZE QUEUE',s);
         if (s.device === device) {
-            if (parameter === 'value') {
+            if (value !== null) {
                 s.forceValue(value);
-            } 
-            if (parameter === 'status') {
-                s.setActiveState(Number(value)==1);
+            }
+            if (status !== null) {
+                s.setActiveState(Number(status)===1);
             }
         }
     });
